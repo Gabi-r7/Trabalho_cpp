@@ -1,0 +1,177 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A1EE1DCB-03A0-43A3-90A0-E06E45BB6B15}|Biblioteca_ref\\Biblioteca_ref.vcxproj|C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A1EE1DCB-03A0-43A3-90A0-E06E45BB6B15}|Biblioteca_ref\\Biblioteca_ref.vcxproj|solutionrelative:Biblioteca_ref\\src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1EE1DCB-03A0-43A3-90A0-E06E45BB6B15}|Biblioteca_ref\\Biblioteca_ref.vcxproj|C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\lib\\Logar.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A1EE1DCB-03A0-43A3-90A0-E06E45BB6B15}|Biblioteca_ref\\Biblioteca_ref.vcxproj|solutionrelative:Biblioteca_ref\\src\\lib\\Logar.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1EE1DCB-03A0-43A3-90A0-E06E45BB6B15}|Biblioteca_ref\\Biblioteca_ref.vcxproj|C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\lib\\Acoes.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A1EE1DCB-03A0-43A3-90A0-E06E45BB6B15}|Biblioteca_ref\\Biblioteca_ref.vcxproj|solutionrelative:Biblioteca_ref\\src\\lib\\Acoes.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1EE1DCB-03A0-43A3-90A0-E06E45BB6B15}|Biblioteca_ref\\Biblioteca_ref.vcxproj|C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\lib\\Admin.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A1EE1DCB-03A0-43A3-90A0-E06E45BB6B15}|Biblioteca_ref\\Biblioteca_ref.vcxproj|solutionrelative:Biblioteca_ref\\src\\lib\\Admin.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1EE1DCB-03A0-43A3-90A0-E06E45BB6B15}|Biblioteca_ref\\Biblioteca_ref.vcxproj|C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\lib\\Cadastrar.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A1EE1DCB-03A0-43A3-90A0-E06E45BB6B15}|Biblioteca_ref\\Biblioteca_ref.vcxproj|solutionrelative:Biblioteca_ref\\src\\lib\\Cadastrar.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1EE1DCB-03A0-43A3-90A0-E06E45BB6B15}|Biblioteca_ref\\Biblioteca_ref.vcxproj|C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\lib\\Emprestimo.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A1EE1DCB-03A0-43A3-90A0-E06E45BB6B15}|Biblioteca_ref\\Biblioteca_ref.vcxproj|solutionrelative:Biblioteca_ref\\src\\lib\\Emprestimo.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1EE1DCB-03A0-43A3-90A0-E06E45BB6B15}|Biblioteca_ref\\Biblioteca_ref.vcxproj|C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\lib\\InicializaSistema.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A1EE1DCB-03A0-43A3-90A0-E06E45BB6B15}|Biblioteca_ref\\Biblioteca_ref.vcxproj|solutionrelative:Biblioteca_ref\\src\\lib\\InicializaSistema.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1EE1DCB-03A0-43A3-90A0-E06E45BB6B15}|Biblioteca_ref\\Biblioteca_ref.vcxproj|C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\lib\\Livro.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A1EE1DCB-03A0-43A3-90A0-E06E45BB6B15}|Biblioteca_ref\\Biblioteca_ref.vcxproj|solutionrelative:Biblioteca_ref\\src\\lib\\Livro.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1EE1DCB-03A0-43A3-90A0-E06E45BB6B15}|Biblioteca_ref\\Biblioteca_ref.vcxproj|C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\lib\\User.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A1EE1DCB-03A0-43A3-90A0-E06E45BB6B15}|Biblioteca_ref\\Biblioteca_ref.vcxproj|solutionrelative:Biblioteca_ref\\src\\lib\\User.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\main.cpp",
+              "RelativeDocumentMoniker": "Biblioteca_ref\\src\\main.cpp",
+              "ToolTip": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\main.cpp",
+              "RelativeToolTip": "Biblioteca_ref\\src\\main.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-24T14:05:55.615Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "User.hpp",
+              "DocumentMoniker": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\lib\\User.hpp",
+              "RelativeDocumentMoniker": "Biblioteca_ref\\src\\lib\\User.hpp",
+              "ToolTip": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\lib\\User.hpp",
+              "RelativeToolTip": "Biblioteca_ref\\src\\lib\\User.hpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-24T14:00:14.112Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Logar.hpp",
+              "DocumentMoniker": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\lib\\Logar.hpp",
+              "RelativeDocumentMoniker": "Biblioteca_ref\\src\\lib\\Logar.hpp",
+              "ToolTip": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\lib\\Logar.hpp",
+              "RelativeToolTip": "Biblioteca_ref\\src\\lib\\Logar.hpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-24T14:00:13.924Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Livro.hpp",
+              "DocumentMoniker": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\lib\\Livro.hpp",
+              "RelativeDocumentMoniker": "Biblioteca_ref\\src\\lib\\Livro.hpp",
+              "ToolTip": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\lib\\Livro.hpp",
+              "RelativeToolTip": "Biblioteca_ref\\src\\lib\\Livro.hpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-24T14:00:13.815Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "InicializaSistema.hpp",
+              "DocumentMoniker": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\lib\\InicializaSistema.hpp",
+              "RelativeDocumentMoniker": "Biblioteca_ref\\src\\lib\\InicializaSistema.hpp",
+              "ToolTip": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\lib\\InicializaSistema.hpp",
+              "RelativeToolTip": "Biblioteca_ref\\src\\lib\\InicializaSistema.hpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-24T14:00:13.705Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Emprestimo.hpp",
+              "DocumentMoniker": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\lib\\Emprestimo.hpp",
+              "RelativeDocumentMoniker": "Biblioteca_ref\\src\\lib\\Emprestimo.hpp",
+              "ToolTip": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\lib\\Emprestimo.hpp",
+              "RelativeToolTip": "Biblioteca_ref\\src\\lib\\Emprestimo.hpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-24T14:00:13.596Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Cadastrar.hpp",
+              "DocumentMoniker": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\lib\\Cadastrar.hpp",
+              "RelativeDocumentMoniker": "Biblioteca_ref\\src\\lib\\Cadastrar.hpp",
+              "ToolTip": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\lib\\Cadastrar.hpp",
+              "RelativeToolTip": "Biblioteca_ref\\src\\lib\\Cadastrar.hpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-24T14:00:13.471Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Admin.hpp",
+              "DocumentMoniker": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\lib\\Admin.hpp",
+              "RelativeDocumentMoniker": "Biblioteca_ref\\src\\lib\\Admin.hpp",
+              "ToolTip": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\lib\\Admin.hpp",
+              "RelativeToolTip": "Biblioteca_ref\\src\\lib\\Admin.hpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-24T14:00:13.346Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Acoes.hpp",
+              "DocumentMoniker": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\lib\\Acoes.hpp",
+              "RelativeDocumentMoniker": "Biblioteca_ref\\src\\lib\\Acoes.hpp",
+              "ToolTip": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\lib\\Acoes.hpp",
+              "RelativeToolTip": "Biblioteca_ref\\src\\lib\\Acoes.hpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-24T14:00:11.035Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
