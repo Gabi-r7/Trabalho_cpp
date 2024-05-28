@@ -1,20 +1,51 @@
-// Biblioteca_ref.cpp : Este arquivo contém a função 'main'. A execução do programa começa e termina ali.
-//
-
+// Desenvolva o diagrama de classes UML de um sistema de biblioteca e 
+// implemente esse sistema. Você deve ser capaz de Cadastrar usuarios, apagar 
+// usuarios, modificar o status do usuario (e.g., verificar se o mesmo possui multas 
+// por atraso, se a multa for maior que um valor X, ele nao podera mais pegar livros 
+// emprestados), Cadastrar livros, emprestar livros, devolver livros, aplicar multas 
+// por atraso, e checar se um determinado livro esta disponivel para ser 
+// emprestado. Utilize listas como se fossem seu banco de dados (std::vector)
 #include <iostream>
+#include <vector>
+#include "InicializaSistema.hpp"
+#include "Usuario.hpp"
+#include "Livro.hpp"
+#include "Admin.hpp"
+#include "Logar.hpp"
+#include "Cadastrar.hpp"
 
-int main()
-{
-    std::cout << "Hello World!\n";
+
+void CriarLivros() {
+	for (int i = 0; i <= 10; i++) {
+		Livro* livro = new Livro();
+		livro->setIdLivro(i);
+		livro->setTitulo("Livro " + std::to_string(i));
+		livro->setAutor("Autor " + std::to_string(i));
+		livro->setEditora("Editora " + std::to_string(i));
+		livro->setEmprestado(false);
+		livros.push_back(livro);
+	}
+};
+
+int main() {
+	int id = 0;
+
+	std::vector<Livro*> livros;
+	std::vector<Usuario*> usuarios;
+	std::vector<Admin*> admins;
+	CriarLivros();
+	InicializaSistema(usuarios, admins, id);
+	
+	
+	for (Usuario* usuario : usuarios) {
+		delete usuario;
+	}
+	usuarios.clear();
+
+	for (Livro* livro : livros) {
+		delete livro;
+	}
+	livros.clear();
+
+	return 0;
 }
-
-// Executar programa: Ctrl + F5 ou Menu Depurar > Iniciar Sem Depuração
-// Depurar programa: F5 ou menu Depurar > Iniciar Depuração
-
-// Dicas para Começar: 
-//   1. Use a janela do Gerenciador de Soluções para adicionar/gerenciar arquivos
-//   2. Use a janela do Team Explorer para conectar-se ao controle do código-fonte
-//   3. Use a janela de Saída para ver mensagens de saída do build e outras mensagens
-//   4. Use a janela Lista de Erros para exibir erros
-//   5. Ir Para o Projeto > Adicionar Novo Item para criar novos arquivos de código, ou Projeto > Adicionar Item Existente para adicionar arquivos de código existentes ao projeto
-//   6. No futuro, para abrir este projeto novamente, vá para Arquivo > Abrir > Projeto e selecione o arquivo. sln

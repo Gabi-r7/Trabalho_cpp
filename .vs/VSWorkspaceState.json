@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Biblioteca_ref",
+    "\\Biblioteca_ref\\src",
+    "\\Biblioteca_ref\\src\\lib"
   ],
-  "SelectedNode": "\\Biblioteca.sln",
+  "SelectedNode": "\\Biblioteca_ref\\src\\main.cpp",
   "PreviewInSolutionExplorer": false
 }
