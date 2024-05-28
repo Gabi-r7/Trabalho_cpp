@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\lib\\Cadastrar.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Biblioteca_ref\\src\\lib\\Cadastrar.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Biblioteca_ref\\src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\lib\\InicializaSistema.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Biblioteca_ref\\src\\lib\\InicializaSistema.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\lib\\Cadastrar.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Biblioteca_ref\\src\\lib\\Cadastrar.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jairo\\Source\\Repos\\Trabalho_cpp\\Biblioteca_ref\\src\\lib\\Cadastrar.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -42,17 +42,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Cadastrar.cpp",
               "DocumentMoniker": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\lib\\Cadastrar.cpp",
               "RelativeDocumentMoniker": "Biblioteca_ref\\src\\lib\\Cadastrar.cpp",
               "ToolTip": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\lib\\Cadastrar.cpp",
               "RelativeToolTip": "Biblioteca_ref\\src\\lib\\Cadastrar.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAKAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-27T16:01:41.098Z",
               "EditorCaption": ""
@@ -67,18 +71,17 @@
               "RelativeToolTip": "Biblioteca_ref\\src\\lib\\Cadastrar.hpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-27T16:01:40.985Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-27T16:01:40.985Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\main.cpp",
               "RelativeDocumentMoniker": "Biblioteca_ref\\src\\main.cpp",
               "ToolTip": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\main.cpp",
               "RelativeToolTip": "Biblioteca_ref\\src\\main.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "ViewState": "AQIAAB0AAACAeGZmZmYEwDIAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-27T11:04:38.979Z",
               "EditorCaption": ""
@@ -93,12 +96,11 @@
               "RelativeToolTip": "Biblioteca_ref\\src\\lib\\InicializaSistema.hpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-27T15:40:58.758Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-27T15:40:58.758Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "InicializaSistema.cpp",
               "DocumentMoniker": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\Biblioteca_ref\\src\\lib\\InicializaSistema.cpp",
               "RelativeDocumentMoniker": "Biblioteca_ref\\src\\lib\\InicializaSistema.cpp",
@@ -106,8 +108,7 @@
               "RelativeToolTip": "Biblioteca_ref\\src\\lib\\InicializaSistema.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-27T15:53:24.947Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-27T15:53:24.947Z"
             }
           ]
         },

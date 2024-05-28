@@ -2,10 +2,6 @@
 #include <iostream>
 
 void Cadastrar::Cadastrar() {
-    User user;
-    std::string login, password, email, phone;
-    bool adm, existe = false;
-    int admAux = 0;
     while (true) {
         std::cout << "Faca seu cadastro!" << std::endl;
         std::cout << "Digite seu login: ";
