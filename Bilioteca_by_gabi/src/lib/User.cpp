@@ -5,6 +5,8 @@
 
 User::User() { adm = false; };
 User::~User() {};
+std::string login;
+int idUser;
 
 void User::setEmail(std::string _email) {
     email = _email;
