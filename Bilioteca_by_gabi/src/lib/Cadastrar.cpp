@@ -1,7 +1,17 @@
-#include "src/lib/Cadastrar.hpp"
+#include "Cadastrar.hpp"
+#include "Admin.hpp"
+#include "User.hpp"
+#include "User.cpp"
+#include "Logar.hpp"
+#include "Livro.hpp"
+#include <vector>
 #include <iostream>
 
-void Cadastrar::Cadastrar() {
+void Cadastrar::Cadastrar(std::vector<Livro*>& livros, std::vector<User*>& users) {
+    User user;
+    std::string login, password, email, phone;
+    bool adm, existe = false;
+    int admAux = 0;
     while (true) {
         std::cout << "Faca seu cadastro!" << std::endl;
         std::cout << "Digite seu login: ";
@@ -41,6 +51,5 @@ void Cadastrar::Cadastrar() {
     std::cout << "Cadastro realizado com sucesso!" << std::endl;
     newUser->setIdUser(users.size() - 1);
     std::cout << "Seu id e: " << newUser->getIdUser() << std::endl;
-    Logar();
+    Logar::Logar(livros,users);
 };
-#endif

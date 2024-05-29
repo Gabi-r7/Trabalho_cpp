@@ -3,10 +3,12 @@
 #include "Emprestimo.hpp"
 #include "Logar.hpp"
 #include "Cadastrar.hpp"
-#include "src/lib/InicializaSistema.hpp"
+#include "InicializaSistema.hpp"
 
-void InicializaSistema::InicializaSistema() {
-    
+void InicializaSistema::InicializaSistema(std::vector<Livro*>& livros, std::vector<User*>& users) {
+    int aux;
+    int senha;
+
     std::cout << "Bem vindo ao sistema de biblioteca!" << std::endl;
     do {
         std::cout << "Digite\n-0 para sair\n-1 para Logar\n-2 para criar uma conta\nDigite sua opcao: ";
@@ -19,13 +21,12 @@ void InicializaSistema::InicializaSistema() {
         std::cout << "Ate mais!";
         break;
     case 1:
-        Logar();
+        Logar::Logar(livros,users);
         break;
     case 2:
-        Cadastrar();
+        Cadastrar::Cadastrar(livros,users);
         break;
     default:
         break;
     }
 };
-#endif

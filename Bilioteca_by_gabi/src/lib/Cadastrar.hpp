@@ -1,12 +1,10 @@
 #ifndef CADASTRAR_HPP
 #define CADASTRAR_HPP
+#include <vector>
+#include "Livro.hpp"
+#include "User.hpp"
 
 namespace Cadastrar {
-	void Cadastrar() {
-		User user;
-		std::string login, password, email, phone;
-		bool adm, existe = false;
-		int admAux = 0;
-	};
+	void Cadastrar(std::vector<Livro*>& livros, std::vector<User*>& users);
 };
 #endif

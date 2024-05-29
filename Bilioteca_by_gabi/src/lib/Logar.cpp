@@ -1,11 +1,13 @@
-#include "src/lib/Logar.hpp"
-#include "src/lib/Acoes.hpp"
-#include "src/lib/User.hpp"
+#include "Logar.hpp"
+#include "Acoes.hpp"
+#include "User.hpp"
+#include "Livro.hpp"
 #include <iostream>
 #include <vector>
 
-void Logar::Logar() {
-    
+void Logar::Logar(std::vector<Livro*>& livros, std::vector<User*>& users) {
+    std::string login, password;
+    bool aux = false;
     std::cout << "Faca seu login!" << std::endl;
     while (true) {
         std::cout << "Digite seu login: ";
@@ -16,7 +18,7 @@ void Logar::Logar() {
             if (login == user->getLogin() && password == user->getPassword()) {
                 std::cout << "Login realizado com sucesso!" << std::endl;
                 aux = true;
-                Acoes(user->getIdUser());
+                Acoes::Acoes(user->getIdUser(),livros,users);
             }
         }
         if (aux) {

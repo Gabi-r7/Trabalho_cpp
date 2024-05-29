@@ -1,75 +1,44 @@
-#include <iostream>
-#include <vector>
 #ifndef USER_HPP
 #define USER_HPP
 
 class User {
     public:
-        User() { adm = false; };
-        ~User(){};
-        std::string login;
-        int idUser;
+        User();
+        ~User();
         
-        void setEmail(std::string _email) {
-			email = _email;
-		};
+        void setEmail(std::string _email);
 
-        std::string getEmail() {
-			return email;
-		};
+        std::string getEmail();
 
-        void setStatus(bool _devedor) {
-			devedor = _devedor;
-		};
+        void setStatus(bool _devedor);
 
-        
+        bool getStatus();
 
+        std::string getLogin();
 
+        std::string getPassword();
 
-        bool getStatus() {
-            return devedor;
-        };
+        int getIdUser();
 
-        std::string getLogin(){
-            return login;
-        };
+        void setAdm(bool _adm);
 
-        std::string getPassword(){
-            return password;
-        };
+        bool getAdm();
 
-        int getIdUser(){
-            return idUser;
-        };
+        void setMulta(float _valorMulta);
 
-        void setAdm(bool _adm){
-            adm = _adm;
-        };
+        float getMulta();
 
-        bool getAdm(){
-            return adm;
-        };
+        void setIdUser(int _idUser);
 
-        void setMulta(float _valorMulta){
-            valorMulta = _valorMulta;
-        };
-
-        float getMulta(){
-            return valorMulta;
-        };
-
-        void setIdUser(int _idUser){
-            idUser = _idUser;
-        };
-
-        void setLoginSenha(std::string _login, std::string _senha){
-            login = _login;
-            password = _senha;
-        };
+        void setLoginSenha(std::string _login, std::string _senha);
 
     protected:
-        std::string password, email, phone, senha;
-        bool adm, devedor;
-        float valorMulta;
+        std::string email = "a";
+        bool devedor = false;
+        std::string login = "a";
+        std::string password = "a";
+        int idUser = 0;
+        bool adm = false;
+        float valorMulta = 0.0;
 };
 #endif

@@ -1,10 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Biblioteca_ref",
-    "\\Biblioteca_ref\\src",
-    "\\Biblioteca_ref\\src\\lib"
+    "\\Bilioteca_by_gabi",
+    "\\Bilioteca_by_gabi\\src",
+    "\\Bilioteca_by_gabi\\src\\lib"
   ],
-  "SelectedNode": "\\Biblioteca_ref\\src\\lib\\Cadastrar.cpp",
+  "SelectedNode": "\\Bilioteca_by_gabi\\src\\lib\\Logar.cpp",
   "PreviewInSolutionExplorer": false
 }

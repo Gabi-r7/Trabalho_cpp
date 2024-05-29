@@ -2,15 +2,12 @@
 #include <vector>
 #include "User.hpp"
 #include "Livro.hpp"
-#include "src/lib/Emprestimo.hpp"
-std::vector<User*> users;
-std::vector<Livro*> livros;
-
+#include "Emprestimo.hpp"
 
 Emprestimo::Emprestimo() {};
 Emprestimo::~Emprestimo() {};
 
-bool Emprestimo::EmprestarLivro(int idLivro, int idUser) {
+bool Emprestimo::EmprestarLivro(int idLivro, int idUser, std::vector<Livro*>& livros, std::vector<User*>& users) {
     if (idUser < 0 || idUser >= users.size() || idLivro < 0 || idLivro >= livros.size()) {
         std::cout << "ID do usuario ou do livro invalido." << std::endl;
         return false;
@@ -30,7 +27,7 @@ bool Emprestimo::EmprestarLivro(int idLivro, int idUser) {
     }
 };
 
-void Emprestimo::DevolverLivro(int idLivro) {
+void Emprestimo::DevolverLivro(int idLivro, std::vector<Livro*>& livros) {
     if (idLivro < 0 || idLivro >= livros.size()) {
         std::cout << "ID do livro invalido." << std::endl;
     }
@@ -42,4 +39,3 @@ void Emprestimo::DevolverLivro(int idLivro) {
         livros[idLivro]->setIdUser(-1);
     }
 };
-#endif

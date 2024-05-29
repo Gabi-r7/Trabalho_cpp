@@ -1,12 +1,10 @@
 #ifndef INICIALIZASISTEMA_HPP
 #define INICIALIZASISTEMA_HPP
+#include <vector>
+#include "Livro.hpp"
+#include "User.hpp"
 
 namespace InicializaSistema {
-	void InicializaSistema() {
-		User user;
-		Livro livro;
-		int aux;
-		int senha;
-	};
+	void InicializaSistema(std::vector<Livro*>& livros, std::vector<User*>& users);
 };
 #endif
