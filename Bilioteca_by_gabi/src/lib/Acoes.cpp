@@ -22,10 +22,10 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, std::vector<User*>& users
         std::cout << "Digite 2 para devolver um livro" << std::endl;
         std::cout << "Digite 3 para ver os livros disponiveis" << std::endl;
         if (adm) {
-            std::cout << "Digite 4 para Cadastrar um livro" << std::endl;
+            std::cout << "Digite 4 para cadastrar um livro" << std::endl;
             std::cout << "Digite 5 para apagar um livro" << std::endl;
             std::cout << "Digite 6 para modificar o status de um usuario" << std::endl;
-            std::cout << "Digite 7 para Cadastrar um usuario" << std::endl;
+            std::cout << "Digite 7 para cadastrar um usuario" << std::endl;
             std::cout << "Digite 8 para apagar um usuario" << std::endl;
             std::cout << "Digite 9 para aplicar uma multa" << std::endl;
         }
@@ -43,11 +43,16 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, std::vector<User*>& users
             }
         }
         else if (aux == 2) {
-            livro.MostrarDisponiveis(livros);//Olha essa função
+            emprestimo.MostrarEmprestados(livros, id);
             std::cout << "Digite o id do livro que deseja devolver: ";
             std::cin >> idLivro;
-            emprestimo.DevolverLivro(idLivro, livros);
-            std::cout << "Livro devolvido com sucesso!" << std::endl;
+            funcionou = emprestimo.DevolverLivro(idLivro, livros);
+            if (funcionou) {
+                std::cout << "Livro devolvido com sucesso!" << std::endl;
+			}
+            else {
+				std::cout << "Nao foi possivel devolver o livro!" << std::endl;
+            }
         }
         else if (aux == 3) {
             livro.MostrarDisponiveis(livros);
@@ -71,7 +76,6 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, std::vector<User*>& users
                 }
             }
             else if (aux == 7) {
-                //Falta a função correta dos usuários
             }
             else if (aux == 8) {
                 admin.ApagarUser(users);
@@ -83,7 +87,7 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, std::vector<User*>& users
             }
         }
         if (aux == 0) {
-            std::cout << "Ate mais!";
+            std::cout << "Ate mais!" << "\n\n";
             InicializaSistema::InicializaSistema(livros, users);
             break;
         }

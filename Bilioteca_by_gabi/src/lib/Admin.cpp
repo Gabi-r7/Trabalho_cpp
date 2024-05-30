@@ -4,7 +4,7 @@
 #include "Livro.hpp"
 #include "Admin.hpp"
 #define adminSenha 1230
-User user;
+
 
 
 Admin::Admin() {};
@@ -40,6 +40,7 @@ void Admin::ApagarLivro(std::vector<Livro*>& livros) {
 };
 
 bool Admin::ModificarStatusUser(int idUser, std::vector<User*>& users) {
+    User user;
     for (int i = 0; i < users.size(); i++) {
         if (users[i]->getIdUser() == idUser) {
             if (users[i]->getStatus() == true) {
@@ -54,8 +55,9 @@ bool Admin::ModificarStatusUser(int idUser, std::vector<User*>& users) {
 };
 
 void Admin::CadastrarUser(std::vector<User*>& users) {
+    User user;
     std::string login, password, email, phone;
-    bool adm, existe;
+    bool adm, existe = false;
     int admAux;
     while (true) {
         std::cout << "Faca seu cadastro!" << std::endl;

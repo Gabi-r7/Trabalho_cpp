@@ -1,7 +1,6 @@
 #include "Cadastrar.hpp"
 #include "Admin.hpp"
 #include "User.hpp"
-#include "User.cpp"
 #include "Logar.hpp"
 #include "Livro.hpp"
 #include <vector>

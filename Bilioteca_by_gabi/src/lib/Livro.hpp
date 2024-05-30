@@ -36,7 +36,7 @@ public:
 
 private:
 	std::string titulo, autor, editora;
-	int idLivro = 0, idUser = 0;
+	int idLivro, idUser;
 	bool emprestado = false;
 };
 #endif

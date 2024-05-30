@@ -11,6 +11,8 @@ public:
 
 	bool EmprestarLivro(int idLivro, int idUser, std::vector<Livro*>& livros, std::vector<User*>& users);
 
-	void DevolverLivro(int idLivro, std::vector<Livro*>& livros);
+	bool DevolverLivro(int idLivro, std::vector<Livro*>& livros);
+
+	void MostrarEmprestados(std::vector<Livro*>& livros, int idUser);
 };
 #endif

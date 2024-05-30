@@ -27,15 +27,26 @@ bool Emprestimo::EmprestarLivro(int idLivro, int idUser, std::vector<Livro*>& li
     }
 };
 
-void Emprestimo::DevolverLivro(int idLivro, std::vector<Livro*>& livros) {
+bool Emprestimo::DevolverLivro(int idLivro, std::vector<Livro*>& livros) {
     if (idLivro < 0 || idLivro >= livros.size()) {
         std::cout << "ID do livro invalido." << std::endl;
+        return false;
     }
     else if (!livros.at(idLivro)->getEmprestado()) {
         std::cout << "Livro nao emprestado." << std::endl;
+        return false;
     }
     else {
         livros[idLivro]->setEmprestado(false);
         livros[idLivro]->setIdUser(-1);
+        return true;
+    }
+};
+
+void Emprestimo::MostrarEmprestados(std::vector<Livro*>& livros, int idUser) {
+    for (int i = 0; i < livros.size(); i++) {
+        if (livros.at(i)->getIdUser() == idUser) {
+            std::cout << "ID: " << i << " Titulo: " << livros.at(i)->getTitulo() << std::endl;
+        }
     }
 };
