@@ -5,16 +5,28 @@
 #include "Livro.hpp"
 #include <vector>
 #include <iostream>
+#define adminSenha 1230
 
 void Cadastrar::Cadastrar(std::vector<Livro*>& livros, std::vector<User*>& users) {
     User user;
     std::string login, password, email, phone;
-    bool adm, existe = false;
+    bool adm, existe;
     int admAux = 0;
     while (true) {
+        existe = false;
         std::cout << "Faca seu cadastro!" << std::endl;
         std::cout << "Digite seu login: ";
         std::cin >> login;
+        for (User* user : users) {
+            if (login == user->getLogin()) {
+                std::cout << "Login ja existente!" << std::endl;
+                existe = true;
+                break;
+            }
+        }
+        if (existe) {
+            break;
+        }
         std::cout << "Digite sua senha: ";
         std::cin >> password;
         std::cout << "Digite seu email: ";
@@ -23,8 +35,7 @@ void Cadastrar::Cadastrar(std::vector<Livro*>& livros, std::vector<User*>& users
         //std::cin >> phone;
         std::cout << "Digite a senha de administrador caso voce seja: ";
         std::cin >> admAux;
-        std::cout << "Valor de admAux: " << admAux << "\n"; //parei aqui
-        if (admAux == 1230) {
+        if (admAux == adminSenha) {
             std::cout << "Voce e um administrador!" << std::endl;
             adm = true;
             user.setAdm(adm);
@@ -33,22 +44,12 @@ void Cadastrar::Cadastrar(std::vector<Livro*>& livros, std::vector<User*>& users
             adm = false;
             user.setAdm(adm);
         }
-        for (User* user : users) {
-            if (login == user->getLogin()) {
-                std::cout << "Login ja existente!" << std::endl;
-                existe = true;
-                break;
-            }
-        }
-        if (!existe) {
-            break;
-        }
+        break;
     }
     User* newUser = new User();
     newUser->setLoginSenha(login, password);
     users.push_back(newUser);
     std::cout << "Cadastro realizado com sucesso!" << std::endl;
     newUser->setIdUser(users.size() - 1);
-    std::cout << "Seu id e: " << newUser->getIdUser() << std::endl;
     Logar::Logar(livros,users);
 };

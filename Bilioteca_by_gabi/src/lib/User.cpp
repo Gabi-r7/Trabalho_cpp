@@ -3,7 +3,7 @@
 #include "User.hpp"
 
 
-User::User() { adm = false; };
+User::User() {};
 User::~User() {};
 std::string login;
 int idUser;

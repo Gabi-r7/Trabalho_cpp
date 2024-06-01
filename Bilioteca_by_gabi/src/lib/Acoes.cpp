@@ -9,13 +9,16 @@
 
 
 void Acoes::Acoes(int id, std::vector<Livro*>& livros, std::vector<User*>& users) {
-    User user;
+    User* user = users[id];
     Livro livro;
     Emprestimo emprestimo;
     Admin admin;
     int aux, idLivro;
-    bool adm = user.getAdm(), funcionou = false, status;
+    bool adm = user->getAdm(), funcionou = false, status;
     while (true) {
+        if (user->getMulta() > 0) {
+            std::cout << "Voce esta com uma multa de R$" << user->getMulta() << ". Pague para poder emprestar outro livro." << std::endl;
+        }
         std::cout << "O que deseja fazer?" << std::endl;
         std::cout << "Digite 0 para sair" << std::endl;
         std::cout << "Digite 1 para emprestar um livro" << std::endl;
@@ -57,6 +60,14 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, std::vector<User*>& users
         else if (aux == 3) {
             livro.MostrarDisponiveis(livros);
         }
+        else if (aux == 0) {
+            std::cout << "Ate mais!" << "\n\n";
+            InicializaSistema::InicializaSistema(livros, users);
+            break;
+        }
+        else if (!adm) {
+            std::cout << "Opcao invalida!" << std::endl;
+        }
         if (adm) {
             if (aux == 4) {
                 admin.CadastrarLivro(livros);
@@ -76,6 +87,7 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, std::vector<User*>& users
                 }
             }
             else if (aux == 7) {
+
             }
             else if (aux == 8) {
                 admin.ApagarUser(users);
@@ -85,11 +97,9 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, std::vector<User*>& users
                 admin.AplicarMulta(users);
                 std::cout << "Multa aplicada com sucesso!" << std::endl;
             }
-        }
-        if (aux == 0) {
-            std::cout << "Ate mais!" << "\n\n";
-            InicializaSistema::InicializaSistema(livros, users);
-            break;
+            else {
+                std::cout << "Opcao invalida!" << std::endl;
+            }
         }
     }
 };

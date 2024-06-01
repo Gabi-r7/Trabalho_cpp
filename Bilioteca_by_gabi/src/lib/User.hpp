@@ -38,7 +38,7 @@ class User {
         std::string login = "a";
         std::string password = "a";
         int idUser = 0;
-        bool adm = false;
+        bool adm;
         float valorMulta = 0.0;
 };
 #endif
