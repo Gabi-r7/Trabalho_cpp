@@ -97,7 +97,7 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, std::vector<User*>& users
                 admin.AplicarMulta(users);
                 std::cout << "Multa aplicada com sucesso!" << std::endl;
             }
-            else {
+            else if (aux != 0 && aux != 1 && aux != 2 && aux != 3) {
                 std::cout << "Opcao invalida!" << std::endl;
             }
         }

@@ -8,7 +8,6 @@
 #define adminSenha 1230
 
 void Cadastrar::Cadastrar(std::vector<Livro*>& livros, std::vector<User*>& users) {
-    User user;
     std::string login, password, email, phone;
     bool adm, existe;
     int admAux = 0;
@@ -38,16 +37,15 @@ void Cadastrar::Cadastrar(std::vector<Livro*>& livros, std::vector<User*>& users
         if (admAux == adminSenha) {
             std::cout << "Voce e um administrador!" << std::endl;
             adm = true;
-            user.setAdm(adm);
         }
         else {
             adm = false;
-            user.setAdm(adm);
         }
         break;
     }
     User* newUser = new User();
     newUser->setLoginSenha(login, password);
+    newUser->setAdm(adm);
     users.push_back(newUser);
     std::cout << "Cadastro realizado com sucesso!" << std::endl;
     newUser->setIdUser(users.size() - 1);
