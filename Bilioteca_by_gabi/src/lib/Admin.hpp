@@ -7,11 +7,14 @@ public:
     Admin();
     ~Admin();
 
+
+    void MostrarUsuarios(std::vector<User*>& users);
+
     void CadastrarLivro(std::vector<Livro*>& livros);
 
     void ApagarLivro(std::vector<Livro*>& livros);
 
-    bool ModificarStatusUser(int idUser,std::vector<User*>& users);
+    bool ModificarStatusUser(int idUser, std::vector<User*>& users);
     
     void CadastrarUser(std::vector<User*>& users);
 

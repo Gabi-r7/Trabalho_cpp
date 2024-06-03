@@ -33,7 +33,10 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, std::vector<User*>& users
             std::cout << "Digite 9 para aplicar uma multa" << std::endl;
         }
         std::cin >> aux;
-        if (aux == 1) {
+        if (aux == 0) {
+            break;
+        }
+        else if (aux == 1) {
             livro.MostrarDisponiveis(livros);
             std::cout << "Digite o id do livro que deseja emprestar: ";
             std::cin >> idLivro;
@@ -45,17 +48,17 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, std::vector<User*>& users
                 std::cout << "Nao foi possivel emprestar o livro!" << std::endl;
             }
         }
-        else if (aux == 2) {
-            emprestimo.MostrarEmprestados(livros, id);
-            std::cout << "Digite o id do livro que deseja devolver: ";
-            std::cin >> idLivro;
-            funcionou = emprestimo.DevolverLivro(idLivro, livros);
-            if (funcionou) {
-                std::cout << "Livro devolvido com sucesso!" << std::endl;
-			}
-            else {
-				std::cout << "Nao foi possivel devolver o livro!" << std::endl;
-            }
+        else if (aux == 2){
+                emprestimo.MostrarEmprestados(livros, id);
+                std::cout << "Digite o id do livro que deseja devolver: ";
+                std::cin >> idLivro;
+                funcionou = emprestimo.DevolverLivro(idLivro, livros);
+                if (funcionou) {
+                    std::cout << "Livro devolvido com sucesso!" << std::endl;
+                }
+                else {
+                    std::cout << "Nao foi possivel devolver o livro!" << std::endl;
+                }
         }
         else if (aux == 3) {
             livro.MostrarDisponiveis(livros);
@@ -63,10 +66,9 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, std::vector<User*>& users
         else if (aux == 0) {
             std::cout << "Ate mais!" << "\n\n";
             InicializaSistema::InicializaSistema(livros, users);
-            break;
         }
         else if (!adm) {
-            std::cout << "Opcao invalida!" << std::endl;
+            std::cout << "Erro!" << std::endl;
         }
         if (adm) {
             if (aux == 4) {
@@ -78,13 +80,7 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, std::vector<User*>& users
                 std::cout << "Livro apagado com sucesso!" << std::endl;
             }
             else if (aux == 6) {
-                status = admin.ModificarStatusUser(id,users);
-                if (status) {
-                    std::cout << "O usuario agora e um devedor!" << std::endl;
-                }
-                else {
-                    std::cout << "O usuario nao e mais um devedor!" << std::endl;
-                }
+                admin.ModificarStatusUser(id, users); // parei aqui
             }
             else if (aux == 7) {
 
@@ -97,8 +93,8 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, std::vector<User*>& users
                 admin.AplicarMulta(users);
                 std::cout << "Multa aplicada com sucesso!" << std::endl;
             }
-            else if (aux != 0 && aux != 1 && aux != 2 && aux != 3) {
-                std::cout << "Opcao invalida!" << std::endl;
+            else if (aux != 0 && aux != 1 && aux != 2 && aux != 3){
+                std::cout << "Erro!" << std::endl;
             }
         }
     }

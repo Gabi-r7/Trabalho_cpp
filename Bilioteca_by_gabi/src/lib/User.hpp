@@ -5,7 +5,8 @@ class User {
     public:
         User();
         ~User();
-        
+
+
         void setEmail(std::string _email);
 
         std::string getEmail();

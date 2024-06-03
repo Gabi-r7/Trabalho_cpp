@@ -8,7 +8,7 @@
 void InicializaSistema::InicializaSistema(std::vector<Livro*>& livros, std::vector<User*>& users) {
     int aux;
     int senha;
-
+    
     std::cout << "Bem vindo ao sistema de biblioteca!" << std::endl;
     do {
         std::cout << "Digite\n-0 para sair\n-1 para Logar\n-2 para criar uma conta\nDigite sua opcao: ";

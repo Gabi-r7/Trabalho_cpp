@@ -40,18 +40,50 @@ void Admin::ApagarLivro(std::vector<Livro*>& livros) {
 };
 
 bool Admin::ModificarStatusUser(int idUser, std::vector<User*>& users) {
+    
     User user;
+    int valorMulta;
+    MostrarUsuarios(users);
+    while (true) {
+        std::cout << "Digite o ID do usuario que deseja modificar o status: ";
+        std::cin >> idUser;
+        if (idUser >= users.size()) {
+			std::cout << "ID invalido!" << std::endl;
+		}
+		else {
+			break;
+		}
+    }
     for (int i = 0; i < users.size(); i++) {
-        if (users[i]->getIdUser() == idUser) {
-            if (users[i]->getStatus() == true) {
-                users[i]->setStatus(false);
-            }
-            else {
-                users[i]->setStatus(true);
-            }
+		if (users[i]->getIdUser() == idUser) {
+			if (users[i]->getStatus()) {
+				users[i]->setStatus(false);
+                std::cout << "Status modificado para nao devedor!" << std::endl;
+			}
+			else {
+				users[i]->setStatus(true);
+                std::cout << "Status modificado para devedor!" << std::endl;
+                std::cout << "Digite o valor da multa: ";
+                std::cin >> valorMulta;
+                users[i]->setMulta(valorMulta);
+			}
+		}
+	}
+
+    return user.getStatus();
+};
+
+
+void Admin::MostrarUsuarios(std::vector<User*>& users) {
+    for (int i = 0; i < users.size(); i++) {
+        std::cout << "ID: " << users[i]->getIdUser() << " - Login: " << users[i]->getLogin() << " - Email: " << users[i]->getEmail() << " - Status: ";
+        if (users[i]->getStatus()) {
+            std::cout << "Devedor" << std::endl;
+        }
+        else {
+            std::cout << "Nao devedor" << std::endl;
         }
     }
-    return user.getStatus();
 };
 
 void Admin::CadastrarUser(std::vector<User*>& users) {
