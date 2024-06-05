@@ -1,7 +1,7 @@
 #include "Cadastrar.hpp"
 #include "Admin.hpp"
 #include "User.hpp"
-#include "Logar.hpp"
+#include "InicializaSistema.hpp"
 #include "Livro.hpp"
 #include <vector>
 #include <iostream>
@@ -13,7 +13,7 @@ void Cadastrar::Cadastrar(std::vector<Livro*>& livros, std::vector<User*>& users
     int admAux = 0;
     while (true) {
         existe = false;
-        std::cout << "Faca seu cadastro!" << std::endl;
+        std::cout << "\nFaca seu cadastro!" << std::endl;
         std::cout << "Digite seu login: ";
         std::cin >> login;
         for (User* user : users) {
@@ -24,7 +24,7 @@ void Cadastrar::Cadastrar(std::vector<Livro*>& livros, std::vector<User*>& users
             }
         }
         if (existe) {
-            break;
+            continue;
         }
         std::cout << "Digite sua senha: ";
         std::cin >> password;
@@ -32,7 +32,7 @@ void Cadastrar::Cadastrar(std::vector<Livro*>& livros, std::vector<User*>& users
         std::cin >> email;
         //std::cout << "Digite seu telefone: ";
         //std::cin >> phone;
-        std::cout << "Digite a senha de administrador caso voce seja: ";
+        std::cout << "\nDigite a senha de administrador caso voce seja: ";
         std::cin >> admAux;
         if (admAux == adminSenha) {
             std::cout << "Voce e um administrador!" << std::endl;
@@ -47,7 +47,7 @@ void Cadastrar::Cadastrar(std::vector<Livro*>& livros, std::vector<User*>& users
     newUser->setLoginSenha(login, password);
     newUser->setAdm(adm);
     users.push_back(newUser);
-    std::cout << "Cadastro realizado com sucesso!" << std::endl;
+    std::cout << "Cadastro realizado com sucesso!\n" << std::endl;
     newUser->setIdUser(users.size() - 1);
-    Logar::Logar(livros,users);
+    InicializaSistema::InicializaSistema(livros, users);
 };

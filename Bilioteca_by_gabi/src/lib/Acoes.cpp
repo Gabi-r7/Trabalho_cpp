@@ -13,13 +13,15 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, std::vector<User*>& users
     Livro livro;
     Emprestimo emprestimo;
     Admin admin;
-    int aux, idLivro;
+    int aux;
     bool adm = user->getAdm(), funcionou = false, status;
     while (true) {
         if (user->getMulta() > 0) {
+            std::cout << "-------------------------------------------------------------------------------\n";
             std::cout << "Voce esta com uma multa de R$" << user->getMulta() << ". Pague para poder emprestar outro livro." << std::endl;
+            std::cout << "-------------------------------------------------------------------------------";
         }
-        std::cout << "O que deseja fazer?" << std::endl;
+        std::cout << "\n\nO que deseja fazer?" << std::endl;
         std::cout << "Digite 0 para sair" << std::endl;
         std::cout << "Digite 1 para emprestar um livro" << std::endl;
         std::cout << "Digite 2 para devolver um livro" << std::endl;
@@ -34,13 +36,13 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, std::vector<User*>& users
         }
         std::cin >> aux;
         if (aux == 0) {
+            std::cout << "Ate mais!" << "\n\n";
+            InicializaSistema::InicializaSistema(livros, users);
             break;
         }
         else if (aux == 1) {
             livro.MostrarDisponiveis(livros);
-            std::cout << "Digite o id do livro que deseja emprestar: ";
-            std::cin >> idLivro;
-            funcionou = emprestimo.EmprestarLivro(idLivro, id, livros, users);
+            funcionou = emprestimo.EmprestarLivro(id, livros, users);
             if (funcionou) {
                 std::cout << "Livro emprestado com sucesso!" << std::endl;
             }
@@ -50,9 +52,7 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, std::vector<User*>& users
         }
         else if (aux == 2){
                 emprestimo.MostrarEmprestados(livros, id);
-                std::cout << "Digite o id do livro que deseja devolver: ";
-                std::cin >> idLivro;
-                funcionou = emprestimo.DevolverLivro(idLivro, livros);
+                funcionou = emprestimo.DevolverLivro(livros);
                 if (funcionou) {
                     std::cout << "Livro devolvido com sucesso!" << std::endl;
                 }
@@ -62,10 +62,6 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, std::vector<User*>& users
         }
         else if (aux == 3) {
             livro.MostrarDisponiveis(livros);
-        }
-        else if (aux == 0) {
-            std::cout << "Ate mais!" << "\n\n";
-            InicializaSistema::InicializaSistema(livros, users);
         }
         else if (!adm) {
             std::cout << "Erro!" << std::endl;
@@ -83,14 +79,13 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, std::vector<User*>& users
                 admin.ModificarStatusUser(id, users); // parei aqui
             }
             else if (aux == 7) {
-
+                admin.CadastrarUser(users);
             }
             else if (aux == 8) {
-                admin.ApagarUser(users);
-                std::cout << "Usuario apagado com sucesso!" << std::endl;
+                admin.ApagarUser(id, users);
             }
             else if (aux == 9) {
-                admin.AplicarMulta(users);
+                admin.AplicarMulta(users); // nao terminei
                 std::cout << "Multa aplicada com sucesso!" << std::endl;
             }
             else if (aux != 0 && aux != 1 && aux != 2 && aux != 3){

@@ -8,7 +8,7 @@
 void Logar::Logar(std::vector<Livro*>& livros, std::vector<User*>& users) {
     std::string login, password;
     bool aux = false;
-    std::cout << "Faca seu login!" << std::endl;
+    std::cout << "\nFaca seu login!" << std::endl;
     while (true) {
         std::cout << "Digite seu login: ";
         std::cin >> login;

@@ -54,7 +54,7 @@ std::string Livro::getEditora() {
 };
 
 void Livro::MostrarDisponiveis(std::vector<Livro*>& livros) {
-    std::cout << "Total de livros disponiveis:" << livros.size() << std::endl;
+    std::cout << "\n\nTotal de livros disponiveis:" << livros.size() << std::endl;
     for (int i = 0; i < livros.size(); i++) {
         if (!livros[i]->getEmprestado()) {
             std::cout << "ID: " << livros[i]->getIdLivro() << std::endl;
@@ -62,6 +62,6 @@ void Livro::MostrarDisponiveis(std::vector<Livro*>& livros) {
             std::cout << "Autor: " << livros[i]->getAutor() << std::endl;
             std::cout << "Editora: " << livros[i]->getEditora() << std::endl;
             std::cout << "--------------------------------" << std::endl;
-        }
+        }   
     }
 };

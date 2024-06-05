@@ -7,7 +7,10 @@
 Emprestimo::Emprestimo() {};
 Emprestimo::~Emprestimo() {};
 
-bool Emprestimo::EmprestarLivro(int idLivro, int idUser, std::vector<Livro*>& livros, std::vector<User*>& users) {
+bool Emprestimo::EmprestarLivro(int idUser, std::vector<Livro*>& livros, std::vector<User*>& users) {
+    int idLivro;
+    std::cout << "Digite o id do livro que deseja emprestar: ";
+    std::cin >> idLivro;
     if (idUser < 0 || idUser >= users.size() || idLivro < 0 || idLivro >= livros.size()) {
         std::cout << "ID do usuario ou do livro invalido." << std::endl;
         return false;
@@ -17,7 +20,7 @@ bool Emprestimo::EmprestarLivro(int idLivro, int idUser, std::vector<Livro*>& li
         return false;
     }
     else if (users.at(idUser)->getMulta() > 15) {
-        std::cout << "Usuario com multa acima de R$15,00. Voce nao podera emprestar outro livro enquanto nao quitar a divida" << std::endl;
+        std::cout << "\nUsuario com multa acima de R$15,00. Voce nao podera emprestar outro livro enquanto nao quitar a divida" << std::endl;
         return false;
     }
     else {
@@ -27,7 +30,10 @@ bool Emprestimo::EmprestarLivro(int idLivro, int idUser, std::vector<Livro*>& li
     }
 };
 
-bool Emprestimo::DevolverLivro(int idLivro, std::vector<Livro*>& livros) {
+bool Emprestimo::DevolverLivro(std::vector<Livro*>& livros) {
+    int idLivro;
+    std::cout << "Digite o id do livro que deseja devolver: ";
+    std::cin >> idLivro;
     if (idLivro < 0 || idLivro >= livros.size()) {
         std::cout << "ID do livro invalido." << std::endl;
         return false;
@@ -46,7 +52,7 @@ bool Emprestimo::DevolverLivro(int idLivro, std::vector<Livro*>& livros) {
 void Emprestimo::MostrarEmprestados(std::vector<Livro*>& livros, int idUser) {
     for (int i = 0; i < livros.size(); i++) {
         if (livros.at(i)->getIdUser() == idUser) {
-            std::cout << "ID: " << i << " Titulo: " << livros.at(i)->getTitulo() << std::endl;
+            std::cout << "\nID: " << i << " Titulo: " << livros.at(i)->getTitulo() << std::endl;
         }
     }
 };

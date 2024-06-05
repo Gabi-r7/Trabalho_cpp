@@ -18,7 +18,7 @@ public:
     
     void CadastrarUser(std::vector<User*>& users);
 
-    void ApagarUser(std::vector<User*>& users);
+    void ApagarUser(int id, std::vector<User*>& users);
 
     void AplicarMulta(std::vector<User*>& users);
 };
