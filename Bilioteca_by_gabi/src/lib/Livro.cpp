@@ -54,6 +54,10 @@ std::string Livro::getEditora() {
 };
 
 void Livro::MostrarDisponiveis(std::vector<Livro*>& livros) {
+    if (livros.size() == 0) {
+		std::cout << "Nao ha livros disponiveis!" << std::endl;
+        return;
+	}
     std::cout << "\n\nTotal de livros disponiveis:" << livros.size() << std::endl;
     for (int i = 0; i < livros.size(); i++) {
         if (!livros[i]->getEmprestado()) {

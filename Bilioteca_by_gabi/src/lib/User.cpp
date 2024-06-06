@@ -61,3 +61,14 @@ void User::setLoginSenha(std::string _login, std::string _senha) {
     login = _login;
     password = _senha;
 };
+
+void User::pagarMulta() {
+    if (getMulta() == 0) {
+        std::cout << "Voce nao possui multa!" << std::endl;
+        return;
+    }
+    else {
+        std::cout << "Voce pagou a multa de R$" << getMulta() << " com sucesso!" << std::endl;
+        setMulta(0);
+    }
+};

@@ -14,7 +14,7 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, std::vector<User*>& users
     Emprestimo emprestimo;
     Admin admin;
     int aux;
-    bool adm = user->getAdm(), funcionou = false, status;
+    bool adm = user->getAdm(), funcionou = false, status, existe = true;
     while (true) {
         if (user->getMulta() > 0) {
             std::cout << "-------------------------------------------------------------------------------\n";
@@ -26,13 +26,14 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, std::vector<User*>& users
         std::cout << "Digite 1 para emprestar um livro" << std::endl;
         std::cout << "Digite 2 para devolver um livro" << std::endl;
         std::cout << "Digite 3 para ver os livros disponiveis" << std::endl;
+        std::cout << "Digite 4 para pagar uma multa" << std::endl;
         if (adm) {
-            std::cout << "Digite 4 para cadastrar um livro" << std::endl;
-            std::cout << "Digite 5 para apagar um livro" << std::endl;
-            std::cout << "Digite 6 para modificar o status de um usuario" << std::endl;
-            std::cout << "Digite 7 para cadastrar um usuario" << std::endl;
-            std::cout << "Digite 8 para apagar um usuario" << std::endl;
-            std::cout << "Digite 9 para aplicar uma multa" << std::endl;
+            std::cout << "Digite 5 para cadastrar um livro" << std::endl;
+            std::cout << "Digite 6 para apagar um livro" << std::endl;
+            std::cout << "Digite 7 para modificar o status de um usuario" << std::endl;
+            std::cout << "Digite 8 para cadastrar um usuario" << std::endl;
+            std::cout << "Digite 9 para apagar um usuario" << std::endl;
+            std::cout << "Digite 10 para aplicar uma multa" << std::endl;
         }
         std::cin >> aux;
         if (aux == 0) {
@@ -56,7 +57,11 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, std::vector<User*>& users
             }
         }
         else if (aux == 2){
-                emprestimo.MostrarEmprestados(livros, id);
+                existe = emprestimo.MostrarEmprestados(livros, id);
+                if (!existe) {
+					std::cout << "Nao ha livros emprestados!" << std::endl;
+					continue;
+				}
                 funcionou = emprestimo.DevolverLivro(livros);
                 if (funcionou) {
                     std::cout << "Livro devolvido com sucesso!" << std::endl;
@@ -68,33 +73,36 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, std::vector<User*>& users
         else if (aux == 3) {
             livro.MostrarDisponiveis(livros);
         }
+        else if (aux == 4) {
+            user->pagarMulta();
+        }
         else if (!adm) {
             std::cout << "Erro!" << std::endl;
         }
         if (adm) {
-            if (aux == 4) {
+            if (aux == 5) {
                 admin.CadastrarLivro(livros);
                 std::cout << "Livro cadastrado com sucesso!" << std::endl;
             }
-            else if (aux == 5) {
+            else if (aux == 6) {
                 admin.ApagarLivro(livros);
                 std::cout << "Livro apagado com sucesso!" << std::endl;
             }
-            else if (aux == 6) {
+            else if (aux == 7) {
                 admin.ModificarStatusUser(id, users);
             }
-            else if (aux == 7) {
+            else if (aux == 8) {
                 admin.CadastrarUser(users);
             }
-            else if (aux == 8) {
+            else if (aux == 9) {
                 admin.ApagarUser(id, users);
             }
-            else if (aux == 9) {
+            else if (aux == 10) {
                 admin.MostrarUsuarios(users);
                 admin.AplicarMulta(users);
                 std::cout << "Multa aplicada com sucesso!" << std::endl;
             }
-            else if (aux != 0 && aux != 1 && aux != 2 && aux != 3){
+            else if (aux != 0 && aux != 1 && aux != 2 && aux != 3 && aux != 4){
                 std::cout << "Erro!" << std::endl;
             }
         }

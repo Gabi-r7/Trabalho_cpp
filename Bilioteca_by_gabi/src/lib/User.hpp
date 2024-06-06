@@ -33,6 +33,8 @@ class User {
 
         void setLoginSenha(std::string _login, std::string _senha);
 
+        void pagarMulta();
+
     protected:
         std::string email = "a";
         bool devedor = false;

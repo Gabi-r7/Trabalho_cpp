@@ -13,6 +13,6 @@ public:
 
 	bool DevolverLivro(std::vector<Livro*>& livros);
 
-	void MostrarEmprestados(std::vector<Livro*>& livros, int idUser);
+	bool MostrarEmprestados(std::vector<Livro*>& livros, int idUser);
 };
 #endif
