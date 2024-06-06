@@ -46,7 +46,7 @@ bool Admin::ModificarStatusUser(int idUser, std::vector<User*>& users) {
     while (true) {
         std::cout << "\nDigite o ID do usuario que deseja modificar o status: ";
         std::cin >> idUser;
-        if (idUser >= users.size()) {
+        if (idUser >= users.size() || idUser < 0) {
 			std::cout << "ID invalido!" << std::endl;
 		}
 		else {
@@ -58,13 +58,14 @@ bool Admin::ModificarStatusUser(int idUser, std::vector<User*>& users) {
 			if (users[i]->getStatus()) {
 				users[i]->setStatus(false);
                 std::cout << "Status modificado para nao devedor!" << std::endl;
+                users[i]->setMulta(0);
 			}
 			else {
 				users[i]->setStatus(true);
                 std::cout << "\nStatus modificado para devedor!" << std::endl;
                 std::cout << "Digite o valor da multa: ";
                 std::cin >> valorMulta;
-                users[i]->setMulta(valorMulta);
+                users[i]->setMulta(getMulta() + valorMulta);
 			}
 		}
 	}
@@ -74,6 +75,7 @@ bool Admin::ModificarStatusUser(int idUser, std::vector<User*>& users) {
 
 
 void Admin::MostrarUsuarios(std::vector<User*>& users) {
+    std::cout << "\nUsuarios cadastrados:" << std::endl;
     for (int i = 0; i < users.size(); i++) {
         std::cout << "ID: " << users[i]->getIdUser() << " - Login: " << users[i]->getLogin() << " - Email: " << users[i]->getEmail() << " - Status: ";
         if (users[i]->getStatus()) {
@@ -163,13 +165,34 @@ void Admin::ApagarUser(int id, std::vector<User*>& users) {
 
 void Admin::AplicarMulta(std::vector<User*>& users) {
     int idUser, valor;
-    std::cout << "\nDigite o ID do usuario que deseja aplicar a multa: ";
-    std::cin >> idUser;
-    std::cout << "Digite o valor da multa: ";
-    std::cin >> valor;
+    bool valido = false;
+    do {
+        std::cout << "\nDigite o ID do usuario que deseja aplicar a multa: ";
+        std::cin >> idUser;
+        if (idUser >= users.size() || idUser < 0) {
+			std::cout << "ID invalido!" << std::endl;
+			valido = false;
+		}
+		else {
+			valido = true;
+		}
+    } while (!valido);
+    valido = false;
+    do {
+        std::cout << "Digite o valor da multa: ";
+        std::cin >> valor;
+        if (valor <= 0) {
+            std::cout << "Valor invalido!" << std::endl;
+            valido = false;
+        }
+        else {
+			valido = true;
+		}
+    } while (!valido);
     for (int i = 0; i < users.size(); i++) {
         if (users[i]->getIdUser() == idUser) {
-            users[i]->setMulta(valor);
+            users[i]->setMulta(getMulta() + valor);
+            users[i]->setStatus(true);
         }
     }
 };

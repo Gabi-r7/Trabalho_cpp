@@ -9,9 +9,14 @@ Emprestimo::~Emprestimo() {};
 
 bool Emprestimo::EmprestarLivro(int idUser, std::vector<Livro*>& livros, std::vector<User*>& users) {
     int idLivro;
-    std::cout << "Digite o id do livro que deseja emprestar: ";
+    std::cout << "user: " << idUser << "\n";
+    std::cout << "Digite o id do livro que deseja emprestar (-1 para cancelar): ";
     std::cin >> idLivro;
-    if (idUser < 0 || idUser >= users.size() || idLivro < 0 || idLivro >= livros.size()) {
+    if (idLivro == -1) {
+        std::cout << "Emprestimo cancelado." << std::endl;
+        return false;
+    }
+    else if (idUser < 0 || idUser >= users.size() || idLivro < 0 || idLivro >= livros.size()) {
         std::cout << "ID do usuario ou do livro invalido." << std::endl;
         return false;
     }
@@ -19,8 +24,8 @@ bool Emprestimo::EmprestarLivro(int idUser, std::vector<Livro*>& livros, std::ve
         std::cout << "Livro ja emprestado." << std::endl;
         return false;
     }
-    else if (users.at(idUser)->getMulta() > 15) {
-        std::cout << "\nUsuario com multa acima de R$15,00. Voce nao podera emprestar outro livro enquanto nao quitar a divida" << std::endl;
+    else if (users.at(idUser)->getMulta() > 0) {
+        std::cout << "\nUsuario com multa de" << users[idUser]->getMulta() <<  " Voce nao podera emprestar outro livro enquanto nao quitar a divida" << std::endl;
         return false;
     }
     else {
@@ -32,9 +37,13 @@ bool Emprestimo::EmprestarLivro(int idUser, std::vector<Livro*>& livros, std::ve
 
 bool Emprestimo::DevolverLivro(std::vector<Livro*>& livros) {
     int idLivro;
-    std::cout << "Digite o id do livro que deseja devolver: ";
+    std::cout << "Digite o id do livro que deseja devolver (-1 para cancelar): ";
     std::cin >> idLivro;
-    if (idLivro < 0 || idLivro >= livros.size()) {
+    if (idLivro == -1) {
+		std::cout << "Devolucao cancelada." << std::endl;
+		return false;
+	}
+    else if (idLivro < 0 || idLivro >= livros.size()) {
         std::cout << "ID do livro invalido." << std::endl;
         return false;
     }

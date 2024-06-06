@@ -11,7 +11,7 @@ void InicializaSistema::InicializaSistema(std::vector<Livro*>& livros, std::vect
     
     std::cout << "Bem vindo ao sistema de biblioteca!" << std::endl;
     do {
-        std::cout << "Digite\n-0 para sair\n-1 para Logar\n-2 para criar uma conta\nDigite sua opcao: ";
+        std::cout << "Digite\n- 0 para sair\n- 1 para Logar\n- 2 para criar uma conta\nDigite sua opcao: ";
         std::cin >> aux;
     } while (aux != 1 && aux != 2 && aux != 0);
 

@@ -41,8 +41,13 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, std::vector<User*>& users
             break;
         }
         else if (aux == 1) {
-            livro.MostrarDisponiveis(livros);
-            funcionou = emprestimo.EmprestarLivro(id, livros, users);
+            if (user->getMulta() > 0) {
+                continue;
+            }
+            else {
+                livro.MostrarDisponiveis(livros);
+                funcionou = emprestimo.EmprestarLivro(id, livros, users);
+            }
             if (funcionou) {
                 std::cout << "Livro emprestado com sucesso!" << std::endl;
             }
@@ -76,7 +81,7 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, std::vector<User*>& users
                 std::cout << "Livro apagado com sucesso!" << std::endl;
             }
             else if (aux == 6) {
-                admin.ModificarStatusUser(id, users); // parei aqui
+                admin.ModificarStatusUser(id, users);
             }
             else if (aux == 7) {
                 admin.CadastrarUser(users);
@@ -85,7 +90,8 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, std::vector<User*>& users
                 admin.ApagarUser(id, users);
             }
             else if (aux == 9) {
-                admin.AplicarMulta(users); // nao terminei
+                admin.MostrarUsuarios(users);
+                admin.AplicarMulta(users);
                 std::cout << "Multa aplicada com sucesso!" << std::endl;
             }
             else if (aux != 0 && aux != 1 && aux != 2 && aux != 3){
