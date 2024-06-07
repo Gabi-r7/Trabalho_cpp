@@ -8,7 +8,7 @@
 #include "InicializaSistema.hpp"
 
 
-void Acoes::Acoes(int id, std::vector<Livro*>& livros, std::vector<User*>& users) {
+void Acoes::Acoes(int id, std::vector<Livro*>& livros, int &contLivro, std::vector<User*>& users, int &contUser) {
     User* user = users[id];
     Livro livro;
     Emprestimo emprestimo;
@@ -38,7 +38,7 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, std::vector<User*>& users
         std::cin >> aux;
         if (aux == 0) {
             std::cout << "Ate mais!" << "\n\n";
-            InicializaSistema::InicializaSistema(livros, users);
+            InicializaSistema::InicializaSistema(livros, contLivro, users, contUser);
             break;
         }
         else if (aux == 1) {
@@ -81,7 +81,7 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, std::vector<User*>& users
         }
         if (adm) {
             if (aux == 5) {
-                admin.CadastrarLivro(livros);
+                admin.CadastrarLivro(livros, contLivro);
                 std::cout << "Livro cadastrado com sucesso!" << std::endl;
             }
             else if (aux == 6) {
@@ -92,7 +92,7 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, std::vector<User*>& users
                 admin.ModificarStatusUser(id, users);
             }
             else if (aux == 8) {
-                admin.CadastrarUser(users);
+                admin.CadastrarUser(users, contUser);
             }
             else if (aux == 9) {
                 admin.ApagarUser(id, users);
@@ -100,7 +100,6 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, std::vector<User*>& users
             else if (aux == 10) {
                 admin.MostrarUsuarios(users);
                 admin.AplicarMulta(users);
-                std::cout << "Multa aplicada com sucesso!" << std::endl;
             }
             else if (aux != 0 && aux != 1 && aux != 2 && aux != 3 && aux != 4){
                 std::cout << "Erro!" << std::endl;

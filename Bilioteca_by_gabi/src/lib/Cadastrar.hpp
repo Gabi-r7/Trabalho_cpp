@@ -5,6 +5,6 @@
 #include "User.hpp"
 
 namespace Cadastrar {
-	void Cadastrar(std::vector<Livro*>& livros, std::vector<User*>& users);
+	void Cadastrar(std::vector<Livro*>& livros, int &contLivro, std::vector<User*>& users, int &contUser);
 };
 #endif

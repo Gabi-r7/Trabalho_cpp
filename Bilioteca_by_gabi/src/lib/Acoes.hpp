@@ -5,6 +5,6 @@
 #include "User.hpp"
 
 namespace Acoes {
-	void Acoes(int id, std::vector<Livro*>& livros, std::vector<User*>& users);
+	void Acoes(int id, std::vector<Livro*>& livros, int &contLivro, std::vector<User*>& users, int &contUser);
 };
 #endif

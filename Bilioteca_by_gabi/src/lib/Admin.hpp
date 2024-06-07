@@ -10,13 +10,13 @@ public:
 
     void MostrarUsuarios(std::vector<User*>& users);
 
-    void CadastrarLivro(std::vector<Livro*>& livros);
+    void CadastrarLivro(std::vector<Livro*>& livros, int &contLivro);
 
     void ApagarLivro(std::vector<Livro*>& livros);
 
     bool ModificarStatusUser(int idUser, std::vector<User*>& users);
     
-    void CadastrarUser(std::vector<User*>& users);
+    void CadastrarUser(std::vector<User*>& users, int &contUser);
 
     void ApagarUser(int id, std::vector<User*>& users);
 

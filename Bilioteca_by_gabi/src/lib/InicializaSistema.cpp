@@ -5,7 +5,7 @@
 #include "Cadastrar.hpp"
 #include "InicializaSistema.hpp"
 
-void InicializaSistema::InicializaSistema(std::vector<Livro*>& livros, std::vector<User*>& users) {
+void InicializaSistema::InicializaSistema(std::vector<Livro*>& livros, int &contLivro, std::vector<User*>& users, int &contUser) {
     int aux;
     int senha;
     
@@ -21,10 +21,10 @@ void InicializaSistema::InicializaSistema(std::vector<Livro*>& livros, std::vect
         std::cout << "Ate mais!";
         break;
     case 1:
-        Logar::Logar(livros,users);
+        Logar::Logar(livros, contLivro, users, contUser);
         break;
     case 2:
-        Cadastrar::Cadastrar(livros,users);
+        Cadastrar::Cadastrar(livros, contLivro ,users, contUser);
         break;
     default:
         break;

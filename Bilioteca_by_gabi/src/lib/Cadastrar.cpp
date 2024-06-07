@@ -7,7 +7,7 @@
 #include <iostream>
 #define adminSenha 1230
 
-void Cadastrar::Cadastrar(std::vector<Livro*>& livros, std::vector<User*>& users) {
+void Cadastrar::Cadastrar(std::vector<Livro*>& livros,int &contLivro, std::vector<User*>& users, int &contUser) {
     std::string login, password, email, phone;
     bool adm, existe;
     int admAux = 0;
@@ -48,6 +48,7 @@ void Cadastrar::Cadastrar(std::vector<Livro*>& livros, std::vector<User*>& users
     newUser->setAdm(adm);
     users.push_back(newUser);
     std::cout << "Cadastro realizado com sucesso!\n" << std::endl;
-    newUser->setIdUser(users.size() - 1);
-    InicializaSistema::InicializaSistema(livros, users);
+    newUser->setIdUser(contUser);
+    contUser++;
+    InicializaSistema::InicializaSistema(livros, contLivro, users, contUser);
 };

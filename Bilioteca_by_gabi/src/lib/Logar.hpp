@@ -5,6 +5,6 @@
 #include "User.hpp"
 
 namespace Logar {
-	void Logar(std::vector<Livro*>& livros, std::vector<User*>& users);
+	void Logar(std::vector<Livro*>& livros, int &contLivro, std::vector<User*>& users, int &contUser);
 };
 #endif

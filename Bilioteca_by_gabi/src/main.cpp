@@ -17,13 +17,17 @@
 #include "lib/Cadastrar.hpp"
 
 
-void CriarLivros(std::vector<Livro*>& livros) {
-    for (int i = 0; i <= 10; i++) {
+void CriarLivros(std::vector<Livro*>& livros, int &contLivro) {
+   while(true) {
+        if (contLivro == 11) {
+			break;
+		}
         Livro* livro = new Livro();
-        livro->setIdLivro(i);
-        livro->setTitulo("Livro " + std::to_string(i));
-        livro->setAutor("Autor " + std::to_string(i));
-        livro->setEditora("Editora " + std::to_string(i));
+        livro->setIdLivro(contLivro);
+        livro->setTitulo("Livro " + std::to_string(contLivro));
+        livro->setAutor("Autor " + std::to_string(contLivro));
+        livro->setEditora("Editora " + std::to_string(contLivro));
+        contLivro++;
         livro->setEmprestado(false);
         livros.push_back(livro);
     }
@@ -33,8 +37,10 @@ void CriarLivros(std::vector<Livro*>& livros) {
 int main() {
     std::vector<Livro*> livros;
     std::vector<User*> users;
-    CriarLivros(livros);
-    InicializaSistema::InicializaSistema(livros,users);
+    int contUser = 0;
+    int contLivro = 0;
+    CriarLivros(livros, contLivro);
+    InicializaSistema::InicializaSistema(livros, contLivro, users, contUser);
 
     return 0;
 };

@@ -8,7 +8,7 @@
 Admin::Admin() {};
 Admin::~Admin() {};
 
-void Admin::CadastrarLivro(std::vector<Livro*>& livros) {
+void Admin::CadastrarLivro(std::vector<Livro*>& livros, int &contLivro) {
     std::string titulo, autor, editora;
     int idLivro;
     std::cout << "\nDigite o titulo do livro: ";
@@ -22,7 +22,8 @@ void Admin::CadastrarLivro(std::vector<Livro*>& livros) {
     livro->setAutor(autor);
     livro->setEditora(editora);
     idLivro = livros.size();
-    livro->setIdLivro(idLivro);
+    livro->setIdLivro(contLivro);
+    contLivro++;
     livro->setEmprestado(false);
     livros.push_back(livro);
 };
@@ -87,7 +88,7 @@ void Admin::MostrarUsuarios(std::vector<User*>& users) {
     }
 };
 
-void Admin::CadastrarUser(std::vector<User*>& users) {
+void Admin::CadastrarUser(std::vector<User*>& users, int &contUser) {
     std::string login, password, email, phone;
     bool adm = false, existe;
     int admAux = 0;
@@ -128,7 +129,8 @@ void Admin::CadastrarUser(std::vector<User*>& users) {
     newUser->setAdm(adm);
     users.push_back(newUser);
     std::cout << "Cadastro realizado com sucesso!" << std::endl;
-    newUser->setIdUser(users.size() - 1);
+    newUser->setIdUser(contUser);
+    contUser++;
 };
 
 void Admin::ApagarUser(int id, std::vector<User*>& users) {
@@ -167,9 +169,14 @@ void Admin::AplicarMulta(std::vector<User*>& users) {
     int idUser, valor;
     bool valido = false;
     do {
-        std::cout << "\nDigite o ID do usuario que deseja aplicar a multa: ";
+        std::cout << "\nDigite o ID do usuario que deseja aplicar a multa (-1 para cancelar): ";
         std::cin >> idUser;
-        if (idUser >= users.size() || idUser < 0) {
+        if (idUser == -1) {
+            std::cout << "Operacao cancelada!" << std::endl;
+            valido = false;
+            break;
+        }
+        else if (idUser >= users.size() || idUser < 0 && idUser != -1) {
 			std::cout << "ID invalido!" << std::endl;
 			valido = false;
 		}
@@ -177,8 +184,7 @@ void Admin::AplicarMulta(std::vector<User*>& users) {
 			valido = true;
 		}
     } while (!valido);
-    valido = false;
-    do {
+    while (valido) {
         std::cout << "Digite o valor da multa: ";
         std::cin >> valor;
         if (valor <= 0) {
@@ -188,11 +194,12 @@ void Admin::AplicarMulta(std::vector<User*>& users) {
         else {
 			valido = true;
 		}
-    } while (!valido);
+    }
     for (int i = 0; i < users.size(); i++) {
         if (users[i]->getIdUser() == idUser) {
             users[i]->setMulta(getMulta() + valor);
             users[i]->setStatus(true);
+            std::cout << "Multa aplicada com sucesso!" << std::endl;
         }
     }
 };

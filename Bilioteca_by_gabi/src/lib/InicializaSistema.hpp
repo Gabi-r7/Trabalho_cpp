@@ -5,6 +5,6 @@
 #include "User.hpp"
 
 namespace InicializaSistema {
-	void InicializaSistema(std::vector<Livro*>& livros, std::vector<User*>& users);
+	void InicializaSistema(std::vector<Livro*>& livros, int &contLivro, std::vector<User*>& users, int &contUser);
 };
 #endif
