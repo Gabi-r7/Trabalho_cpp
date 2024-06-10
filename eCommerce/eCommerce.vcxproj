@@ -19,16 +19,22 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\lib\Admin.cpp" />
+    <ClCompile Include="src\lib\Anuncio.cpp" />
     <ClCompile Include="src\lib\Cadastrar.cpp" />
     <ClCompile Include="src\lib\InicializaSistema.cpp" />
     <ClCompile Include="src\lib\Logar.cpp" />
+    <ClCompile Include="src\lib\Produto.cpp" />
     <ClCompile Include="src\lib\User.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\lib\Admin.hpp" />
+    <ClInclude Include="src\lib\Anuncio.hpp" />
     <ClInclude Include="src\lib\Cadastrar.hpp" />
     <ClInclude Include="src\lib\InicializaSistema.hpp" />
     <ClInclude Include="src\lib\Logar.hpp" />
+    <ClInclude Include="src\lib\Produto.hpp" />
     <ClInclude Include="src\lib\User.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

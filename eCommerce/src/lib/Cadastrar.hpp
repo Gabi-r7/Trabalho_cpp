@@ -1,10 +1,7 @@
 #ifndef CADASTRAR_HPP
 #define CADASTRAR_HPP
-#include <vector>
-#include "Livro.hpp"
-#include "User.hpp"
 
 namespace Cadastrar {
-	void Cadastrar(std::vector<Livro*>& livros, int &contLivro, std::vector<User*>& users, int &contUser);
+	void Cadastrar(std::vector<User*>& users, int& contUser, std::vector<Anuncio*>& anuncios, std::vector<Produto*>& produtos);
 };
 #endif

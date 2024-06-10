@@ -1,11 +1,13 @@
 #include <iostream>
 #include <vector>
-#include "Emprestimo.hpp"
+#include "InicializaSistema.hpp"
 #include "Logar.hpp"
 #include "Cadastrar.hpp"
-#include "InicializaSistema.hpp"
+#include "Admin.hpp"
+#include "Anuncio.hpp"
+#include "Produto.hpp"
 
-void InicializaSistema::InicializaSistema(std::vector<Livro*>& livros, int &contLivro, std::vector<User*>& users, int &contUser) {
+void InicializaSistema::InicializaSistema(std::vector<User*>& users, int &contUser, std::vector<Anuncio*>& anuncios, std::vector<Produto*>& produtos) {
     int aux;
     int senha;
     
@@ -21,10 +23,10 @@ void InicializaSistema::InicializaSistema(std::vector<Livro*>& livros, int &cont
         std::cout << "Ate mais!";
         break;
     case 1:
-        Logar::Logar(livros, contLivro, users, contUser);
+        Logar::Logar(users, contUser, anuncios, produtos);
         break;
     case 2:
-        Cadastrar::Cadastrar(livros, contLivro ,users, contUser);
+        Cadastrar::Cadastrar(users, contUser, anuncios, produtos);
         break;
     default:
         break;

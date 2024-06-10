@@ -1,13 +1,14 @@
-#include "Cadastrar.hpp"
-#include "Admin.hpp"
-#include "User.hpp"
-#include "InicializaSistema.hpp"
-#include "Livro.hpp"
 #include <vector>
 #include <iostream>
+#include "Cadastrar.hpp"
 #define adminSenha 1230
+#include "User.hpp"
+#include "Admin.hpp"
+#include "Anuncio.hpp"
+#include "Produto.hpp"
+#include "InicializaSistema.hpp"
 
-void Cadastrar::Cadastrar(std::vector<Livro*>& livros,int &contLivro, std::vector<User*>& users, int &contUser) {
+void Cadastrar::Cadastrar(std::vector<User*>& users, int& contUser, std::vector<Anuncio*>& anuncios, std::vector<Produto*>& produtos) {
     std::string login, password, email, phone;
     bool adm, existe;
     int admAux = 0;
@@ -50,5 +51,5 @@ void Cadastrar::Cadastrar(std::vector<Livro*>& livros,int &contLivro, std::vecto
     std::cout << "Cadastro realizado com sucesso!\n" << std::endl;
     newUser->setIdUser(contUser);
     contUser++;
-    InicializaSistema::InicializaSistema(livros, contLivro, users, contUser);
+    InicializaSistema::InicializaSistema(users, contUser, anuncios, produtos);
 };
