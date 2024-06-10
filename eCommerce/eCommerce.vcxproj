@@ -18,6 +18,19 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\lib\Cadastrar.cpp" />
+    <ClCompile Include="src\lib\InicializaSistema.cpp" />
+    <ClCompile Include="src\lib\Logar.cpp" />
+    <ClCompile Include="src\lib\User.cpp" />
+    <ClCompile Include="src\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\lib\Cadastrar.hpp" />
+    <ClInclude Include="src\lib\InicializaSistema.hpp" />
+    <ClInclude Include="src\lib\Logar.hpp" />
+    <ClInclude Include="src\lib\User.hpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -126,9 +139,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="eCommerce.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
