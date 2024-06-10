@@ -2,9 +2,7 @@
   "ExpandedNodes": [
     "",
     "\\Bilioteca_by_gabi",
-    "\\Bilioteca_by_gabi\\src",
-    "\\Bilioteca_by_gabi\\src\\lib"
+    "\\Bilioteca_by_gabi\\Biblioteca"
   ],
-  "SelectedNode": "\\Bilioteca_by_gabi\\src\\lib\\Emprestimo.cpp",
   "PreviewInSolutionExplorer": false
 }
