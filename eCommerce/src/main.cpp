@@ -1,20 +1,16 @@
-#include <vector>
-#include <iostream>
-#include "lib/User.hpp"
 #include "lib/InicializaSistema.hpp"
-#include "lib/Admin.hpp"
-#include "lib/Anuncio.hpp"
-#include "lib/Produto.hpp"
+#include "lib/User.hpp"
+#include "lib/Logar.hpp"
+#include "lib/Cadastrar.hpp"
+#include "lib/Acoes.hpp"
+#include <vector>
 
 
-int main(){
+int main() {
 	std::vector<User*> users;
-	std::vector<Anuncio*> anuncios;
-	std::vector<Produto*> produtos;
 	int contUser = 0;
-	InicializaSistema::InicializaSistema(users, contUser, anuncios, produtos);
-	
+	InicializaSistema::InicializaSistema(users, contUser);
 
 
 	return 0;
-}
+};

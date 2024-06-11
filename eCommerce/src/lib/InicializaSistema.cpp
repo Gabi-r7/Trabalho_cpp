@@ -1,17 +1,13 @@
-#include <iostream>
-#include <vector>
 #include "InicializaSistema.hpp"
-#include "Logar.hpp"
+#include <vector>
+#include <iostream>
 #include "Cadastrar.hpp"
-#include "Admin.hpp"
-#include "Anuncio.hpp"
-#include "Produto.hpp"
+#include "Logar.hpp"
 
-void InicializaSistema::InicializaSistema(std::vector<User*>& users, int &contUser, std::vector<Anuncio*>& anuncios, std::vector<Produto*>& produtos) {
+void InicializaSistema::InicializaSistema(std::vector<User*>& users, int &contUser) {
     int aux;
-    int senha;
-    
-    std::cout << "Bem vindo ao sistema de biblioteca!" << std::endl;
+
+    std::cout << "Bem vindo ao sistema de vendas Duzhomi!" << std::endl;
     do {
         std::cout << "Digite\n- 0 para sair\n- 1 para Logar\n- 2 para criar uma conta\nDigite sua opcao: ";
         std::cin >> aux;
@@ -23,12 +19,12 @@ void InicializaSistema::InicializaSistema(std::vector<User*>& users, int &contUs
         std::cout << "Ate mais!";
         break;
     case 1:
-        Logar::Logar(users, contUser, anuncios, produtos);
+        Logar::Logar(users, contUser);
         break;
     case 2:
-        Cadastrar::Cadastrar(users, contUser, anuncios, produtos);
+        Cadastrar::Cadastrar(users, contUser);
         break;
     default:
         break;
     }
-};
+}

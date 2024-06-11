@@ -1,7 +1,24 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\eCommerce\\src\\lib\\Acoes.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:eCommerce\\src\\lib\\Acoes.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\eCommerce\\src\\lib\\Cadastrar.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:eCommerce\\src\\lib\\Cadastrar.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\eCommerce\\src\\lib\\Acoes.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:eCommerce\\src\\lib\\Acoes.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\eCommerce\\src\\lib\\Logar.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:eCommerce\\src\\lib\\Logar.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +26,63 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Cadastrar.cpp",
+              "DocumentMoniker": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\eCommerce\\src\\lib\\Cadastrar.cpp",
+              "RelativeDocumentMoniker": "eCommerce\\src\\lib\\Cadastrar.cpp",
+              "ToolTip": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\eCommerce\\src\\lib\\Cadastrar.cpp",
+              "RelativeToolTip": "eCommerce\\src\\lib\\Cadastrar.cpp",
+              "ViewState": "AQIAAAsAAABAMzMzMzMkwBkAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-06-11T11:36:45.374Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Logar.cpp",
+              "DocumentMoniker": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\eCommerce\\src\\lib\\Logar.cpp",
+              "RelativeDocumentMoniker": "eCommerce\\src\\lib\\Logar.cpp",
+              "ToolTip": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\eCommerce\\src\\lib\\Logar.cpp",
+              "RelativeToolTip": "eCommerce\\src\\lib\\Logar.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-06-11T11:29:00.11Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Acoes.hpp",
+              "DocumentMoniker": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\eCommerce\\src\\lib\\Acoes.hpp",
+              "RelativeDocumentMoniker": "eCommerce\\src\\lib\\Acoes.hpp",
+              "ToolTip": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\eCommerce\\src\\lib\\Acoes.hpp",
+              "RelativeToolTip": "eCommerce\\src\\lib\\Acoes.hpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-06-11T11:28:25.431Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Acoes.cpp",
+              "DocumentMoniker": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\eCommerce\\src\\lib\\Acoes.cpp",
+              "RelativeDocumentMoniker": "eCommerce\\src\\lib\\Acoes.cpp",
+              "ToolTip": "C:\\Users\\Jairo\\source\\repos\\Trabalho_cpp\\eCommerce\\src\\lib\\Acoes.cpp",
+              "RelativeToolTip": "eCommerce\\src\\lib\\Acoes.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACIAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-06-11T11:28:06.805Z",
+              "EditorCaption": ""
             }
           ]
         }

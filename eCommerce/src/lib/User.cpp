@@ -1,46 +1,41 @@
-#include <iostream>
-#include <vector>
 #include "User.hpp"
-
 
 User::User() {};
 User::~User() {};
-std::string login;
-int idUser;
 
 void User::setEmail(std::string _email) {
-    email = _email;
-};
+	email = _email;
+}
 
 std::string User::getEmail() {
-    return email;
-};
+	return email;
+}
 
 std::string User::getLogin() {
-    return login;
-};
+	return login;
+}
 
 std::string User::getPassword() {
-    return password;
-};
+	return password;
+}
 
 int User::getIdUser() {
-    return idUser;
-};
+	return idUser;
+}
 
 void User::setAdm(bool _adm) {
-    adm = _adm;
-};
+	adm = _adm;
+}
 
 bool User::getAdm() {
-    return adm;
-};
+	return adm;
+}
 
 void User::setIdUser(int _idUser) {
-    idUser = _idUser;
-};
+	idUser = _idUser;
+}
 
 void User::setLoginSenha(std::string _login, std::string _senha) {
-    login = _login;
-    password = _senha;
-};
+	login = _login;
+	password = _senha;
+}
