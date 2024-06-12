@@ -39,3 +39,11 @@ void User::setLoginSenha(std::string _login, std::string _senha) {
 	login = _login;
 	password = _senha;
 }
+
+void User::setBanido(bool _banido) {
+	banido = _banido;
+}
+
+bool User::getBanido() {
+	return banido;
+}

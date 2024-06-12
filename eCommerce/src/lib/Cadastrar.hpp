@@ -2,8 +2,9 @@
 #define CADASTRAR_HPP
 #include <vector>
 #include "User.hpp"
+#include "Anuncio.hpp"
 
 namespace Cadastrar {
-	void Cadastrar(std::vector<User*>& users, int &contUser);
+	void Cadastrar(std::vector<User*>& users, int &contUser, std::vector<Anuncio*>& anuncios);
 };
 #endif

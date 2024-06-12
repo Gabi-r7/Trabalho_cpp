@@ -3,10 +3,10 @@
 #include <iostream>
 #include "Cadastrar.hpp"
 #include "Logar.hpp"
+#include "Anuncio.hpp"
 
-void InicializaSistema::InicializaSistema(std::vector<User*>& users, int &contUser) {
+void InicializaSistema::InicializaSistema(std::vector<User*>& users, int &contUser, std::vector<Anuncio*>& anuncios) {
     int aux;
-
     std::cout << "Bem vindo ao sistema de vendas Duzhomi!" << std::endl;
     do {
         std::cout << "Digite\n- 0 para sair\n- 1 para Logar\n- 2 para criar uma conta\nDigite sua opcao: ";
@@ -19,10 +19,10 @@ void InicializaSistema::InicializaSistema(std::vector<User*>& users, int &contUs
         std::cout << "Ate mais!";
         break;
     case 1:
-        Logar::Logar(users, contUser);
+        Logar::Logar(users, contUser, anuncios);
         break;
     case 2:
-        Cadastrar::Cadastrar(users, contUser);
+        Cadastrar::Cadastrar(users, contUser, anuncios);
         break;
     default:
         break;

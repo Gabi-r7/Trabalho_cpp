@@ -2,9 +2,11 @@
 #include <iostream>
 #include <vector>
 #include "User.hpp"
+#include "Anuncio.hpp"
+#include "Acoes.hpp"
 
 
-void Logar::Logar(std::vector<User*>& users, int &contUser) {
+void Logar::Logar(std::vector<User*>& users, int &contUser, std::vector<Anuncio*>& anuncios) {
     std::string login, password;
     bool aux = false;
     std::cout << "\nFaca seu login!" << std::endl;
@@ -23,7 +25,7 @@ void Logar::Logar(std::vector<User*>& users, int &contUser) {
                     std::cout << "Voce logou como um usuario comum!" << std::endl;
                 }
                 aux = true;
-                Acoes::Acoes(user->getIdUser(), users, contUser);
+                Acoes::Acoes(user->getIdUser(), users, contUser, anuncios);
             }
         }
         if (aux) {

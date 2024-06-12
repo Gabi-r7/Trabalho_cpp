@@ -25,12 +25,15 @@ public:
 
     void setLoginSenha(std::string _login, std::string _senha);
 
+    void setBanido(bool _banido);
+
+    bool getBanido();
 	
 protected:
     std::string email = "a";
     std::string login = "a";
     std::string password = "a";
     int idUser = 0;
-    bool adm;
+    bool adm, banido = false;
 };
 #endif
