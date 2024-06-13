@@ -52,4 +52,3 @@ int Produto::getIdAnuncio() {
 bool Produto::getDisponibilidade() {
 	return disponibilidade;
 };
-

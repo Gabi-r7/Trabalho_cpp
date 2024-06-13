@@ -15,7 +15,9 @@ public:
 	void setDescricao(std::string descricao);
 	void setIdAnuncio(int idAnuncio);
 	void setDisponibilidade(bool disponibilidade);
+	void setIdUser(int idUser);
 
+	int getIdUser();
 	int getIdAnuncio();
 	bool getDisponibilidade();
 	std::string getNome();
@@ -25,7 +27,7 @@ public:
 	private:
 		std::string descricao, autor, nome;
 		float preco;
-		int idAnuncio;
+		int idAnuncio, idUser;
 		bool disponibilidade;
 };
 #endif

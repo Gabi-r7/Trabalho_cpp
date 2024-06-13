@@ -1,6 +1,9 @@
 #ifndef USER_HPP
 #define USER_HPP
 #include <iostream>
+#include <vector>
+#include "Anuncio.hpp"
+#include "Produto.hpp"
 
 class User {
 public:
@@ -28,6 +31,14 @@ public:
     void setBanido(bool _banido);
 
     bool getBanido();
+
+    bool comprarProduto(int idUser, std::vector<User*>& users, int& contUser, std::vector<Anuncio*>& anuncios, std::vector<Produto*>& produtos);
+
+    void mostrarSeusAnuncios(std::vector<Anuncio*>& anuncios, int idUser);
+
+    void adicionarAnuncio(std::vector<Anuncio*>& anuncios, std::vector<User*>& users, int idUser, std::vector<Produto*>& produtos);
+
+
 	
 protected:
     std::string email = "a";

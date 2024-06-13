@@ -60,11 +60,11 @@ void Anuncio::verAnuncios(std::vector<Anuncio*> anuncios) {
 			std::cout << "Anuncio " << anuncios.at(i)->getIdAnuncio() << std::endl;
 			std::cout << "Nome: " << anuncios.at(i)->getNome() << std::endl;
 			std::cout << "Autor: " << anuncios.at(i)->getAutor() << std::endl;
-			std::cout << "Preço: " << anuncios.at(i)->getPreco() << std::endl;
+			std::cout << "Preco: " << anuncios.at(i)->getPreco() << std::endl;
 			//quantidade
-			std::cout << "Descrição: " << anuncios.at(i)->getDescricao() << std::endl;
+			std::cout << "Descricao: " << anuncios.at(i)->getDescricao() << std::endl;
 			totalDisp++;
 		}
 	}
-	std::cout << "Anuncios Disponíveis: " << totalDisp << std::endl;
+	std::cout << "Anuncios Disponiveis: " << totalDisp << std::endl;
 };

@@ -1,4 +1,9 @@
 #include "User.hpp"
+#include <vector>
+#include <iostream>
+#include "Anuncio.hpp"
+class User;
+class Produto;
 
 User::User() {};
 User::~User() {};
@@ -46,4 +51,66 @@ void User::setBanido(bool _banido) {
 
 bool User::getBanido() {
 	return banido;
+}
+
+bool User::comprarProduto(int idUser, std::vector<User*>& users, int& contUser, std::vector<Anuncio*>& anuncios, std::vector<Produto*>& produtos) {
+	int aux = 0;
+	Anuncio anuncio;
+	anuncio.verAnuncios(anuncios);
+	std::cout << "Digite o id do anuncio que deseja comprar: ";
+	std::cin >> aux;
+	if (aux < 0 || aux >= anuncios.size()) {
+		std::cout << "Anuncio nao encontrado!" << std::endl;
+		return false;
+	}
+	else {
+		if (anuncios.at(aux)->getDisponibilidade()) {
+			std::cout << "Anuncio ja vendido!" << std::endl;
+			return false;
+		}
+		else {
+			std::cout << "Compra realizada com sucesso!" << std::endl;
+			anuncios.at(aux)->setDisponibilidade(false);
+			return true;
+		}
+	}
+}
+
+void User::mostrarSeusAnuncios(std::vector<Anuncio*>& anuncios, int idUser) {
+	for (int i = 0; i < anuncios.size(); i++) {
+		if (anuncios.at(i)->getIdUser() == idUser) {
+			std::cout << "Anuncio " << anuncios.at(i)->getIdAnuncio() << std::endl;
+			std::cout << "Nome: " << anuncios.at(i)->getNome() << std::endl;
+			std::cout << "Autor: " << anuncios.at(i)->getAutor() << std::endl;
+			std::cout << "Preco: " << anuncios.at(i)->getPreco() << std::endl;
+			std::cout << "Descricao: " << anuncios.at(i)->getDescricao() << std::endl;
+			std::cout << "Disponibilidade: " << anuncios.at(i)->getDisponibilidade() << std::endl;
+		}
+	}
+}
+
+void User::adicionarAnuncio(std::vector<Anuncio*>& anuncios, std::vector<User*>& users, int idUser, std::vector<Produto*>& produtos) {
+	int aux = 0;
+	std::string nome, autor, descricao;
+	float preco;
+	bool existe = false;
+	for (int i = 0; i < produtos.size(); i++) {
+		if (produtos.at(i)->getIdVendedor() == idUser) {	
+			break;
+		}
+		else {
+			std::cout << "Voce nao possui produtos para anunciar!" << std::endl;
+			std::cout << "Adicione um produto antes de anunciar!" << std::endl;
+			//adicionarProduto();       - funcao que nao existe ainda
+		}
+	}
+	std::cout << "Digite o nome do anuncio: ";
+	std::cin >> nome;
+	std::cout << "Digite o autor do anuncio: ";
+	std::cin >> autor;
+	std::cout << "Digite a descricao do anuncio: ";
+	std::cin >> descricao;
+	std::cout << "Digite o preco: ";
+	std::cin >> preco;
+	// falta coisa aqui
 }
