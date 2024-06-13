@@ -52,7 +52,9 @@ bool User::getBanido() {
 	return banido;
 }
 
-bool User::comprarProduto(int idUser, std::vector<User*>& users, int& contUser, std::vector<Anuncio*>& anuncios, std::vector<Produto*>& produtos) {
+
+
+bool User::comprarProduto(int idUser, std::vector<User*>& users, std::vector<Anuncio*>& anuncios, std::vector<Produto*>& produtos) {
 	int aux = 0;
 	Anuncio anuncio;
 	anuncio.verAnuncios(anuncios);
@@ -88,14 +90,15 @@ void User::mostrarSeusAnuncios(std::vector<Anuncio*>& anuncios, int idUser) {
 	}
 }
 
-void User::adicionarAnuncio(std::vector<Anuncio*>& anuncios, std::vector<User*>& users, int idUser, std::vector<Produto*>& produtos) {
-	int aux = 0;
+void User::adicionarAnuncio(std::vector<Anuncio*>& anuncios, int &contAnuncio, std::vector<User*>& users, int idUser, std::vector<Produto*>& produtos) {
+	int aux = 0, aux1;
 	std::string nome, autor, descricao;
 	float preco;
 	bool existe = false;
 	for (int i = 0; i < produtos.size(); i++) {
 		if (produtos.at(i)->getIdVendedor() == idUser) { //verifica se o usuario possui produtos
-			std::cout << "Voce possui produtos para anunciar!" << std::endl;
+			mostrarSeusProdutos(produtos, idUser);
+			std::cout << "Digite o id do produto que deseja anunciar: ";
 			existe = true;
 			break;
 		}
@@ -103,18 +106,93 @@ void User::adicionarAnuncio(std::vector<Anuncio*>& anuncios, std::vector<User*>&
 	if (!existe) {
 		std::cout << "Voce nao possui produtos para anunciar!" << std::endl;
 		std::cout << "Adicione um produto antes de anunciar!" << std::endl;
-		//adicionarProduto();       - funcao que nao existe ainda
-
+		std::cout << "Deseja adicionar um produto agora?" << std::endl;
+		std::cout << "1 - Sim" << std::endl;
+		std::cout << "2 - Nao" << std::endl;
+		std::cin >> aux;
+		if (aux == 1) {
+			adicionarProduto(produtos, contAnuncio, idUser);
+			adicionarAnuncio(anuncios, contAnuncio, users, idUser, produtos);
+		}
+		else {
+			return;
+		}
 	}
 	else {
+		mostrarSeusProdutos(produtos, idUser);
+		while (true) {
+			std::cout << "Digite o id do produto que deseja anunciar: ";
+			std::cin >> aux1;
+			if (aux1 < 0 || aux1 >= produtos.size()) {
+				std::cout << "Produto nao encontrado!" << std::endl;
+				continue;
+			}
+			else {
+				break;
+			}
+		}
 		std::cout << "Digite o nome do anuncio: ";
 		std::cin >> nome;
-		std::cout << "Digite o autor do anuncio: ";
-		std::cin >> autor;
 		std::cout << "Digite a descricao do anuncio: ";
 		std::cin >> descricao;
-		std::cout << "Digite o preco: ";
+		Anuncio* newAnuncio = new Anuncio();
+		newAnuncio->setNome(nome);
+		newAnuncio->setAutor(users.at(idUser)->getLogin());
+		newAnuncio->setDescricao(descricao);
+		newAnuncio->setPreco(produtos.at(aux1)->getPreco());
+		newAnuncio->setIdVendedor(idUser);
+		newAnuncio->setIdProduto(aux1);
+		newAnuncio->setIdAnuncio(contAnuncio);
+		contAnuncio++;
+		anuncios.push_back(newAnuncio);
+	}
+}
+
+void User::adicionarProduto(std::vector<Produto*>& produtos, int &contProduto, int idUser) {
+	std::string nome, categoria;
+	float preco;
+	int quantidade;
+	while (true) {
+		std::cout << "Digite o nome do produto: ";
+		std::cin >> nome;
+		std::cout << "Digite a categoria do produto: ";
+		std::cin >> categoria;
+		std::cout << "Digite o preco do produto: ";
 		std::cin >> preco;
-		// falta coisa aqui
+		if (preco <= 0) {
+			std::cout << "Preco invalido!" << std::endl;
+			continue;
+		}
+		std::cout << "Digite a quantidade do produto em estoque: ";
+		std::cin >> quantidade;
+		if (quantidade <= 0) {
+			std::cout << "Quantidade invalida!" << std::endl;
+			continue;
+		}
+		Produto* newProduto = new Produto();
+		newProduto->setNome(nome);
+		newProduto->setCategoria(categoria);
+		newProduto->setPreco(preco);
+		newProduto->setQuantidade(quantidade);
+		newProduto->setIdVendedor(idUser);
+		newProduto->setIdProduto(contProduto);
+		produtos.push_back(newProduto);
+		std::cout << "Produto adicionado com sucesso!" << std::endl;
+		contProduto++;
+		break;
+		//terminar
+	}
+}
+
+void User::mostrarSeusProdutos(std::vector<Produto*>& produtos, int idUser) {
+	for (int i = 0; i < produtos.size(); i++) {
+		if (produtos.at(i)->getIdVendedor() == idUser) {
+			std::cout << "Produto " << produtos.at(i)->getIdProduto() << std::endl;
+			std::cout << "Nome: " << produtos.at(i)->getNome() << std::endl;
+			std::cout << "Categoria: " << produtos.at(i)->getCategoria() << std::endl;
+			std::cout << "Preco: " << produtos.at(i)->getPreco() << std::endl;
+			std::cout << "Quantidade: " << produtos.at(i)->getQuantidade() << std::endl;
+			std::cout << "Disponibilidade: " << produtos.at(i)->getDisponibilidade() << std::endl;
+		}
 	}
 }

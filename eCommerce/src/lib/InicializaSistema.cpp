@@ -5,7 +5,7 @@
 #include "Logar.hpp"
 #include "Anuncio.hpp"
 
-void InicializaSistema::InicializaSistema(std::vector<User*>& users, int &contUser, std::vector<Anuncio*>& anuncios, std::vector<Produto*>& produtos) {
+void InicializaSistema::InicializaSistema(std::vector<User*>& users, int &contUser, std::vector<Anuncio*>& anuncios, int &contAnuncio, std::vector<Produto*>& produtos, int &contProduto) {
     int aux;
     std::cout << "Bem vindo ao sistema de vendas Duzhomi!" << std::endl;
     do {
@@ -19,10 +19,10 @@ void InicializaSistema::InicializaSistema(std::vector<User*>& users, int &contUs
         std::cout << "Ate mais!";
         break;
     case 1:
-        Logar::Logar(users, contUser, anuncios,produtos);
+        Logar::Logar(users, contUser, anuncios, contAnuncio, produtos, contProduto);
         break;
     case 2:
-        Cadastrar::Cadastrar(users, contUser, anuncios,produtos);
+        Cadastrar::Cadastrar(users, contUser, anuncios, contAnuncio, produtos, contProduto);
         break;
     default:
         break;

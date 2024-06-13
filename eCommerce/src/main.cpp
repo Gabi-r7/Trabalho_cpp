@@ -28,8 +28,10 @@ int main() {
 	std::vector<Anuncio*> anuncios;
 	std::vector<Produto*> produtos;
 	int contUser = 0;
+	int contAnuncio = 0;
+	int contProduto = 0;
 	CriarAnuncios(anuncios);
-	InicializaSistema::InicializaSistema(users, contUser, anuncios,produtos);
+	InicializaSistema::InicializaSistema(users, contUser, anuncios, contAnuncio, produtos, contProduto);
 
 
 	return 0;

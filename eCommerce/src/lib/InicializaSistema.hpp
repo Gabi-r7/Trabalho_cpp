@@ -6,6 +6,6 @@ class Anuncio;
 class Produto;
 
 namespace InicializaSistema {
-	void InicializaSistema(std::vector<User*>& users, int &contUser, std::vector<Anuncio*>& anuncios, std::vector<Produto*>& produtos);
+	void InicializaSistema(std::vector<User*>& users, int &contUser, std::vector<Anuncio*>& anuncios, int &contAnuncios, std::vector<Produto*>& produtos, int &contProduto);
 }
 #endif

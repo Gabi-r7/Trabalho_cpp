@@ -6,6 +6,6 @@
 #include "Produto.hpp"
 
 namespace Cadastrar {
-	void Cadastrar(std::vector<User*>& users, int &contUser, std::vector<Anuncio*>& anuncios, std::vector<Produto*>& produtos);
+	void Cadastrar(std::vector<User*>& users, int &contUser, std::vector<Anuncio*>& anuncios, int &contAnuncio, std::vector<Produto*>& produtos, int &contProduto);
 };
 #endif

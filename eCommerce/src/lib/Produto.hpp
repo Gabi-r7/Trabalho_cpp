@@ -13,21 +13,23 @@ public:
 	void setIdVendedor(int idVendedor);
 	void setPreco(float preco);
 	void setQuantidade(int quantidade);
-	void setIdAnuncio(int idAnuncio);
+	void setIdProduto(int idProduto);
 	void setDisponibilidade(bool disponibilidade);
+	void setCategoria(std::string categoria);
 
+	std::string getCategoria();
 	std::string getNome();
 	int getIdVendedor();
 	float getPreco();
 	int getQuantidade();
-	int getIdAnuncio();
+	int getIdProduto();
 	bool getDisponibilidade();
 
 
 	private:
 		float preco;
-		std::string nome;
-		int quantidade, idAnuncio, idVendedor;
+		std::string nome, categoria;
+		int quantidade, idProduto, idVendedor;
 		bool disponibilidade;
 };
 #endif

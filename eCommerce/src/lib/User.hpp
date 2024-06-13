@@ -32,11 +32,15 @@ public:
 
     bool getBanido();
 
-    bool comprarProduto(int idUser, std::vector<User*>& users, int& contUser, std::vector<Anuncio*>& anuncios, std::vector<Produto*>& produtos);
+    bool comprarProduto(int idUser, std::vector<User*>& users, std::vector<Anuncio*>& anuncios, std::vector<Produto*>& produtos);
 
     void mostrarSeusAnuncios(std::vector<Anuncio*>& anuncios, int idUser);
 
-    void adicionarAnuncio(std::vector<Anuncio*>& anuncios, std::vector<User*>& users, int idUser, std::vector<Produto*>& produtos);
+    void adicionarAnuncio(std::vector<Anuncio*>& anuncios, int &contAnuncio, std::vector<User*>& users, int idUser, std::vector<Produto*>& produtos);
+
+    void adicionarProduto(std::vector<Produto*>& produtos, int &contProduto, int idUser);
+
+    void mostrarSeusProdutos(std::vector<Produto*>& produtos, int idUser);
 
 
 	

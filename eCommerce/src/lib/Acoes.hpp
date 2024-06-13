@@ -6,6 +6,6 @@ class Anuncio;
 class Produto;
 
 namespace Acoes {
-	void Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vector<Anuncio*>& anuncios, std::vector<Produto*>& produtos);
+	void Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vector<Anuncio*>& anuncios, int &contAnuncio, std::vector<Produto*>& produtos, int &contProduto);
 }
 #endif

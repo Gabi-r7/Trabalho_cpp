@@ -19,10 +19,16 @@ void Produto::setPreco(float _preco) {
 
 void Produto::setQuantidade(int _quantidade) {
 	quantidade = _quantidade;
+	if (quantidade == 0) {
+		disponibilidade = false;
+	}
+	else {
+		disponibilidade = true;
+	}
 };
 
-void Produto::setIdAnuncio(int _idAnuncio) {
-	idAnuncio = _idAnuncio;
+void Produto::setIdProduto(int _idProduto) {
+	idProduto = _idProduto;
 };
 
 void Produto::setDisponibilidade(bool _disponibilidade) {
@@ -45,10 +51,18 @@ int Produto::getQuantidade() {
 	return quantidade;
 };
 
-int Produto::getIdAnuncio() {
-	return idAnuncio;
+int Produto::getIdProduto() {
+	return idProduto;
 };
 
 bool Produto::getDisponibilidade() {
 	return disponibilidade;
+};
+
+void Produto::setCategoria(std::string _categoria) {
+	categoria = _categoria;
+};
+
+std::string Produto::getCategoria() {
+	return categoria;
 };

@@ -5,7 +5,7 @@
 #include "Anuncio.hpp"
 #include "Produto.hpp"
 
-void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vector<Anuncio*>& anuncios, std::vector<Produto*>& produtos) {
+void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vector<Anuncio*>& anuncios, int &contAnuncio, std::vector<Produto*>& produtos, int &contProduto) {
 	Anuncio anuncio;
 	User user;
 	bool adm = users.at(idUser)->getAdm();
@@ -45,10 +45,10 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 					}
 					else if (aux1 == 1) { // todos anuncios
 						anuncio.verAnuncios(anuncios);
+						//falta quantidade na funcao ^^^
 					}
 					else if (aux1 == 2) {
-						user.comprarProduto(idUser, users, contUser, anuncios,produtos);
-						// falta coisa aqui
+						user.comprarProduto(idUser, users, anuncios, produtos);
 					}
 				}
 			}
@@ -66,11 +66,12 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 					if (aux2 == 0) { // sair op2
 						break;
 					}
-					else if (aux2 == 1) {
+					else if (aux2 == 1) { // ver seus anuncios
 						user.mostrarSeusAnuncios(anuncios, idUser);
 					}
 					else if (aux2 == 2) {
-						user.adicionarAnuncio(anuncios, users, idUser, produtos);
+						user.adicionarAnuncio(anuncios, contAnuncio, users, idUser, produtos);
+						// falta coisa aqui (depende das funcoes do produto)
 					}
 					else if (aux2 == 3) {
 						// Editar um anuncio
@@ -82,7 +83,7 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 			}
 			else if (aux == 3) { // Seus produtos
 				int aux3 = 0;
-				do {
+				while (true) {
 					std::cout << "O que deseja fazer?" << std::endl;
 					std::cout << "0 - Voltar" << std::endl;
 					std::cout << "1 - Ver seus produtos" << std::endl;
@@ -91,14 +92,28 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 					std::cout << "4 - Deletar um produto" << std::endl;
 					std::cout << "Opcao: ";
 					std::cin >> aux3;
+					if (aux3 == 0) { // sair op3
+						break;
+					}
+					else if (aux3 == 1) { // ver seus produtos
+						user.mostrarSeusProdutos(produtos, idUser);
+					}
+					else if (aux3 == 2) {
+						user.adicionarProduto(produtos, contProduto, idUser);
+					}
+					else if (aux3 == 3) {
+						// Editar um produto
+					}
+					else if (aux3 == 4) {
+						// Deletar um produto
+					}
+					
 
-					// falta terminar
-
-				} while (aux3 != 0);
 
 
 
 
+				}
 			}
 			else if (!adm) {
 				std::cout << "Opcao invalida" << std::endl;
