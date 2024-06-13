@@ -2,10 +2,9 @@
 #include <vector>
 #include <iostream>
 #include "Anuncio.hpp"
-class User;
-class Produto;
+#include "Produto.hpp"
 
-User::User() {};
+User::User() : adm(false) {};
 User::~User() {};
 
 void User::setEmail(std::string _email) {
@@ -78,7 +77,7 @@ bool User::comprarProduto(int idUser, std::vector<User*>& users, int& contUser, 
 
 void User::mostrarSeusAnuncios(std::vector<Anuncio*>& anuncios, int idUser) {
 	for (int i = 0; i < anuncios.size(); i++) {
-		if (anuncios.at(i)->getIdUser() == idUser) {
+		if (anuncios.at(i)->getIdVendedor() == idUser) {
 			std::cout << "Anuncio " << anuncios.at(i)->getIdAnuncio() << std::endl;
 			std::cout << "Nome: " << anuncios.at(i)->getNome() << std::endl;
 			std::cout << "Autor: " << anuncios.at(i)->getAutor() << std::endl;
@@ -95,22 +94,27 @@ void User::adicionarAnuncio(std::vector<Anuncio*>& anuncios, std::vector<User*>&
 	float preco;
 	bool existe = false;
 	for (int i = 0; i < produtos.size(); i++) {
-		if (produtos.at(i)->getIdVendedor() == idUser) {	
+		if (produtos.at(i)->getIdVendedor() == idUser) { //verifica se o usuario possui produtos
+			std::cout << "Voce possui produtos para anunciar!" << std::endl;
+			existe = true;
 			break;
 		}
-		else {
-			std::cout << "Voce nao possui produtos para anunciar!" << std::endl;
-			std::cout << "Adicione um produto antes de anunciar!" << std::endl;
-			//adicionarProduto();       - funcao que nao existe ainda
-		}
 	}
-	std::cout << "Digite o nome do anuncio: ";
-	std::cin >> nome;
-	std::cout << "Digite o autor do anuncio: ";
-	std::cin >> autor;
-	std::cout << "Digite a descricao do anuncio: ";
-	std::cin >> descricao;
-	std::cout << "Digite o preco: ";
-	std::cin >> preco;
-	// falta coisa aqui
+	if (!existe) {
+		std::cout << "Voce nao possui produtos para anunciar!" << std::endl;
+		std::cout << "Adicione um produto antes de anunciar!" << std::endl;
+		//adicionarProduto();       - funcao que nao existe ainda
+
+	}
+	else {
+		std::cout << "Digite o nome do anuncio: ";
+		std::cin >> nome;
+		std::cout << "Digite o autor do anuncio: ";
+		std::cin >> autor;
+		std::cout << "Digite a descricao do anuncio: ";
+		std::cin >> descricao;
+		std::cout << "Digite o preco: ";
+		std::cin >> preco;
+		// falta coisa aqui
+	}
 }

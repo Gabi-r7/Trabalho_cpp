@@ -3,6 +3,7 @@
 #include "Acoes.hpp"	
 #include "User.hpp"
 #include "Anuncio.hpp"
+#include "Produto.hpp"
 
 void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vector<Anuncio*>& anuncios, std::vector<Produto*>& produtos) {
 	Anuncio anuncio;
@@ -47,6 +48,7 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 					}
 					else if (aux1 == 2) {
 						user.comprarProduto(idUser, users, contUser, anuncios,produtos);
+						// falta coisa aqui
 					}
 				}
 			}
@@ -68,7 +70,7 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 						user.mostrarSeusAnuncios(anuncios, idUser);
 					}
 					else if (aux2 == 2) {
-						user.adicionarAnuncio(anuncios, users, idUser,produtos);
+						user.adicionarAnuncio(anuncios, users, idUser, produtos);
 					}
 					else if (aux2 == 3) {
 						// Editar um anuncio

@@ -53,6 +53,22 @@ bool Anuncio::getDisponibilidade() {
 	return disponibilidade;
 };
 
+void Anuncio::setIdVendedor(int _idVendedor) {
+	idVendedor = _idVendedor;
+};
+
+int Anuncio::getIdVendedor() {
+	return idVendedor;
+};
+
+void Anuncio::setIdProduto(int _idProduto) {
+	idProduto = _idProduto;
+};
+
+int Anuncio::getIdProduto() {
+	return idProduto;
+};
+
 void Anuncio::verAnuncios(std::vector<Anuncio*> anuncios) {
 	int totalDisp = 0;
 	for (int i = 0; i < anuncios.size(); i++) {
