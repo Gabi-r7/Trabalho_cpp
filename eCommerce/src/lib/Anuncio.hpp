@@ -2,12 +2,13 @@
 #define ANUNCIO_HPP
 #include <vector>
 #include <iostream>
+#include "Produto.hpp"
 
 class Anuncio {
 public:
 	Anuncio();
 	~Anuncio();
-	void verAnuncios(std::vector<Anuncio*> usuarios);
+	void verAnuncios(std::vector<Anuncio*>& usuarios, std::vector<Produto*>& produtos);
 
 	void setNome(std::string nome);
 	void setAutor(std::string autor);

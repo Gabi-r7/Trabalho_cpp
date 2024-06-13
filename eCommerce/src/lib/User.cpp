@@ -57,48 +57,65 @@ bool User::getBanido() {
 bool User::comprarProduto(int idUser, std::vector<User*>& users, std::vector<Anuncio*>& anuncios, std::vector<Produto*>& produtos) {
 	int aux = 0;
 	Anuncio anuncio;
-	anuncio.verAnuncios(anuncios);
-	std::cout << "Digite o id do anuncio que deseja comprar: ";
-	std::cin >> aux;
-	if (aux < 0 || aux >= anuncios.size()) {
-		std::cout << "Anuncio nao encontrado!" << std::endl;
+	anuncio.verAnuncios(anuncios, produtos);
+	if (anuncios.size() == 0) {
+		std::cout << "Nao ha anuncios disponiveis!" << std::endl;
 		return false;
 	}
 	else {
-		if (anuncios.at(aux)->getDisponibilidade()) {
-			std::cout << "Anuncio ja vendido!" << std::endl;
+		std::cout << "Digite o id do anuncio que deseja comprar: ";
+		std::cin >> aux;
+		if (aux < 0 || aux >= anuncios.size()) {
+			std::cout << "Anuncio nao encontrado!" << std::endl;
 			return false;
 		}
 		else {
-			std::cout << "Compra realizada com sucesso!" << std::endl;
-			anuncios.at(aux)->setDisponibilidade(false);
-			return true;
+			if (!anuncios.at(aux)->getDisponibilidade()) {
+				std::cout << "Anuncio ja vendido!" << std::endl;
+				return false;
+			}
+			else {
+				std::cout << "Compra realizada com sucesso!" << std::endl;
+				if (produtos.at(anuncios.at(aux)->getIdProduto())->getQuantidade() <= 1) {
+					anuncios.at(aux)->setDisponibilidade(false);
+				}
+				else {
+					produtos.at(anuncios.at(aux)->getIdProduto())->setQuantidade(produtos.at(anuncios.at(aux)->getIdProduto())->getQuantidade() - 1);
+				}
+				return true;
+			}
 		}
 	}
 }
 
-void User::mostrarSeusAnuncios(std::vector<Anuncio*>& anuncios, int idUser) {
-	for (int i = 0; i < anuncios.size(); i++) {
-		if (anuncios.at(i)->getIdVendedor() == idUser) {
-			std::cout << "Anuncio " << anuncios.at(i)->getIdAnuncio() << std::endl;
-			std::cout << "Nome: " << anuncios.at(i)->getNome() << std::endl;
-			std::cout << "Autor: " << anuncios.at(i)->getAutor() << std::endl;
-			std::cout << "Preco: " << anuncios.at(i)->getPreco() << std::endl;
-			std::cout << "Descricao: " << anuncios.at(i)->getDescricao() << std::endl;
-			std::cout << "Disponibilidade: " << anuncios.at(i)->getDisponibilidade() << std::endl;
+void User::mostrarSeusItens(std::vector<Anuncio*>& anuncios, int idUser) {
+	if (anuncios.size() == 0) {
+		std::cout << "Voce nao possui anuncios!" << std::endl;
+		return;
+	}
+	else {
+		for (int i = 0; i < anuncios.size(); i++) {
+			if (anuncios.at(i)->getIdVendedor() == idUser) {
+				std::cout << "------------------------------------------" << std::endl;
+				std::cout << "Anuncio " << anuncios.at(i)->getIdAnuncio() << std::endl;
+				std::cout << "Nome: " << anuncios.at(i)->getNome() << std::endl;
+				std::cout << "Autor: " << anuncios.at(i)->getAutor() << std::endl;
+				std::cout << "Preco: " << anuncios.at(i)->getPreco() << std::endl;
+				std::cout << "Descricao: " << anuncios.at(i)->getDescricao() << std::endl;
+				std::cout << "Disponibilidade: " << anuncios.at(i)->getDisponibilidade() << std::endl;
+			}
 		}
+		std::cout << "------------------------------------------" << std::endl;
 	}
 }
 
-void User::adicionarAnuncio(std::vector<Anuncio*>& anuncios, int &contAnuncio, std::vector<User*>& users, int idUser, std::vector<Produto*>& produtos) {
+void User::adicionarItens(std::vector<Anuncio*>& anuncios, int &contAnuncio, std::vector<User*>& users, int idUser, std::vector<Produto*>& produtos) {
 	int aux = 0, aux1;
 	std::string nome, autor, descricao;
 	float preco;
 	bool existe = false;
 	for (int i = 0; i < produtos.size(); i++) {
 		if (produtos.at(i)->getIdVendedor() == idUser) { //verifica se o usuario possui produtos
-			mostrarSeusProdutos(produtos, idUser);
-			std::cout << "Digite o id do produto que deseja anunciar: ";
 			existe = true;
 			break;
 		}
@@ -111,15 +128,15 @@ void User::adicionarAnuncio(std::vector<Anuncio*>& anuncios, int &contAnuncio, s
 		std::cout << "2 - Nao" << std::endl;
 		std::cin >> aux;
 		if (aux == 1) {
-			adicionarProduto(produtos, contAnuncio, idUser);
-			adicionarAnuncio(anuncios, contAnuncio, users, idUser, produtos);
+			adicionarItens(produtos, contAnuncio, idUser);
+			adicionarItens(anuncios, contAnuncio, users, idUser, produtos);
 		}
 		else {
 			return;
 		}
 	}
 	else {
-		mostrarSeusProdutos(produtos, idUser);
+		mostrarSeusItens(produtos, idUser);
 		while (true) {
 			std::cout << "Digite o id do produto que deseja anunciar: ";
 			std::cin >> aux1;
@@ -143,12 +160,62 @@ void User::adicionarAnuncio(std::vector<Anuncio*>& anuncios, int &contAnuncio, s
 		newAnuncio->setIdVendedor(idUser);
 		newAnuncio->setIdProduto(aux1);
 		newAnuncio->setIdAnuncio(contAnuncio);
+		newAnuncio->setDisponibilidade(true);
+		std::cout << "Anuncio adicionado com sucesso!" << std::endl;
 		contAnuncio++;
 		anuncios.push_back(newAnuncio);
 	}
 }
 
-void User::adicionarProduto(std::vector<Produto*>& produtos, int &contProduto, int idUser) {
+void User::deletarItens(std::vector<Anuncio*>& anuncios, int idUser) {
+	int aux;
+	mostrarSeusItens(anuncios, idUser);
+	if (anuncios.size() == 0) {
+		std::cout << "Voce nao possui anuncios!" << std::endl;
+		return;
+	}
+	else {
+		while (true) {
+			std::cout << "Digite o id do anuncio que deseja deletar: ";
+			std::cin >> aux;
+			if (aux < 0 || aux >= anuncios.size()) {
+				std::cout << "Anuncio nao encontrado!" << std::endl;
+				continue;
+			}
+			else {
+				break;
+			}
+		}
+		anuncios.erase(anuncios.begin() + aux);
+		std::cout << "Anuncio deletado com sucesso!" << std::endl;
+	}
+}
+
+void User::deletarItens(std::vector<Produto*>& produtos, int idUser) {
+	int aux;
+	mostrarSeusItens(produtos, idUser);
+	if (produtos.size() == 0) {
+		std::cout << "Voce nao possui anuncios!" << std::endl;
+		return;
+	}
+	else {
+		while (true) {
+			std::cout << "Digite o id do Produto que deseja deletar: ";
+			std::cin >> aux;
+			if (aux < 0 || aux >= produtos.size()) {
+				std::cout << "Produto nao encontrado!" << std::endl;
+				continue;
+			}
+			else {
+				break;
+			}
+		}
+		produtos.erase(produtos.begin() + aux);
+		std::cout << "Produto deletado com sucesso!" << std::endl;
+	}
+}
+
+void User::adicionarItens(std::vector<Produto*>& produtos, int &contProduto, int idUser) {
 	std::string nome, categoria;
 	float preco;
 	int quantidade;
@@ -180,19 +247,26 @@ void User::adicionarProduto(std::vector<Produto*>& produtos, int &contProduto, i
 		std::cout << "Produto adicionado com sucesso!" << std::endl;
 		contProduto++;
 		break;
-		//terminar
 	}
 }
 
-void User::mostrarSeusProdutos(std::vector<Produto*>& produtos, int idUser) {
-	for (int i = 0; i < produtos.size(); i++) {
-		if (produtos.at(i)->getIdVendedor() == idUser) {
-			std::cout << "Produto " << produtos.at(i)->getIdProduto() << std::endl;
-			std::cout << "Nome: " << produtos.at(i)->getNome() << std::endl;
-			std::cout << "Categoria: " << produtos.at(i)->getCategoria() << std::endl;
-			std::cout << "Preco: " << produtos.at(i)->getPreco() << std::endl;
-			std::cout << "Quantidade: " << produtos.at(i)->getQuantidade() << std::endl;
-			std::cout << "Disponibilidade: " << produtos.at(i)->getDisponibilidade() << std::endl;
+void User::mostrarSeusItens(std::vector<Produto*>& produtos, int idUser) {
+	if (produtos.size() == 0) {
+		std::cout << "Voce nao possui produtos!" << std::endl;
+		return;
+	}
+	else {
+		for (int i = 0; i < produtos.size(); i++) {
+			if (produtos.at(i)->getIdVendedor() == idUser) {
+				std::cout << "------------------------------------------" << std::endl;
+				std::cout << "Produto " << produtos.at(i)->getIdProduto() << std::endl;
+				std::cout << "Nome: " << produtos.at(i)->getNome() << std::endl;
+				std::cout << "Categoria: " << produtos.at(i)->getCategoria() << std::endl;
+				std::cout << "Preco: " << produtos.at(i)->getPreco() << std::endl;
+				std::cout << "Quantidade: " << produtos.at(i)->getQuantidade() << std::endl;
+				std::cout << "Disponibilidade: " << produtos.at(i)->getDisponibilidade() << std::endl;
+			}
 		}
+		std::cout << "------------------------------------------" << std::endl;
 	}
 }

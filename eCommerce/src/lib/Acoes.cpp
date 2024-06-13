@@ -16,7 +16,7 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 			break;
 		}
 		else {
-			std::cout << "\nO que deseja fazer?" << std::endl;
+			std::cout << "\n---------- MENU PRINCIPAL ----------" << std::endl;
 			std::cout << "0 - Sair" << std::endl;
 			std::cout << "1 - Anuncios disponiveis" << std::endl;
 			std::cout << "2 - Seus anuncios" << std::endl;
@@ -34,7 +34,7 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 			else if (aux == 1) {
 				int aux1 = 0;
 				while (true) { // menu de Anuncios
-					std::cout << "O que deseja fazer?" << std::endl;
+					std::cout << "\n---------- ANUNCIOS DA COMUNIDADE ----------" << std::endl;
 					std::cout << "0 - Voltar" << std::endl;
 					std::cout << "1 - Ver todos os anuncios disponiveis" << std::endl;
 					std::cout << "2 - Realizar uma compra" << std::endl;
@@ -44,18 +44,18 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 						break;
 					}
 					else if (aux1 == 1) { // todos anuncios
-						anuncio.verAnuncios(anuncios);
-						//falta quantidade na funcao ^^^
+						anuncio.verAnuncios(anuncios, produtos);
 					}
 					else if (aux1 == 2) {
 						user.comprarProduto(idUser, users, anuncios, produtos);
+						// adicionar verificações
 					}
 				}
 			}
 			else if (aux == 2) {
 				int aux2 = 0;
 				while (true) {
-					std::cout << "O que deseja fazer?" << std::endl;
+					std::cout << "\n---------- SEUS ANUNCIOS ----------" << std::endl;
 					std::cout << "0 - Voltar" << std::endl;
 					std::cout << "1 - Ver seus anuncios" << std::endl;
 					std::cout << "2 - Adicionar um anuncio" << std::endl;
@@ -67,24 +67,24 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 						break;
 					}
 					else if (aux2 == 1) { // ver seus anuncios
-						user.mostrarSeusAnuncios(anuncios, idUser);
+						user.mostrarSeusItens(anuncios, idUser);
 					}
 					else if (aux2 == 2) {
-						user.adicionarAnuncio(anuncios, contAnuncio, users, idUser, produtos);
-						// falta coisa aqui (depende das funcoes do produto)
+						user.adicionarItens(anuncios, contAnuncio, users, idUser, produtos);
 					}
 					else if (aux2 == 3) {
 						// Editar um anuncio
 					}
 					else if (aux2 == 4) {
-						// Deletar um anuncio
+						user.deletarItens(anuncios, idUser);
+						// preciso testar
 					}
 				}
 			}
 			else if (aux == 3) { // Seus produtos
 				int aux3 = 0;
 				while (true) {
-					std::cout << "O que deseja fazer?" << std::endl;
+					std::cout << "\n---------- SEUS PRODUTOS ----------" << std::endl;
 					std::cout << "0 - Voltar" << std::endl;
 					std::cout << "1 - Ver seus produtos" << std::endl;
 					std::cout << "2 - Adicionar um produto" << std::endl;
@@ -96,23 +96,18 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 						break;
 					}
 					else if (aux3 == 1) { // ver seus produtos
-						user.mostrarSeusProdutos(produtos, idUser);
+						user.mostrarSeusItens(produtos, idUser);
 					}
 					else if (aux3 == 2) {
-						user.adicionarProduto(produtos, contProduto, idUser);
+						user.adicionarItens(produtos, contProduto, idUser);
 					}
 					else if (aux3 == 3) {
 						// Editar um produto
 					}
 					else if (aux3 == 4) {
-						// Deletar um produto
+						user.deletarItens(produtos, idUser);
+						// preciso testar
 					}
-					
-
-
-
-
-
 				}
 			}
 			else if (!adm) {

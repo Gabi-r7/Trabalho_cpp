@@ -34,13 +34,17 @@ public:
 
     bool comprarProduto(int idUser, std::vector<User*>& users, std::vector<Anuncio*>& anuncios, std::vector<Produto*>& produtos);
 
-    void mostrarSeusAnuncios(std::vector<Anuncio*>& anuncios, int idUser);
+    void adicionarItens(std::vector<Anuncio*>& anuncios, int &contAnuncio, std::vector<User*>& users, int idUser, std::vector<Produto*>& produtos);
 
-    void adicionarAnuncio(std::vector<Anuncio*>& anuncios, int &contAnuncio, std::vector<User*>& users, int idUser, std::vector<Produto*>& produtos);
+    void adicionarItens(std::vector<Produto*>& produtos, int &contProduto, int idUser);
 
-    void adicionarProduto(std::vector<Produto*>& produtos, int &contProduto, int idUser);
+    void mostrarSeusItens(std::vector<Anuncio*>& anuncios, int idUser);
 
-    void mostrarSeusProdutos(std::vector<Produto*>& produtos, int idUser);
+    void mostrarSeusItens(std::vector<Produto*>& produtos, int idUser);
+
+    void deletarItens(std::vector<Anuncio*>& anuncios, int idUser);
+
+    void deletarItens(std::vector<Produto*>& produtos, int idUser);
 
 
 	

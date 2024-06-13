@@ -69,16 +69,17 @@ int Anuncio::getIdProduto() {
 	return idProduto;
 };
 
-void Anuncio::verAnuncios(std::vector<Anuncio*> anuncios) {
+void Anuncio::verAnuncios(std::vector<Anuncio*>& anuncios, std::vector<Produto*>& produtos) {
 	int totalDisp = 0;
 	for (int i = 0; i < anuncios.size(); i++) {
 		if (anuncios.at(i)->getDisponibilidade()) {
 			std::cout << "Anuncio " << anuncios.at(i)->getIdAnuncio() << std::endl;
 			std::cout << "Nome: " << anuncios.at(i)->getNome() << std::endl;
-			std::cout << "Autor: " << anuncios.at(i)->getAutor() << std::endl;
-			std::cout << "Preco: " << anuncios.at(i)->getPreco() << std::endl;
-			//quantidade
+			std::cout << "Categoria: " << produtos.at(anuncios.at(i)->getIdProduto())->getCategoria() << std::endl;
 			std::cout << "Descricao: " << anuncios.at(i)->getDescricao() << std::endl;
+			std::cout << "Autor: " << anuncios.at(i)->getAutor() << std::endl;
+			std::cout << "Quantidade disponivel: " << produtos.at(anuncios.at(i)->getIdProduto())->getQuantidade() << std::endl;
+			std::cout << "Preco: " << anuncios.at(i)->getPreco() << std::endl;
 			totalDisp++;
 		}
 	}
