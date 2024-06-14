@@ -46,7 +46,9 @@ public:
 
     void deletarItens(std::vector<Produto*>& produtos, int idUser);
 
+    void editarItens(std::vector<Anuncio*>& anuncios, int idUser);
 
+    void editarItens(std::vector<Produto*>& produtos, int idUser);
 	
 protected:
     std::string email = "a";

@@ -78,7 +78,8 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 						user.adicionarItens(anuncios, contAnuncio, users, idUser, produtos);
 					}
 					else if (aux2 == 3) {
-						// Editar um anuncio
+						user.editarItens(anuncios, idUser);
+						// preciso testar
 					}
 					else if (aux2 == 4) {
 						user.deletarItens(anuncios, idUser);
@@ -107,7 +108,8 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 						user.adicionarItens(produtos, contProduto, idUser);
 					}
 					else if (aux3 == 3) {
-						// Editar um produto
+						user.editarItens(produtos, idUser);
+						// preciso testar
 					}
 					else if (aux3 == 4) {
 						user.deletarItens(produtos, idUser);
