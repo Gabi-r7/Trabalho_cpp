@@ -276,74 +276,88 @@ void User::editarItens(std::vector<Produto*>& produtos, int idUser) {
 	mostrarSeusItens(produtos, idUser);
 	std::cout << "Digite o id do produto que deseja editar: ";
 	std::cin >> aux;
-	do {
-		std::cout << "0 - Sair" << std::endl;
-		std::cout << "1 - Editar nome" << std::endl;
-		std::cout << "2 - Editar categoria" << std::endl;
-		std::cout << "3 - Editar preco" << std::endl;
-		std::cout << "4 - Editar quantidade" << std::endl;
-		std::cin >> aux;
-		if (aux == 1) {
-			std::string nome;
-			std::cout << "Digite o novo nome: ";
-			std::cin >> nome;
-			produtos.at(aux)->setNome(nome);
-		}
-		else if (aux == 2) {
-			std::string categoria;
-			std::cout << "Digite a nova categoria: ";
-			std::cin >> categoria;
-			produtos.at(aux)->setCategoria(categoria);
-		}
-		else if (aux == 3) {
-			float preco;
-			std::cout << "Digite o novo preco: ";
-			std::cin >> preco;
-			produtos.at(aux)->setPreco(preco);
-		}
-		else if (aux == 4) {
-			int quantidade;
-			std::cout << "Digite a nova quantidade: ";
-			std::cin >> quantidade;
-			produtos.at(aux)->setQuantidade(quantidade);
-		}
-		else {
-			break;
-		}
-	} while (aux != 0);
+	if (aux < 0 || aux >= produtos.size()) {
+		std::cout << "Produto nao encontrado!" << std::endl;
+		return;
+	}
+	else if (produtos.at(aux)->getIdVendedor() != idUser) {
+		std::cout << "Voce nao possui permissao para editar este produto!" << std::endl;
+		return;
+	}
+	else {
+
+		do {
+			std::cout << "0 - Sair" << std::endl;
+			std::cout << "1 - Editar nome" << std::endl;
+			std::cout << "2 - Editar categoria" << std::endl;
+			std::cout << "3 - Editar preco" << std::endl;
+			std::cout << "4 - Editar quantidade" << std::endl;
+			std::cin >> aux;
+			if (aux == 1) {
+				std::string nome;
+				std::cout << "Digite o novo nome: ";
+				std::cin >> nome;
+				produtos.at(aux)->setNome(nome);
+			}
+			else if (aux == 2) {
+				std::string categoria;
+				std::cout << "Digite a nova categoria: ";
+				std::cin >> categoria;
+				produtos.at(aux)->setCategoria(categoria);
+			}
+			else if (aux == 3) {
+				float preco;
+				std::cout << "Digite o novo preco: ";
+				std::cin >> preco;
+				produtos.at(aux)->setPreco(preco);
+			}
+			else if (aux == 4) {
+				int quantidade;
+				std::cout << "Digite a nova quantidade: ";
+				std::cin >> quantidade;
+				produtos.at(aux)->setQuantidade(quantidade);
+			}
+			else {
+				break;
+			}
+		} while (aux != 0);
+	}
 }
 
 void User::editarItens(std::vector<Anuncio*>& anuncios, int idUser) {
-	int aux;
+	int aux; //aqui
 	mostrarSeusItens(anuncios, idUser);
 	std::cout << "Digite o id do anuncio que deseja editar: ";
 	std::cin >> aux;
-	do {
-		std::cout << "0 - Sair" << std::endl;
-		std::cout << "1 - Editar autor" << std::endl;
-		std::cout << "2 - Editar preco" << std::endl;
-		std::cout << "3 - Editar descricao" << std::endl;
-		std::cin >> aux;
-		if (aux == 1) {
-			std::string autor;
-			std::cout << "Digite o novo autor: ";
-			std::cin >> autor;
-			anuncios.at(aux)->setAutor(autor);
-		}
-		else if (aux == 2) {
-			float preco;
-			std::cout << "Digite o novo preco: ";
-			std::cin >> preco;
-			anuncios.at(aux)->setPreco(preco);
-		}
-		else if (aux == 3) {
-			std::string descricao;
-			std::cout << "Digite a nova descricao: ";
-			std::cin >> descricao;
-			anuncios.at(aux)->setDescricao(descricao);
-		}
-		else {
-			break;
-		}
-	} while (aux != 0);
+	if (aux < 0 || aux >= anuncios.size()) {
+		std::cout << "Anuncio nao encontrado!" << std::endl;
+		return;
+	}
+	else if (anuncios.at(aux)->getIdVendedor() != idUser) {
+		std::cout << "Voce nao possui permissao para editar este anuncio!" << std::endl;
+		return;
+	}
+	else {
+		do {
+			std::cout << "0 - Sair" << std::endl;
+			std::cout << "1 - Editar preco" << std::endl;
+			std::cout << "2 - Editar descricao" << std::endl;
+			std::cin >> aux; //aqui
+			if (aux == 1) {
+				float preco;
+				std::cout << "Digite o novo preco: ";
+				std::cin >> preco;
+				anuncios.at(aux)->setPreco(preco);
+			}
+			else if (aux == 2) {
+				std::string descricao;
+				std::cout << "Digite a nova descricao: ";
+				std::cin >> descricao;
+				anuncios.at(aux)->setDescricao(descricao);
+			}
+			else {
+				break;
+			}
+		} while (aux != 0); //aqui
+	}
 }
