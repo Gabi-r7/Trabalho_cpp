@@ -4,15 +4,19 @@
 #include "User.hpp"
 #include "Anuncio.hpp"
 #include "Produto.hpp"
+#include "Admin.hpp"
 
-void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vector<Anuncio*>& anuncios, int &contAnuncio, std::vector<Produto*>& produtos, int &contProduto) {
+void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vector<Anuncio*>& anuncios, int& contAnuncio, std::vector<Produto*>& produtos, int& contProduto) {
 	Anuncio anuncio;
 	User user;
+	Admin admin;
 	bool adm = users.at(idUser)->getAdm();
 	int aux = 0;
 	while (true) {
 		if (users.at(idUser)->getBanido()) {
+			std::cout << "-------------------------------------------------------------------------------\n";
 			std::cout << "Voce foi banido do sistema!" << std::endl;
+			std::cout << "-------------------------------------------------------------------------------\n";
 			break;
 		}
 		else {
@@ -22,9 +26,10 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 			std::cout << "2 - Seus anuncios" << std::endl;
 			std::cout << "3 - Seus produtos" << std::endl;
 			if (adm) {
-				std::cout << "4 - Banir usuario" << std::endl;
-				std::cout << "5 - Desbanir usuario" << std::endl;
-				std::cout << "6 - Apagar anuncio" << std::endl;
+				std::cout << "4 - Ver usuários" << std::endl;
+				std::cout << "5 - Banir usuario" << std::endl;
+				std::cout << "6 - Desbanir usuario" << std::endl;
+				std::cout << "7 - Apagar anuncio" << std::endl;
 			}
 			std::cout << "Opcao: ";
 			std::cin >> aux;
@@ -113,15 +118,21 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 			else if (!adm) {
 				std::cout << "Opcao invalida" << std::endl;
 			}
-			if (adm) {
-				if (aux == 3) {
-					// Banir usuario
-				}
-				else if (aux == 4) {
-					// Desbanir usuario
+			if (adm) { // preciso testar todas as opções
+				if (aux == 4) {
+					admin.verUsuarios(users);
 				}
 				else if (aux == 5) {
-					// Apagar anuncio
+					admin.banirUsuario(idUser, users);
+				}
+				else if (aux == 6) {
+					admin.desbanirUsuario(idUser, users);
+				}
+				else if (aux == 7) {
+					admin.apagarAnuncio(idUser, anuncios, produtos);
+				}
+				else {
+					std::cout << "Opcao invalida" << std::endl;
 				}
 			}
 		}
