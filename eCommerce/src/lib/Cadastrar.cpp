@@ -48,5 +48,5 @@ void Cadastrar::Cadastrar(std::vector<User*>& users, int &contUser, std::vector<
     std::cout << "Cadastro realizado com sucesso!\n" << std::endl;
     newUser->setIdUser(contUser);
     contUser++;
-    InicializaSistema::InicializaSistema(users, contUser, anuncios, contAnuncio, produtos, contProduto);
+    return;
 };

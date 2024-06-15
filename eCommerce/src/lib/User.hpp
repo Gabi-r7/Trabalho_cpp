@@ -32,6 +32,7 @@ public:
 
     bool getBanido();
 
+
     bool comprarProduto(int idUser, std::vector<User*>& users, std::vector<Anuncio*>& anuncios, std::vector<Produto*>& produtos);
 
     void adicionarItens(std::vector<Anuncio*>& anuncios, int &contAnuncio, std::vector<User*>& users, int idUser, std::vector<Produto*>& produtos);
@@ -56,5 +57,7 @@ protected:
     std::string password = "a";
     int idUser = 0;
     bool adm, banido = false;
+    std::vector<Produto*> carrinho;
+    std::vector<Anuncio*> favoritos;
 };
 #endif
