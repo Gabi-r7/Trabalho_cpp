@@ -55,10 +55,10 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 						anuncio.verAnuncios(anuncios, produtos);
 					}
 					else if (aux1 == 2) {
-						//user.adicionarItens(?????);
+						//user.adicionar(?????);
 					}
 					else if (aux1 == 3) {
-						//user.adicionarItens(?????);
+						//user.adicionar(?????);
 					}
 					else if (aux1 == 4) {
 						user.comprarProduto(idUser, users, anuncios, produtos);
@@ -84,17 +84,17 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 						break;
 					}
 					else if (aux2 == 1) { // ver seus anuncios
-						user.mostrarSeusItens(anuncios, idUser);
+						user.mostrar(anuncios, idUser);
 					}
 					else if (aux2 == 2) {
-						user.adicionarItens(anuncios, contAnuncio, users, idUser, produtos);
+						user.adicionar(anuncios, contAnuncio, users, idUser, produtos);
 					}
 					else if (aux2 == 3) {
-						user.editarItens(anuncios, idUser);
+						user.editar(anuncios, idUser);
 						// preciso testar
 					}
 					else if (aux2 == 4) {
-						user.deletarItens(anuncios, idUser);
+						user.deletar(anuncios, idUser);
 						// preciso testar
 					}
 				}
@@ -114,17 +114,17 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 						break;
 					}
 					else if (aux3 == 1) { // ver seus produtos
-						user.mostrarSeusItens(produtos, idUser);
+						user.mostrar(produtos, idUser);
 					}
 					else if (aux3 == 2) {
-						user.adicionarItens(produtos, contProduto, idUser);
+						user.adicionar(produtos, contProduto, idUser);
 					}
 					else if (aux3 == 3) {
-						user.editarItens(produtos, idUser);
+						user.editar(produtos, idUser);
 						// preciso testar
 					}
 					else if (aux3 == 4) {
-						user.deletarItens(produtos, idUser);
+						user.deletar(produtos, idUser);
 						// preciso testar
 					}
 				}
@@ -141,17 +141,70 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 					std::cout << "Opcao: ";
 					std::cin >> aux4;
 					if (aux4 == 1) {
-
+						user.mostrar();//
 					}
 					else if (aux4 == 2) {
-
+						user.editar();//
 					}
 					else if (aux4 == 3) {
-
+						int aux;
+						do {
+							std::cout << "\n---------- MENU DE FAVORITOS ----------" << std::endl;
+							std::cout << "0 - Voltar" << std::endl;
+							std::cout << "1 - Ver seus favoritos" << std::endl;
+							std::cout << "2 - Adicionar um favorito" << std::endl;
+							std::cout << "3 - Deletar um favorito" << std::endl;
+							std::cout << "Opcao: ";
+							std::cin >> aux;
+							if (aux == 0) {
+								break;
+							}
+							else if (aux == 1) {
+								user.mostrar(0);//
+							}
+							else if (aux == 2) {
+								user.adicionar(0);//
+							}
+							else if (aux == 3) {
+								user.deletar(0);//
+							}
+							else {
+								std::cout << "Opcao invalida" << std::endl;
+							}
+						} while (aux != 0);
 					}
 					else if (aux4 == 4) {
-
+						int aux;
+						do {
+							std::cout << "\n---------- MENU DO CARRINHO ----------" << std::endl;
+							std::cout << "0 - Voltar" << std::endl;
+							std::cout << "1 - Ver seu carrinho" << std::endl;
+							std::cout << "2 - Adicionar item ao carrinho" << std::endl;
+							std::cout << "3 - Deletar item do carrinho" << std::endl;
+							std::cout << "4 - Finalizar compra" << std::endl;
+							std::cout << "Opcao: ";
+							std::cin >> aux;
+							if (aux == 0) {
+								break;
+							}
+							else if (aux == 1) {
+								user.mostrar(1);//
+							}
+							else if (aux == 2) {
+								user.adicionar(0);//
+							}
+							else if (aux == 3) {
+								user.deletar(0);//
+							}
+							else if (aux == 4) {
+								user.comprarProduto(idUser, users, anuncios, produtos);
+							}
+							else {
+								std::cout << "Opcao invalida" << std::endl;
+							}
+						} while (aux != 0);
 					}
+
 					else {
 						std::cout << "Opcao invalida" << std::endl;
 					}
