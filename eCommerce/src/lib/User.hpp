@@ -39,15 +39,15 @@ public:
 
     void adicionar(std::vector<Produto*>& produtos, int &contProduto, int idUser);
 
-    void adicionar(int a);
+    void adicionar(int a, std::vector<Anuncio*>& anuncios, std::vector<Produto*>& produtos);
 
     void mostrar(std::vector<Anuncio*>& anuncios, int idUser);
 
     void mostrar(std::vector<Produto*>& produtos, int idUser);
 
-    void mostrar();
+    void mostrar(int idUser, std::vector<User*>& users);
 
-    void mostrar(int a);
+    bool mostrar(int a);
 
     void deletar(std::vector<Anuncio*>& anuncios, int idUser);
 
@@ -59,7 +59,7 @@ public:
 
     void editar(std::vector<Produto*>& produtos, int idUser);
 
-    void editar();
+    void editar(int idUser, std::vector<User*>& users);
 
 	
 protected:

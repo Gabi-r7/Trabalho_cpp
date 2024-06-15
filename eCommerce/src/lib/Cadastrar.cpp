@@ -43,6 +43,7 @@ void Cadastrar::Cadastrar(std::vector<User*>& users, int &contUser, std::vector<
     }
     User* newUser = new User();
     newUser->setLoginSenha(login, password);
+    newUser->setEmail(email);
     newUser->setAdm(adm);
     users.push_back(newUser);
     std::cout << "Cadastro realizado com sucesso!\n" << std::endl;

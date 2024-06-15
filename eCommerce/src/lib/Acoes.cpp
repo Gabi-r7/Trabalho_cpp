@@ -25,7 +25,7 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 			std::cout << "1 - Anuncios disponiveis" << std::endl;
 			std::cout << "2 - Seus anuncios" << std::endl;
 			std::cout << "3 - Seus produtos" << std::endl;
-			std::cout << "4 - Sua conta!" << std::endl;
+			std::cout << "4 - Sua conta" << std::endl;
 			if (adm) {
 				std::cout << "5 - Ver usuarios" << std::endl;
 				std::cout << "6 - Banir usuario" << std::endl;
@@ -141,10 +141,10 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 					std::cout << "Opcao: ";
 					std::cin >> aux4;
 					if (aux4 == 1) {
-						user.mostrar();//
+						user.mostrar(idUser, users);//
 					}
 					else if (aux4 == 2) {
-						user.editar();//
+						user.editar(idUser, users);//
 					}
 					else if (aux4 == 3) {
 						int aux;
@@ -163,7 +163,7 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 								user.mostrar(0);//
 							}
 							else if (aux == 2) {
-								user.adicionar(0);//
+								user.adicionar(0, anuncios, produtos);//
 							}
 							else if (aux == 3) {
 								user.deletar(0);//
@@ -191,13 +191,13 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 								user.mostrar(1);//
 							}
 							else if (aux == 2) {
-								user.adicionar(0);//
+								user.adicionar(1, anuncios, produtos);//
 							}
 							else if (aux == 3) {
-								user.deletar(0);//
+								user.deletar(1);//
 							}
 							else if (aux == 4) {
-								user.comprarProduto(idUser, users, anuncios, produtos);
+								//falta a funcao
 							}
 							else {
 								std::cout << "Opcao invalida" << std::endl;
@@ -232,4 +232,4 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 			}
 		}
 	}
-}
+} 

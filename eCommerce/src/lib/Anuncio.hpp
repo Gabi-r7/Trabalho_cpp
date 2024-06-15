@@ -8,7 +8,7 @@ class Anuncio {
 public:
 	Anuncio();
 	~Anuncio();
-	void verAnuncios(std::vector<Anuncio*>& usuarios, std::vector<Produto*>& produtos);
+	int verAnuncios(std::vector<Anuncio*>& usuarios, std::vector<Produto*>& produtos);
 
 	void setNome(std::string nome);
 	void setAutor(std::string autor);

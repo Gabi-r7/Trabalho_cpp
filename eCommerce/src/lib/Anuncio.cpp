@@ -69,7 +69,7 @@ int Anuncio::getIdProduto() {
 	return idProduto;
 };
 
-void Anuncio::verAnuncios(std::vector<Anuncio*>& anuncios, std::vector<Produto*>& produtos) {
+int Anuncio::verAnuncios(std::vector<Anuncio*>& anuncios, std::vector<Produto*>& produtos) {
 	int totalDisp = 0;
 	for (int i = 0; i < anuncios.size(); i++) {
 		if (anuncios.at(i)->getDisponibilidade()) {
@@ -84,4 +84,5 @@ void Anuncio::verAnuncios(std::vector<Anuncio*>& anuncios, std::vector<Produto*>
 		}
 	}
 	std::cout << "Anuncios Disponiveis: " << totalDisp << std::endl;
+	return totalDisp;
 };

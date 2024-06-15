@@ -131,19 +131,27 @@ void User::mostrar(std::vector<Produto*>& produtos, int idUser) {
 	}
 }
 
-void User::mostrar() {
-	std::cout << "------------------------------------------" << std::endl;
-	std::cout << "ID " << idUser << std::endl;
-	std::cout << "Login: " << login << std::endl;
-	std::cout << "Senha: " << password << std::endl;
-	std::cout << "Email: " << email << std::endl;
-	std::cout << "Banido: " << banido << std::endl;
-	std::cout << "Adm: " << adm << std::endl;
-	std::cout << "------------------------------------------" << std::endl;
+void User::mostrar(int idUser, std::vector<User*>& users) {
+	for (int i = 0; i < users.size(); i++) {
+		if (users.at(i)->getIdUser() == idUser) {
+			std::cout << "------------------------------------------" << std::endl;
+			std::cout << "Usuario " << users.at(i)->getIdUser() << std::endl;
+			std::cout << "Login: " << users.at(i)->getLogin() << std::endl;
+			std::cout << "Senha: " << users.at(i)->getPassword() << std::endl;
+			std::cout << "Email: " << users.at(i)->getEmail() << std::endl;
+			std::cout << "Adm: " << users.at(i)->getAdm() << std::endl;
+			std::cout << "Banido: " << users.at(i)->getBanido() << std::endl;
+			std::cout << "------------------------------------------" << std::endl;
+		}
+	}
 }
 
-void User::mostrar(int a) {
-	if (a == 1) {
+bool User::mostrar(int a) {
+	if (a == 0) {
+		if (favoritos.size() == 0) {
+			std::cout << "Voce nao possui favoritos!" << std::endl;
+			return false;
+		}
 		for (int i = 0; i < favoritos.size(); i++) {
 			std::cout << "------------------------------------------" << std::endl;
 			std::cout << "Anuncio " << favoritos.at(i)->getIdAnuncio() << std::endl;
@@ -154,8 +162,13 @@ void User::mostrar(int a) {
 			std::cout << "Disponibilidade: " << favoritos.at(i)->getDisponibilidade() << std::endl;
 			std::cout << "------------------------------------------" << std::endl;
 		}
+		return true;
 	}
 	else {
+		if (carrinho.size() == 0) {
+			std::cout << "Voce nao possui produtos no carrinho!" << std::endl;
+			return false;
+		}
 		for (int i = 0; i < carrinho.size(); i++) {
 			std::cout << "------------------------------------------" << std::endl;
 			std::cout << "Produto " << carrinho.at(i)->getIdProduto() << std::endl;
@@ -166,6 +179,7 @@ void User::mostrar(int a) {
 			std::cout << "Disponibilidade: " << carrinho.at(i)->getDisponibilidade() << std::endl;
 			std::cout << "------------------------------------------" << std::endl;
 		}
+		return true;
 	}
 }
 
@@ -269,9 +283,15 @@ void User::adicionar(std::vector<Produto*>& produtos, int& contProduto, int idUs
 	}
 }
 
-void User::adicionar(int a) {
+void User::adicionar(int a, std::vector<Anuncio*>& anuncios, std::vector<Produto*>& produtos) {
+	Anuncio anuncio;
+	int tot = 0;
 	if (a == 0) {
-		mostrar(0);
+		tot = anuncio.verAnuncios(anuncios, produtos);
+		if (tot == 0) {
+			std::cout << "Nao ha anuncios disponiveis!" << std::endl;
+			return;
+		}
 		int aux;
 		std::cout << "Digite o id do anuncio que deseja adicionar aos favoritos: ";
 		std::cin >> aux;
@@ -284,7 +304,11 @@ void User::adicionar(int a) {
 		}
 	}
 	else {
-		mostrar(1);
+		tot = anuncio.verAnuncios(anuncios, produtos);
+		if (tot == 0) {
+			std::cout << "Nao ha anuncios disponiveis!" << std::endl;
+			return;
+		}
 		int aux;
 		std::cout << "Digite o id do anuncio que deseja adicionar ao carrinho: ";
 		std::cin >> aux;
@@ -391,7 +415,7 @@ void User::editar(std::vector<Produto*>& produtos, int idUser) {
 	}
 }
 
-void User::editar() {
+void User::editar(int idUser, std::vector<User*>& users) {
 	int aux;
 	do {
 		std::cout << "0 - Sair" << std::endl;
@@ -403,19 +427,25 @@ void User::editar() {
 			std::string login;
 			std::cout << "Digite o novo login: ";
 			std::cin >> login;
-			setLoginSenha(login, password);
+			if (login == users.at(idUser)->getLogin()) {
+				std::cout << "Login ja existente!" << std::endl;
+				continue;
+			}
+			else {
+				users.at(idUser)->setLoginSenha(login, users.at(idUser)->getPassword());
+			}
 		}
 		else if (aux == 2) {
 			std::string senha;
 			std::cout << "Digite a nova senha: ";
 			std::cin >> senha;
-			setLoginSenha(login, senha);
+			users.at(idUser)->setLoginSenha(users.at(idUser)->getLogin(), senha);
 		}
 		else if (aux == 3) {
 			std::string email;
 			std::cout << "Digite o novo email: ";
 			std::cin >> email;
-			setEmail(email);
+			users.at(idUser)->setEmail(email);
 		}
 		else {
 			std::cout << "Opcao invalida!" << std::endl;
@@ -473,30 +503,35 @@ void User::deletar(std::vector<Produto*>& produtos, int idUser) {
 }
 
 void User::deletar(int a) {
+	bool existe = false;
 	if (a == 0) {
-		mostrar(0);
-		int aux;
-		std::cout << "Digite o id do anuncio que deseja deletar dos favoritos: ";
-		std::cin >> aux;
-		if (aux < 0 || aux >= favoritos.size()) {
-			std::cout << "Anuncio nao encontrado!" << std::endl;
-		}
-		else {
-			favoritos.erase(favoritos.begin() + aux);
-			std::cout << "Anuncio deletado dos favoritos!" << std::endl;
+		existe = mostrar(0);
+		if (existe) {
+			int aux;
+			std::cout << "Digite o id do anuncio que deseja deletar dos favoritos: ";
+			std::cin >> aux;
+			if (aux < 0 || aux >= favoritos.size()) {
+				std::cout << "Anuncio nao encontrado!" << std::endl;
+			}
+			else {
+				favoritos.erase(favoritos.begin() + aux);
+				std::cout << "Anuncio deletado dos favoritos!" << std::endl;
+			}
 		}
 	}
 	else {
-		mostrar(1);
-		int aux;
-		std::cout << "Digite o id do anuncio que deseja deletar dos favoritos: ";
-		std::cin >> aux;
-		if (aux < 0 || aux >= carrinho.size()) {
-			std::cout << "Anuncio nao encontrado!" << std::endl;
-		}
-		else {
-			carrinho.erase(carrinho.begin() + aux);
-			std::cout << "anuncio deletado dos favoritos!" << std::endl;
+		existe = mostrar(1);
+		if (existe) {
+			int aux;
+			std::cout << "Digite o id do anuncio que deseja deletar dos favoritos: ";
+			std::cin >> aux;
+			if (aux < 0 || aux >= carrinho.size()) {
+				std::cout << "Anuncio nao encontrado!" << std::endl;
+			}
+			else {
+				carrinho.erase(carrinho.begin() + aux);
+				std::cout << "anuncio deletado dos favoritos!" << std::endl;
+			}
 		}
 	}
 }
