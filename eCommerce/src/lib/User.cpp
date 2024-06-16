@@ -87,6 +87,28 @@ bool User::comprarProduto(int idUser, std::vector<User*>& users, std::vector<Anu
 	}
 }
 
+void User::finalizarCompra(int idUser, std::vector<User*>& users, std::vector<Anuncio*>& anuncios, std::vector<Produto*>& produtos) {
+	bool existe = false;
+	existe = mostrar(1);
+	if (existe) {
+		for (int i = 0; i < carrinho.size(); i++) {
+			if (carrinho.at(i)->getDisponibilidade()) {
+				if (produtos.at(carrinho.at(i)->getIdProduto())->getQuantidade() <= 1) {
+					carrinho.at(i)->setDisponibilidade(false);
+				}
+				else {
+					produtos.at(carrinho.at(i)->getIdProduto())->setQuantidade(produtos.at(carrinho.at(i)->getIdProduto())->getQuantidade() - 1);
+				}
+			}
+			else {
+				std::cout << "Produto " << carrinho.at(i)->getIdProduto() << " nao disponivel!" << std::endl;
+			}
+		}
+		std::cout << "Compra finalizada com sucesso!" << std::endl;
+		carrinho.clear();
+	}
+}
+
 // mostrar
 
 void User::mostrar(std::vector<Anuncio*>& anuncios, int idUser) {
@@ -173,9 +195,9 @@ bool User::mostrar(int a) {
 			std::cout << "------------------------------------------" << std::endl;
 			std::cout << "Produto " << carrinho.at(i)->getIdProduto() << std::endl;
 			std::cout << "Nome: " << carrinho.at(i)->getNome() << std::endl;
-			std::cout << "Categoria: " << carrinho.at(i)->getCategoria() << std::endl;
+			std::cout << "Categoria: " << carrinho.at(i)->getCategoria() << std::endl; //parei aqui
 			std::cout << "Preco: " << carrinho.at(i)->getPreco() << std::endl;
-			std::cout << "Quantidade: " << carrinho.at(i)->getQuantidade() << std::endl;
+			std::cout << "Quantidade: " << carrinho.at(i)->getQuantidade() << std::endl; //parei aqui
 			std::cout << "Disponibilidade: " << carrinho.at(i)->getDisponibilidade() << std::endl;
 			std::cout << "------------------------------------------" << std::endl;
 		}
@@ -295,11 +317,11 @@ void User::adicionar(int a, std::vector<Anuncio*>& anuncios, std::vector<Produto
 		int aux;
 		std::cout << "Digite o id do anuncio que deseja adicionar aos favoritos: ";
 		std::cin >> aux;
-		if (aux < 0 || aux >= favoritos.size()) {
+		if (aux < 0 || aux >= anuncios.size()) {
 			std::cout << "Anuncio nao encontrado!" << std::endl;
 		}
 		else {
-			favoritos.push_back(favoritos.at(aux));
+			favoritos.push_back(anuncios.at(aux));
 			std::cout << "Anuncio adicionado aos favoritos!" << std::endl;
 		}
 	}
@@ -312,11 +334,11 @@ void User::adicionar(int a, std::vector<Anuncio*>& anuncios, std::vector<Produto
 		int aux;
 		std::cout << "Digite o id do anuncio que deseja adicionar ao carrinho: ";
 		std::cin >> aux;
-		if (aux < 0 || aux >= carrinho.size()) {
+		if (aux < 0 || aux >= anuncios.size()) {
 			std::cout << "Anuncio nao encontrado!" << std::endl;
 		}
 		else {
-			carrinho.push_back(carrinho.at(aux));
+			carrinho.push_back(anuncios.at(aux));
 			std::cout << "Anuncio adicionado ao carrinho!" << std::endl;
 		}
 	}
@@ -523,14 +545,14 @@ void User::deletar(int a) {
 		existe = mostrar(1);
 		if (existe) {
 			int aux;
-			std::cout << "Digite o id do anuncio que deseja deletar dos favoritos: ";
+			std::cout << "Digite o id do anuncio que deseja deletar do carrinho: ";
 			std::cin >> aux;
 			if (aux < 0 || aux >= carrinho.size()) {
 				std::cout << "Anuncio nao encontrado!" << std::endl;
 			}
 			else {
 				carrinho.erase(carrinho.begin() + aux);
-				std::cout << "anuncio deletado dos favoritos!" << std::endl;
+				std::cout << "anuncio deletado do carrinho!" << std::endl;
 			}
 		}
 	}

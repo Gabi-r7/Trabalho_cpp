@@ -197,7 +197,7 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 								user.deletar(1);//
 							}
 							else if (aux == 4) {
-								//falta a funcao
+								user.finalizarCompra(idUser, users, anuncios, produtos);
 							}
 							else {
 								std::cout << "Opcao invalida" << std::endl;

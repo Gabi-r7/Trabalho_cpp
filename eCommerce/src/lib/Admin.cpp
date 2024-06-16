@@ -67,9 +67,13 @@ void Admin::desbanirUsuario(int idUser, std::vector<User*>& users) {
 };
 
 void Admin::apagarAnuncio(int idUser, std::vector<Anuncio*>& anuncios, std::vector<Produto*>& produtos) {
-	int idAnuncio = -1;
+	int idAnuncio = -1, totalDisp = 0;
 	Anuncio anuncio;
-	anuncio.verAnuncios(anuncios, produtos);
+	totalDisp = anuncio.verAnuncios(anuncios, produtos);
+	if (totalDisp == 0) {
+		std::cout << "Nao ha anuncios disponiveis!" << std::endl;
+		return;
+	}
 	std::cout << "Digite o ID do anuncio que deseja apagar: ";
 	std::cin >> idAnuncio;
 	if (idAnuncio < 0 || idAnuncio >= anuncios.size()) {
