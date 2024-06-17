@@ -1,6 +1,7 @@
 #include "User.hpp"
 #include <vector>
 #include <iostream>
+#include <string>
 #include "Anuncio.hpp"
 #include "Produto.hpp"
 
@@ -195,9 +196,9 @@ bool User::mostrar(int a) {
 			std::cout << "------------------------------------------" << std::endl;
 			std::cout << "Produto " << carrinho.at(i)->getIdProduto() << std::endl;
 			std::cout << "Nome: " << carrinho.at(i)->getNome() << std::endl;
-			std::cout << "Categoria: " << carrinho.at(i)->getCategoria() << std::endl; //parei aqui
+			//std::cout << "Categoria: " << carrinho.at(i)->getCategoria() << std::endl; //parei aqui
 			std::cout << "Preco: " << carrinho.at(i)->getPreco() << std::endl;
-			std::cout << "Quantidade: " << carrinho.at(i)->getQuantidade() << std::endl; //parei aqui
+			//std::cout << "Quantidade: " << carrinho.at(i)->getQuantidade() << std::endl; //parei aqui
 			std::cout << "Disponibilidade: " << carrinho.at(i)->getDisponibilidade() << std::endl;
 			std::cout << "------------------------------------------" << std::endl;
 		}
@@ -253,8 +254,9 @@ void User::adicionar(std::vector<Anuncio*>& anuncios, int &contAnuncio, std::vec
 		}
 		std::cout << "Digite o nome do anuncio: ";
 		std::cin >> nome;
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		std::cout << "Digite a descricao do anuncio: ";
-		std::cin >> descricao;
+		std::getline(std::cin, descricao);
 		Anuncio* newAnuncio = new Anuncio();
 		newAnuncio->setNome(nome);
 		newAnuncio->setAutor(users.at(idUser)->getLogin());
@@ -275,8 +277,9 @@ void User::adicionar(std::vector<Produto*>& produtos, int& contProduto, int idUs
 	float preco;
 	int quantidade;
 	while (true) {
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		std::cout << "Digite o nome do produto: ";
-		std::cin >> nome;
+		std::getline(std::cin, nome);
 		std::cout << "Digite a categoria do produto: ";
 		std::cin >> categoria;
 		std::cout << "Digite o preco do produto: ";

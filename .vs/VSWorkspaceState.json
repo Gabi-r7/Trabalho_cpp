@@ -1,12 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Bilioteca_by_gabi\\src",
-    "\\Bilioteca_by_gabi\\src\\lib",
     "\\eCommerce",
     "\\eCommerce\\src",
     "\\eCommerce\\src\\lib"
   ],
-  "SelectedNode": "\\eCommerce\\src\\lib\\Acoes.cpp",
+  "SelectedNode": "\\eCommerce\\src\\lib\\User.cpp",
   "PreviewInSolutionExplorer": false
 }
