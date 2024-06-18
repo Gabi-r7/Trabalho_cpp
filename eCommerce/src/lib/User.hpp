@@ -43,9 +43,9 @@ public:
 
     void adicionar(int a, std::vector<Anuncio*>& anuncios, std::vector<Produto*>& produtos);
 
-    void mostrar(std::vector<Anuncio*>& anuncios, int idUser);
+    bool mostrar(std::vector<Anuncio*>& anuncios, int idUser);
 
-    void mostrar(std::vector<Produto*>& produtos, int idUser);
+    bool mostrar(std::vector<Produto*>& produtos, int idUser);
 
     void mostrar(int idUser, std::vector<User*>& users);
 
@@ -53,7 +53,7 @@ public:
 
     void deletar(std::vector<Anuncio*>& anuncios, int idUser);
 
-    void deletar(std::vector<Produto*>& produtos, int idUser);
+    void deletar(std::vector<Produto*>& produtos, std::vector<Anuncio*>& anuncios, int idUser);
 
     void deletar(int a);
 

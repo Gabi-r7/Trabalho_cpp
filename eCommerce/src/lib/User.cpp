@@ -112,10 +112,10 @@ void User::finalizarCompra(int idUser, std::vector<User*>& users, std::vector<An
 
 // mostrar
 
-void User::mostrar(std::vector<Anuncio*>& anuncios, int idUser) {
+bool User::mostrar(std::vector<Anuncio*>& anuncios, int idUser) {
 	if (anuncios.size() == 0) {
 		std::cout << "Voce nao possui anuncios!" << std::endl;
-		return;
+		return false;
 	}
 	else {
 		for (int i = 0; i < anuncios.size(); i++) {
@@ -133,10 +133,10 @@ void User::mostrar(std::vector<Anuncio*>& anuncios, int idUser) {
 	}
 }
 
-void User::mostrar(std::vector<Produto*>& produtos, int idUser) {
+bool User::mostrar(std::vector<Produto*>& produtos, int idUser) {
 	if (produtos.size() == 0) {
 		std::cout << "Voce nao possui produtos!" << std::endl;
-		return;
+		return false;
 	}
 	else {
 		for (int i = 0; i < produtos.size(); i++) {
@@ -152,6 +152,7 @@ void User::mostrar(std::vector<Produto*>& produtos, int idUser) {
 		}
 		std::cout << "------------------------------------------" << std::endl;
 	}
+	return true;
 }
 
 void User::mostrar(int idUser, std::vector<User*>& users) {
@@ -352,7 +353,11 @@ void User::adicionar(int a, std::vector<Anuncio*>& anuncios, std::vector<Produto
 
 void User::editar(std::vector<Anuncio*>& anuncios, int idUser) {
 	int aux, aux1; //aqui
-	mostrar(anuncios, idUser);
+	bool existe = false;
+	existe = mostrar(anuncios, idUser);
+	if (!existe) {
+		return;
+	}
 	std::cout << "Digite o id do anuncio que deseja editar: ";
 	std::cin >> aux;
 	if (aux < 0 || aux >= anuncios.size()) {
@@ -390,7 +395,11 @@ void User::editar(std::vector<Anuncio*>& anuncios, int idUser) {
 
 void User::editar(std::vector<Produto*>& produtos, int idUser) {
 	int aux, aux1;
-	mostrar(produtos, idUser);
+	bool existe = false;
+	existe = mostrar(produtos, idUser);
+	if (!existe) {
+		return;
+	}
 	std::cout << "Digite o id do produto que deseja editar: ";
 	std::cin >> aux;
 	if (aux < 0 || aux >= produtos.size()) {
@@ -483,7 +492,6 @@ void User::deletar(std::vector<Anuncio*>& anuncios, int idUser) {
 	int aux;
 	mostrar(anuncios, idUser);
 	if (anuncios.size() == 0) {
-		std::cout << "Voce nao possui anuncios!" << std::endl;
 		return;
 	}
 	else {
@@ -503,14 +511,10 @@ void User::deletar(std::vector<Anuncio*>& anuncios, int idUser) {
 	}
 }
 
-void User::deletar(std::vector<Produto*>& produtos, int idUser) {
+void User::deletar(std::vector<Produto*>& produtos, std::vector<Anuncio*>& anuncios, int idUser) {
 	int aux;
 	mostrar(produtos, idUser);
-	if (produtos.size() == 0) {
-		std::cout << "Voce nao possui anuncios!" << std::endl;
-		return;
-	}
-	else {
+	if (produtos.size() > 0) {
 		while (true) {
 			std::cout << "Digite o id do Produto que deseja deletar: ";
 			std::cin >> aux;
@@ -524,6 +528,11 @@ void User::deletar(std::vector<Produto*>& produtos, int idUser) {
 		}
 		produtos.erase(produtos.begin() + aux);
 		std::cout << "Produto deletado com sucesso!" << std::endl;
+		for (int i = 0; i < anuncios.size(); i++) {
+			if (anuncios.at(i)->getIdProduto() == aux) {
+				anuncios.erase(anuncios.begin() + i);
+			}
+		}
 	}
 }
 

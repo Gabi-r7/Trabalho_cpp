@@ -68,6 +68,7 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 						std::cout << "Opcao invalida" << std::endl;
 					}
 				}
+				continue;
 			}
 			else if (aux == 2) { // Seus anuncios
 				int aux2 = 0;
@@ -98,6 +99,7 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 						// preciso testar
 					}
 				}
+				continue;
 			}
 			else if (aux == 3) { // Seus produtos
 				int aux3 = 0;
@@ -124,10 +126,11 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 						// preciso testar
 					}
 					else if (aux3 == 4) {
-						user.deletar(produtos, idUser);
+						user.deletar(produtos, anuncios, idUser);
 						// preciso testar
 					}
 				}
+				continue;
 			}
 			else if (aux == 4) {
 				int aux4 = 0;
@@ -204,11 +207,8 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 							}
 						} while (aux != 0);
 					}
-
-					else {
-						std::cout << "Opcao invalida" << std::endl;
-					}
 				} while (aux4 != 0);
+				continue;
 			}
 			else if (!adm) {
 				std::cout << "Opcao invalida" << std::endl;
@@ -232,4 +232,4 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 			}
 		}
 	}
-} 
+}
