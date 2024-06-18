@@ -55,10 +55,10 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 						anuncio.verAnuncios(anuncios, produtos);
 					}
 					else if (aux1 == 2) {
-						//user.adicionar(?????);
+						user.adicionar(0, anuncios, produtos);
 					}
 					else if (aux1 == 3) {
-						//user.adicionar(?????);
+						user.adicionar(1, anuncios, produtos);
 					}
 					else if (aux1 == 4) {
 						user.comprarProduto(idUser, users, anuncios, produtos);
