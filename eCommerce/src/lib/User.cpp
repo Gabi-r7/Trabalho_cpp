@@ -112,7 +112,7 @@ void User::finalizarCompra(int idUser, std::vector<User*>& users, std::vector<An
 
 // mostrar
 
-bool User::mostrar(std::vector<Anuncio*>& anuncios, int idUser) {
+bool User::mostrar(std::vector<Anuncio*>& anuncios, int idUser) { //existe problema aqui
 	if (anuncios.size() == 0) {
 		std::cout << "Voce nao possui anuncios!" << std::endl;
 		return false;
@@ -126,7 +126,6 @@ bool User::mostrar(std::vector<Anuncio*>& anuncios, int idUser) {
 				std::cout << "Autor: " << anuncios.at(i)->getAutor() << std::endl;
 				std::cout << "Preco: " << anuncios.at(i)->getPreco() << std::endl;
 				std::cout << "Descricao: " << anuncios.at(i)->getDescricao() << std::endl;
-				std::cout << "Disponibilidade: " << anuncios.at(i)->getDisponibilidade() << std::endl;
 			}
 		}
 		std::cout << "------------------------------------------" << std::endl;
@@ -230,7 +229,7 @@ void User::adicionar(std::vector<Anuncio*>& anuncios, int &contAnuncio, std::vec
 		std::cin >> aux;
 		if (aux == 1) {
 			adicionar(produtos, contAnuncio, idUser);
-			adicionar(anuncios, contAnuncio, users, idUser, produtos);
+			adicionar(anuncios, contAnuncio, users, idUser, produtos); //substituir isso pra não usar recursividade
 		}
 		else {
 			return;
