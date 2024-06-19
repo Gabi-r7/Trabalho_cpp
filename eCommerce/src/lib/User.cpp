@@ -222,18 +222,6 @@ void User::adicionar(std::vector<Anuncio*>& anuncios, int &contAnuncio, std::vec
 	}
 	if (!existe) {
 		std::cout << "Voce nao possui produtos para anunciar!" << std::endl;
-		std::cout << "Adicione um produto antes de anunciar!" << std::endl;
-		std::cout << "Deseja adicionar um produto agora?" << std::endl;
-		std::cout << "1 - Sim" << std::endl;
-		std::cout << "2 - Nao" << std::endl;
-		std::cin >> aux;
-		if (aux == 1) {
-			adicionar(produtos, contAnuncio, idUser);
-			adicionar(anuncios, contAnuncio, users, idUser, produtos); //substituir isso pra não usar recursividade
-		}
-		else {
-			return;
-		}
 	}
 	else {
 		mostrar(produtos, idUser);
