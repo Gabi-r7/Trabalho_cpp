@@ -18,15 +18,6 @@
     <ClCompile Include="src\main.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="src\lib\Cadastrar.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="src\lib\InicializaSistema.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="src\lib\Logar.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
     <ClCompile Include="src\lib\User.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
@@ -39,20 +30,11 @@
     <ClCompile Include="src\lib\Produto.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="src\lib\Acoes.cpp">
+    <ClCompile Include="src\lib\Funcoes.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\lib\Cadastrar.hpp">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lib\InicializaSistema.hpp">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lib\Logar.hpp">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
     <ClInclude Include="src\lib\User.hpp">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
@@ -65,7 +47,7 @@
     <ClInclude Include="src\lib\Produto.hpp">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="src\lib\Acoes.hpp">
+    <ClInclude Include="src\lib\Funcoes.hpp">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,12 +1,118 @@
-#include <iostream>
-#include <vector>
-#include "Acoes.hpp"	
+#include "Funcoes.hpp"
 #include "User.hpp"
 #include "Anuncio.hpp"
 #include "Produto.hpp"
 #include "Admin.hpp"
+#include <iostream>
+#include <vector>
+#define adminSenha 1230
 
-void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vector<Anuncio*>& anuncios, int& contAnuncio, std::vector<Produto*>& produtos, int& contProduto) {
+//Inicializa sistema
+void Funcoes::InicializaSistema(std::vector<User*>& users, int& contUser, std::vector<Anuncio*>& anuncios, int& contAnuncio, std::vector<Produto*>& produtos, int& contProduto) {
+	int aux;
+	std::cout << "Bem vindo ao sistema de vendas Duzhomi!" << std::endl;
+	do {
+		std::cout << "Digite\n- 0 para sair\n- 1 para Logar\n- 2 para criar uma conta\nDigite sua opcao: ";
+		std::cin >> aux;
+		switch (aux)
+		{
+		case 0:
+			std::cout << "Ate mais!";
+			break;
+		case 1:
+			Funcoes::Logar(users, contUser, anuncios, contAnuncio, produtos, contProduto);
+			break;
+		case 2:
+			Funcoes::Cadastrar(users, contUser, anuncios, contAnuncio, produtos, contProduto);
+			break;
+		default:
+			break;
+		}
+	} while (aux != 0);
+}
+
+//Cadastrar
+void Funcoes::Cadastrar(std::vector<User*>& users, int& contUser, std::vector<Anuncio*>& anuncios, int& contAnuncio, std::vector<Produto*>& produtos, int& contProduto) {
+	std::string login, password, email, phone;
+	bool adm, existe;
+	int admAux = 0;
+	while (true) {
+		existe = false;
+		std::cout << "\nFaca seu cadastro!" << std::endl;
+		std::cout << "Digite seu login: ";
+		std::cin >> login;
+		for (User* user : users) {
+			if (login == user->getLogin()) {
+				std::cout << "Login ja existente!" << std::endl;
+				existe = true;
+				break;
+			}
+		}
+		if (existe) {
+			continue;
+		}
+		std::cout << "Digite sua senha: ";
+		std::cin >> password;
+		std::cout << "Digite seu email: ";
+		std::cin >> email;
+		//std::cout << "Digite seu telefone: ";
+		//std::cin >> phone;
+		std::cout << "\nDigite a senha de administrador caso voce seja: ";
+		std::cin >> admAux;
+		if (admAux == adminSenha) {
+			std::cout << "Voce e um administrador!" << std::endl;
+			adm = true;
+		}
+		else {
+			adm = false;
+		}
+		break;
+	}
+	User* newUser = new User();
+	newUser->setLoginSenha(login, password);
+	newUser->setEmail(email);
+	newUser->setAdm(adm);
+	users.push_back(newUser);
+	std::cout << "Cadastro realizado com sucesso!\n" << std::endl;
+	newUser->setIdUser(contUser);
+	contUser++;
+	return;
+};
+
+
+//Logar
+void Funcoes::Logar(std::vector<User*>& users, int& contUser, std::vector<Anuncio*>& anuncios, int& contAnuncio, std::vector<Produto*>& produtos, int& contProduto) {
+	std::string login, password;
+	bool aux = false;
+	std::cout << "\nFaca seu login!" << std::endl;
+	while (true) {
+		std::cout << "Digite seu login: ";
+		std::cin >> login;
+		std::cout << "Digite sua senha: ";
+		std::cin >> password;
+		for (User* user : users) {
+			if (login == user->getLogin() && password == user->getPassword()) {
+				std::cout << "Login realizado com sucesso!" << std::endl;
+				if (user->getAdm()) {
+					std::cout << "Voce logou como administrador!" << std::endl;
+				}
+				else {
+					std::cout << "Voce logou como um usuario comum!" << std::endl;
+				}
+				aux = true;
+				Funcoes::Acoes(user->getIdUser(), users, contUser, anuncios, contAnuncio, produtos, contProduto);
+			}
+		}
+		if (aux) {
+			break;
+		}
+		std::cout << "Login ou senha incorretos!" << std::endl;
+	}
+}
+
+
+//Acoes
+void Funcoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vector<Anuncio*>& anuncios, int& contAnuncio, std::vector<Produto*>& produtos, int& contProduto) {
 	Anuncio anuncio;
 	User user;
 	Admin admin;
@@ -39,7 +145,7 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 			}
 			else if (aux == 1) { // menu de Anuncios
 				int aux1 = 0;
-				while (true) { 
+				while (true) {
 					std::cout << "\n---------- ANUNCIOS DA COMUNIDADE ----------" << std::endl;
 					std::cout << "0 - Voltar" << std::endl;
 					std::cout << "1 - Ver todos os anuncios disponiveis" << std::endl;
@@ -233,3 +339,4 @@ void Acoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::vec
 		}
 	}
 }
+
