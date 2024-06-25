@@ -213,7 +213,7 @@ void User::adicionar(std::vector<Anuncio*>& anuncios, int &contAnuncio, std::vec
 	int aux = 0, aux1;
 	std::string nome, autor, descricao;
 	float preco;
-	bool existe = false;
+	bool existe = false, valido = false;
 	for (int i = 0; i < produtos.size(); i++) {
 		if (produtos.at(i)->getIdVendedor() == idUser) { //verifica se o usuario possui produtos
 			existe = true;
@@ -228,7 +228,14 @@ void User::adicionar(std::vector<Anuncio*>& anuncios, int &contAnuncio, std::vec
 		while (true) {
 			std::cout << "Digite o id do produto que deseja anunciar: ";
 			std::cin >> aux1;
-			if (aux1 < 0 || aux1 >= produtos.size()) {
+			
+			for (int i = 0; i < produtos.size(); i++) {
+				if (produtos.at(i)->getIdProduto() == aux1) {
+					valido = true;
+					break;
+				}
+			}
+			if (aux1 < 0 || aux1 > produtos.size() || !valido) {
 				std::cout << "Produto nao encontrado!" << std::endl;
 				continue;
 			}
