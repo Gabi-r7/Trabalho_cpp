@@ -161,13 +161,13 @@ void Funcoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::v
 						anuncio.verAnuncios(anuncios, produtos);
 					}
 					else if (aux1 == 2) {
-						user.adicionar(0, anuncios, produtos);
+						user.adicionar(0, anuncios, contAnuncio, produtos);
 					}
 					else if (aux1 == 3) {
-						user.adicionar(1, anuncios, produtos);
+						user.adicionar(1, anuncios, contAnuncio, produtos);
 					}
 					else if (aux1 == 4) {
-						user.comprarProduto(idUser, users, anuncios, produtos);
+						user.comprarProduto(idUser, users, anuncios, contAnuncio, produtos);
 						// adicionar verificações
 					}
 					else {
@@ -191,17 +191,17 @@ void Funcoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::v
 						break;
 					}
 					else if (aux2 == 1) { // ver seus anuncios
-						user.mostrar(anuncios, idUser);
+						user.mostrar(anuncios, contAnuncio, idUser);
 					}
 					else if (aux2 == 2) {
-						user.adicionar(anuncios, contAnuncio, users, idUser, produtos);
+						user.adicionar(anuncios, contAnuncio, users, idUser, produtos, contProduto);
 					}
 					else if (aux2 == 3) {
-						user.editar(anuncios, idUser);
+						user.editar(anuncios, contAnuncio, idUser);
 						// preciso testar
 					}
 					else if (aux2 == 4) {
-						user.deletar(anuncios, idUser);
+						user.deletar(anuncios, contAnuncio, idUser);
 						// preciso testar
 					}
 				}
@@ -222,17 +222,17 @@ void Funcoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::v
 						break;
 					}
 					else if (aux3 == 1) { // ver seus produtos
-						user.mostrar(produtos, idUser);
+						user.mostrar(produtos, contProduto, idUser);
 					}
 					else if (aux3 == 2) {
 						user.adicionar(produtos, contProduto, idUser);
 					}
 					else if (aux3 == 3) {
-						user.editar(produtos, idUser);
+						user.editar(produtos, contProduto, idUser);
 						// preciso testar
 					}
 					else if (aux3 == 4) {
-						user.deletar(produtos, anuncios, idUser);
+						user.deletar(produtos, contProduto, anuncios, idUser);
 						// preciso testar
 					}
 				}
@@ -272,7 +272,7 @@ void Funcoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::v
 								user.mostrar(0);//
 							}
 							else if (aux == 2) {
-								user.adicionar(0, anuncios, produtos);//
+								user.adicionar(0, anuncios, contAnuncio, produtos);//
 							}
 							else if (aux == 3) {
 								user.deletar(0);//
@@ -300,7 +300,7 @@ void Funcoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::v
 								user.mostrar(1);//
 							}
 							else if (aux == 2) {
-								user.adicionar(1, anuncios, produtos);//
+								user.adicionar(1, anuncios, contAnuncio, produtos);//
 							}
 							else if (aux == 3) {
 								user.deletar(1);//
