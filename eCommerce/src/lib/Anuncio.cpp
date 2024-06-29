@@ -73,6 +73,7 @@ int Anuncio::verAnuncios(std::vector<Anuncio*>& anuncios, std::vector<Produto*>&
 	int totalDisp = 0;
 	for (int i = 0; i < anuncios.size(); i++) {
 		if (anuncios.at(i)->getDisponibilidade()) {
+			std::cout << "------------------------------------------" << std::endl;
 			std::cout << "Anuncio " << anuncios.at(i)->getIdAnuncio() << std::endl;
 			std::cout << "Nome: " << anuncios.at(i)->getNome() << std::endl;
 			std::cout << "Categoria: " << produtos.at(anuncios.at(i)->getIdProduto())->getCategoria() << std::endl;
@@ -83,6 +84,8 @@ int Anuncio::verAnuncios(std::vector<Anuncio*>& anuncios, std::vector<Produto*>&
 			totalDisp++;
 		}
 	}
+	std::cout << "------------------------------------------" << std::endl;
 	std::cout << "Anuncios Disponiveis: " << totalDisp << std::endl;
+	std::cout << "------------------------------------------" << std::endl;
 	return totalDisp;
 };

@@ -387,7 +387,7 @@ void User::editar(std::vector<Anuncio*>& anuncios, int &contAnuncio, int idUser)
 	}
 }
 
-void User::editar(std::vector<Produto*>& produtos, int& contProduto, int idUser) {
+void User::editar(std::vector<Produto*>& produtos, int& contProduto, int idUser) {// não funciona qundo apaga o produto
 	int aux, aux1;
 	bool existe = false;
 	existe = mostrar(produtos, contProduto, idUser);
