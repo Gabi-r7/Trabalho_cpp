@@ -118,7 +118,7 @@ bool User::mostrar(std::vector<Anuncio*>& anuncios, int &contAnuncio, int idUser
 		return false;
 	}
 	else {
-		for (int i = 0; i < contAnuncio; i++) {
+		for (int i = 0; i < anuncios.size(); i++) {
 			if (anuncios.at(i)->getIdVendedor() == idUser) {
 				std::cout << "------------------------------------------" << std::endl;
 				std::cout << "Anuncio " << anuncios.at(i)->getIdAnuncio() << std::endl;
@@ -138,11 +138,15 @@ bool User::mostrar(std::vector<Produto*>& produtos, int &contAnuncio, int idUser
 		return false;
 	}
 	else {
-		for (int i = 0; i < contAnuncio; i++) {
+		for (int i = 0; i < produtos.size(); i++) {
 			if (produtos.at(i)->getIdVendedor() == idUser) {
-				auto it  
 				std::cout << "------------------------------------------" << std::endl;
-				//precisamos resolver esta parte
+				std::cout << "Produto " << produtos.at(i)->getIdProduto() << std::endl;	
+				std::cout << "Nome: " << produtos.at(i)->getNome() << std::endl;
+				std::cout << "Categoria: " << produtos.at(i)->getCategoria() << std::endl;
+				std::cout << "Preco: " << produtos.at(i)->getPreco() << std::endl;
+				std::cout << "Quantidade: " << produtos.at(i)->getQuantidade() << std::endl;
+				std::cout << "Disponibilidade: " << produtos.at(i)->getDisponibilidade() << std::endl;
 			}
 		}
 		std::cout << "------------------------------------------" << std::endl;
