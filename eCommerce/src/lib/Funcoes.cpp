@@ -26,6 +26,7 @@ void Funcoes::InicializaSistema(std::vector<User*>& users, int& contUser, std::v
 			Funcoes::Cadastrar(users, contUser, anuncios, contAnuncio, produtos, contProduto);
 			break;
 		default:
+			std::cout << "Opcao invalida" << std::endl;
 			break;
 		}
 	} while (aux != 0);
@@ -83,6 +84,7 @@ void Funcoes::Cadastrar(std::vector<User*>& users, int& contUser, std::vector<An
 //Logar
 void Funcoes::Logar(std::vector<User*>& users, int& contUser, std::vector<Anuncio*>& anuncios, int& contAnuncio, std::vector<Produto*>& produtos, int& contProduto) {
 	std::string login, password;
+	int tentativas = 0;
 	bool aux = false;
 	std::cout << "\nFaca seu login!" << std::endl;
 	while (true) {
@@ -107,6 +109,11 @@ void Funcoes::Logar(std::vector<User*>& users, int& contUser, std::vector<Anunci
 			break;
 		}
 		std::cout << "Login ou senha incorretos!" << std::endl;
+		tentativas++;
+		if (tentativas == 3) {
+			std::cout << "\nVoce excedeu o numero de tentativas!\n" << std::endl;
+			break;
+		}
 	}
 }
 
@@ -198,11 +205,12 @@ void Funcoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::v
 					}
 					else if (aux2 == 3) {
 						user.editar(anuncios, contAnuncio, idUser);
-						// preciso testar
 					}
 					else if (aux2 == 4) {
 						user.deletar(anuncios, contAnuncio, idUser);
-						// preciso testar
+					}
+					else {
+						std::cout << "Opcao invalida" << std::endl;
 					}
 				}
 				continue;
@@ -229,11 +237,12 @@ void Funcoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::v
 					}
 					else if (aux3 == 3) {
 						user.editar(produtos, contProduto, idUser);
-						// preciso testar
 					}
 					else if (aux3 == 4) {
 						user.deletar(produtos, contProduto, anuncios, idUser);
-						// preciso testar
+					}
+					else {
+						std::cout << "Opcao invalida" << std::endl;
 					}
 				}
 				continue;
@@ -319,7 +328,7 @@ void Funcoes::Acoes(int idUser, std::vector<User*>& users, int& contUser, std::v
 			else if (!adm) {
 				std::cout << "Opcao invalida" << std::endl;
 			}
-			if (adm) { // preciso testar todas as opções
+			if (adm) {
 				if (aux == 5) {
 					admin.verUsuarios(users);
 				}

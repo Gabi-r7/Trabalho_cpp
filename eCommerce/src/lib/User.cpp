@@ -74,6 +74,10 @@ bool User::comprarProduto(int idUser, std::vector<User*>& users, std::vector<Anu
 				std::cout << "Anuncio ja vendido!" << std::endl;
 				return false;
 			}
+			else if (anuncios.at(aux)->getIdVendedor() == idUser) {
+				std::cout << "Voce nao pode comprar seu proprio anuncio!" << std::endl;
+				return false;
+			}
 			else {
 				std::cout << "Compra realizada com sucesso!" << std::endl;
 				if (produtos.at(anuncios.at(aux)->getIdProduto())->getQuantidade() <= 1) {
@@ -366,6 +370,7 @@ void User::editar(std::vector<Anuncio*>& anuncios, int &contAnuncio, int idUser)
 			std::cout << "0 - Sair" << std::endl;
 			std::cout << "1 - Editar preco" << std::endl;
 			std::cout << "2 - Editar descricao" << std::endl;
+			std::cout << "Digite a opcao desejada: ";
 			std::cin >> aux1; //aqui
 			if (aux1 == 1) {
 				float preco;
@@ -410,6 +415,7 @@ void User::editar(std::vector<Produto*>& produtos, int& contProduto, int idUser)
 			std::cout << "2 - Editar categoria" << std::endl;
 			std::cout << "3 - Editar preco" << std::endl;
 			std::cout << "4 - Editar quantidade" << std::endl;
+			std::cout << "Digite a opcao desejada: ";
 			std::cin >> aux1;
 			if (aux1 == 1) {
 				std::string nome;
@@ -449,6 +455,7 @@ void User::editar(int idUser, std::vector<User*>& users) {
 		std::cout << "1 - Editar login" << std::endl;
 		std::cout << "2 - Editar senha" << std::endl;
 		std::cout << "3 - Editar email" << std::endl;
+		std::cout << "Digite a opcao desejada: ";
 		std::cin >> aux;
 		if (aux == 1) {
 			std::string login;
