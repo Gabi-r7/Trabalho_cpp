@@ -213,7 +213,6 @@ bool User::mostrar(int a) {
 void User::adicionar(std::vector<Anuncio*>& anuncios, int &contAnuncio, std::vector<User*>& users, int idUser, std::vector<Produto*>& produtos, int &contProduto) {
 	int aux = 0, aux1;
 	std::string nome, autor, descricao;
-	float preco;
 	bool existe = false, valido = false;
 	for (int i = 0; i < produtos.size(); i++) { 
 		if (produtos.at(i)->getIdVendedor() == idUser) { //verifica se o usuario possui produtos
@@ -229,14 +228,13 @@ void User::adicionar(std::vector<Anuncio*>& anuncios, int &contAnuncio, std::vec
 		while (true) {
 			std::cout << "Digite o id do produto que deseja anunciar: ";
 			std::cin >> aux1;
-			//adicionar std::find
 			for (int i = 0; i < produtos.size(); i++) {
 				if (produtos.at(i)->getIdProduto() == aux1) {
 					valido = true;
 					break;
 				}
 			}
-			if (aux1 < 0 || aux1 > produtos.size() || !valido) {
+			if (aux1 < 0 || !valido) {
 				std::cout << "Produto nao encontrado!" << std::endl;
 				continue;
 			}
@@ -525,6 +523,12 @@ void User::deletar(std::vector<Produto*>& produtos, int &contProduto, std::vecto
 		for (int i = 0; i < contProduto; i++) {
 			if (produtos.at(i)->getIdProduto() == aux) {
 				posicao = i;
+				break;
+			}
+		}
+		for (int i = 0; i < anuncios.size(); i++) {
+			if (anuncios.at(i)->getIdProduto() == aux) {
+				anuncios.erase(anuncios.begin() + i);
 				break;
 			}
 		}
