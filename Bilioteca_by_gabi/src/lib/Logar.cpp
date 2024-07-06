@@ -7,6 +7,7 @@
 
 void Logar::Logar(std::vector<Livro*>& livros, int &contLivro, std::vector<User*>& users, int &contUser) {
     std::string login, password;
+    int tentativas = 0;
     bool aux = false;
     std::cout << "\nFaca seu login!" << std::endl;
     while (true) {
@@ -31,5 +32,10 @@ void Logar::Logar(std::vector<Livro*>& livros, int &contLivro, std::vector<User*
             break;
         }
         std::cout << "Login ou senha incorretos!" << std::endl;
+        tentativas++;
+        if (tentativas == 3) {
+			std::cout << "\nNumero de tentativas excedido!\n" << std::endl;
+			break;
+		}
     }
 };

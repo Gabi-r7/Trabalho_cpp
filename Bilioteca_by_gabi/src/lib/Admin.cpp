@@ -34,11 +34,11 @@ void Admin::ApagarLivro(std::vector<Livro*>& livros, int &contLivro) {
     livro.MostrarDisponiveis(livros);
     std::cout << "\nDigite o ID do livro que deseja apagar: ";
     std::cin >> idLivro;
-    if (livros.at(idLivro)->getEmprestado()) {
-        std::cout << "Livro emprestado! Nao pode ser apagado!" << std::endl;
-    }
-    else if (idLivro < 0 || idLivro >= contLivro) {
+    if (idLivro < 0 || idLivro >= contLivro) {
         std::cout << "Livro nao encontrado!" << std::endl;
+    }
+    else if (livros.at(idLivro)->getEmprestado()) {
+        std::cout << "Livro emprestado! Nao pode ser apagado!" << std::endl;
     }
 	else {
 		for (int i = 0; i < livros.size(); i++) {
@@ -163,6 +163,10 @@ void Admin::ApagarUser(int id, std::vector<User*>& users) {
 			std::cout << "Voce nao pode apagar sua propria conta!" << std::endl;
 			valido = false;
 		}
+        else if (users.at(idUser)->getStatus()) {
+			std::cout << "Usuario e devedor! Nao pode ser apagado!" << std::endl;
+			valido = false;
+		}
 		else {
 			valido = true;
 		}
@@ -193,20 +197,21 @@ void Admin::AplicarMulta(std::vector<User*>& users) {
 			std::cout << "ID invalido!" << std::endl;
 			valido = false;
 		}
+        else if (users.at(idUser)->getStatus()) {
+            std::cout << "Usuario ja e devedor!" << std::endl;
+            return;
+        }
 		else {
 			valido = true;
 		}
     } while (!valido);
-    while (valido) {
+    if (valido){
         std::cout << "Digite o valor da multa: ";
         std::cin >> valor;
         if (valor <= 0) {
             std::cout << "Valor invalido!" << std::endl;
-            valido = false;
+            return;
         }
-        else {
-			valido = true;
-		}
     }
     for (int i = 0; i < users.size(); i++) {
         if (users[i]->getIdUser() == idUser) {

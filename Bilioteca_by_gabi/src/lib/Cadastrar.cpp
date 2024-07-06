@@ -50,5 +50,5 @@ void Cadastrar::Cadastrar(std::vector<Livro*>& livros,int &contLivro, std::vecto
     std::cout << "Cadastro realizado com sucesso!\n" << std::endl;
     newUser->setIdUser(contUser);
     contUser++;
-    InicializaSistema::InicializaSistema(livros, contLivro, users, contUser);
+    return;
 };

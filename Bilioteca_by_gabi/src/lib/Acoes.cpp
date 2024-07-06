@@ -22,23 +22,23 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, int &contLivro, std::vect
             std::cout << "-------------------------------------------------------------------------------";
         }
         std::cout << "\n\nO que deseja fazer?" << std::endl;
-        std::cout << "Digite 0 para sair" << std::endl;
-        std::cout << "Digite 1 para emprestar um livro" << std::endl;
-        std::cout << "Digite 2 para devolver um livro" << std::endl;
-        std::cout << "Digite 3 para ver os livros disponiveis" << std::endl;
-        std::cout << "Digite 4 para pagar uma multa" << std::endl;
+        std::cout << "- 0 para sair" << std::endl;
+        std::cout << "- 1 para emprestar um livro" << std::endl;
+        std::cout << "- 2 para devolver um livro" << std::endl;
+        std::cout << "- 3 para ver os livros disponiveis" << std::endl;
+        std::cout << "- 4 para pagar uma multa" << std::endl;
         if (adm) {
-            std::cout << "Digite 5 para cadastrar um livro" << std::endl;
-            std::cout << "Digite 6 para apagar um livro" << std::endl;
-            std::cout << "Digite 7 para modificar o status de um usuario" << std::endl;
-            std::cout << "Digite 8 para cadastrar um usuario" << std::endl;
-            std::cout << "Digite 9 para apagar um usuario" << std::endl;
-            std::cout << "Digite 10 para aplicar uma multa" << std::endl;
+            std::cout << "- 5 para cadastrar um livro" << std::endl;
+            std::cout << "- 6 para apagar um livro" << std::endl;
+            std::cout << "- 7 para modificar o status de um usuario" << std::endl;
+            std::cout << "- 8 para cadastrar um usuario" << std::endl;
+            std::cout << "- 9 para apagar um usuario" << std::endl;
+            std::cout << "- 10 para aplicar uma multa" << std::endl;
         }
+        std::cout << "Digite sua opcao: ";
         std::cin >> aux;
         if (aux == 0) {
             std::cout << "Ate mais!" << "\n\n";
-            InicializaSistema::InicializaSistema(livros, contLivro, users, contUser);
             break;
         }
         else if (aux == 1) {
@@ -97,7 +97,6 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, int &contLivro, std::vect
                 admin.ApagarUser(id, users);
             }
             else if (aux == 10) {
-                admin.MostrarUsuarios(users);
                 admin.AplicarMulta(users);
             }
             else if (aux != 0 && aux != 1 && aux != 2 && aux != 3 && aux != 4){
