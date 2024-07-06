@@ -9,7 +9,6 @@ Emprestimo::~Emprestimo() {};
 
 bool Emprestimo::EmprestarLivro(int idUser, std::vector<Livro*>& livros, std::vector<User*>& users) {
     int idLivro;
-    std::cout << "user: " << idUser << "\n";
     std::cout << "Digite o id do livro que deseja emprestar (-1 para cancelar): ";
     std::cin >> idLivro;
     if (idLivro == -1) {

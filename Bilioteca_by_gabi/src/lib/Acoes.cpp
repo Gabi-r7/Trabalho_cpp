@@ -85,8 +85,7 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, int &contLivro, std::vect
                 std::cout << "Livro cadastrado com sucesso!" << std::endl;
             }
             else if (aux == 6) {
-                admin.ApagarLivro(livros);
-                std::cout << "Livro apagado com sucesso!" << std::endl;
+                admin.ApagarLivro(livros, contLivro);
             }
             else if (aux == 7) {
                 admin.ModificarStatusUser(id, users);

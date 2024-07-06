@@ -12,7 +12,7 @@ public:
 
     void CadastrarLivro(std::vector<Livro*>& livros, int &contLivro);
 
-    void ApagarLivro(std::vector<Livro*>& livros);
+    void ApagarLivro(std::vector<Livro*>& livros, int &contLivro);
 
     bool ModificarStatusUser(int idUser, std::vector<User*>& users);
     

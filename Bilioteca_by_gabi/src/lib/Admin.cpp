@@ -28,15 +28,27 @@ void Admin::CadastrarLivro(std::vector<Livro*>& livros, int &contLivro) {
     livros.push_back(livro);
 };
 
-void Admin::ApagarLivro(std::vector<Livro*>& livros) {
+void Admin::ApagarLivro(std::vector<Livro*>& livros, int &contLivro) {
     int idLivro;
+    Livro livro;
+    livro.MostrarDisponiveis(livros);
     std::cout << "\nDigite o ID do livro que deseja apagar: ";
     std::cin >> idLivro;
-    for (int i = 0; i < livros.size(); i++) {
-        if (livros[i]->getIdLivro() == idLivro) {
-            livros.erase(livros.begin() + i);
-        }
+    if (livros.at(idLivro)->getEmprestado()) {
+        std::cout << "Livro emprestado! Nao pode ser apagado!" << std::endl;
     }
+    else if (idLivro < 0 || idLivro >= contLivro) {
+        std::cout << "Livro nao encontrado!" << std::endl;
+    }
+	else {
+		for (int i = 0; i < livros.size(); i++) {
+			if (livros.at(i)->getIdLivro() == idLivro) {
+				livros.erase(livros.begin() + i);
+				std::cout << "Livro deletado com sucesso!" << std::endl;
+				break;
+			}
+		}
+	}
 };
 
 bool Admin::ModificarStatusUser(int idUser, std::vector<User*>& users) {
@@ -166,8 +178,9 @@ void Admin::ApagarUser(int id, std::vector<User*>& users) {
 
 
 void Admin::AplicarMulta(std::vector<User*>& users) {
-    int idUser, valor;
+    int idUser, valor = 0;
     bool valido = false;
+    MostrarUsuarios(users);
     do {
         std::cout << "\nDigite o ID do usuario que deseja aplicar a multa (-1 para cancelar): ";
         std::cin >> idUser;
