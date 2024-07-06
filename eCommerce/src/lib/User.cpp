@@ -112,7 +112,7 @@ void User::finalizarCompra(int idUser, std::vector<User*>& users, std::vector<An
 
 // mostrar
 
-bool User::mostrar(std::vector<Anuncio*>& anuncios, int &contAnuncio, int idUser) { //existe problema aqui
+bool User::mostrar(std::vector<Anuncio*>& anuncios, int &contAnuncio, int idUser) {
 	if (anuncios.size() == 0) {
 		std::cout << "Voce nao possui anuncios!" << std::endl;
 		return false;
@@ -130,6 +130,7 @@ bool User::mostrar(std::vector<Anuncio*>& anuncios, int &contAnuncio, int idUser
 		}
 		std::cout << "------------------------------------------" << std::endl;
 	}
+	return true;
 }
 
 bool User::mostrar(std::vector<Produto*>& produtos, int &contAnuncio, int idUser) {
