@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-07-09T16:36:21.641Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="oZdwbkqgn8jkpjFbw3mq" version="24.6.4" type="github">
+<mxfile host="app.diagrams.net" modified="2024-07-09T23:21:50.451Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="upFOYPCeks0x4zd0v5Nf" version="24.6.4" type="github">
   <diagram name="Página-1" id="rLlNUUCOqg_Sj7feS5kz">
-    <mxGraphModel dx="1173" dy="613" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1235" dy="614" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -17,16 +17,13 @@
           <mxGeometry y="138" width="310" height="42" as="geometry" />
         </mxCell>
         <mxCell id="mNO1i_Qo8OElej0-fojG-60" value="Admin" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="20" y="380" width="380" height="270" as="geometry" />
-        </mxCell>
-        <mxCell id="mNO1i_Qo8OElej0-fojG-61" value="+ field: type" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="mNO1i_Qo8OElej0-fojG-60" vertex="1">
-          <mxGeometry y="26" width="380" height="26" as="geometry" />
+          <mxGeometry x="20" y="380" width="380" height="244" as="geometry" />
         </mxCell>
         <mxCell id="mNO1i_Qo8OElej0-fojG-62" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="mNO1i_Qo8OElej0-fojG-60" vertex="1">
-          <mxGeometry y="52" width="380" height="8" as="geometry" />
+          <mxGeometry y="26" width="380" height="8" as="geometry" />
         </mxCell>
         <mxCell id="mNO1i_Qo8OElej0-fojG-63" value="&lt;div&gt;+ MostrarUsuarios(std::vector&amp;lt;User*&amp;gt;&amp;amp; users): void&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;+ CadastrarLivro(std::vector&amp;lt;Livro*&amp;gt;&amp;amp; livros, int &amp;amp;contLivro): void&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;+ ApagarLivro(std::vector&amp;lt;Livro*&amp;gt;&amp;amp; livros): void&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;+ ModificarStatusUser(int idUser, std::vector&amp;lt;User*&amp;gt;&amp;amp; users): bool&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;+ CadastrarUser(std::vector&amp;lt;User*&amp;gt;&amp;amp; users, int &amp;amp;contUser): void&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;+ ApagarUser(int id, std::vector&amp;lt;User*&amp;gt;&amp;amp; users): void&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;+ AplicarMulta(std::vector&amp;lt;User*&amp;gt;&amp;amp; users): void&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="mNO1i_Qo8OElej0-fojG-60" vertex="1">
-          <mxGeometry y="60" width="380" height="210" as="geometry" />
+          <mxGeometry y="34" width="380" height="210" as="geometry" />
         </mxCell>
         <mxCell id="mNO1i_Qo8OElej0-fojG-64" value="User" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="100" y="80" width="220" height="180" as="geometry" />
@@ -41,16 +38,13 @@
           <mxGeometry y="148" width="220" height="32" as="geometry" />
         </mxCell>
         <mxCell id="uk3wrW6KkSueTlHBhtDy-1" value="Emprestimo" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="470" y="80" width="490" height="150" as="geometry" />
-        </mxCell>
-        <mxCell id="uk3wrW6KkSueTlHBhtDy-2" value="+ field: type" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="uk3wrW6KkSueTlHBhtDy-1" vertex="1">
-          <mxGeometry y="26" width="490" height="26" as="geometry" />
+          <mxGeometry x="470" y="80" width="490" height="124" as="geometry" />
         </mxCell>
         <mxCell id="uk3wrW6KkSueTlHBhtDy-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="uk3wrW6KkSueTlHBhtDy-1" vertex="1">
-          <mxGeometry y="52" width="490" height="8" as="geometry" />
+          <mxGeometry y="26" width="490" height="8" as="geometry" />
         </mxCell>
         <mxCell id="uk3wrW6KkSueTlHBhtDy-4" value="&lt;div&gt;+ EmprestarLivro(int idUser, std::vector&amp;lt;Livro*&amp;gt;&amp;amp; livros, std::vector&amp;lt;User*&amp;gt;&amp;amp; users): bool&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;+ DevolverLivro(std::vector&amp;lt;Livro*&amp;gt;&amp;amp; livros): bool&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;+ MostrarEmprestados(std::vector&amp;lt;Livro*&amp;gt;&amp;amp; livros, int idUser): bool&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="uk3wrW6KkSueTlHBhtDy-1" vertex="1">
-          <mxGeometry y="60" width="490" height="90" as="geometry" />
+          <mxGeometry y="34" width="490" height="90" as="geometry" />
         </mxCell>
         <mxCell id="uk3wrW6KkSueTlHBhtDy-5" value="Extends" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="mNO1i_Qo8OElej0-fojG-60" target="mNO1i_Qo8OElej0-fojG-67" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
@@ -58,13 +52,13 @@
             <mxPoint x="240" y="260" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="jS3zx24gVX1XOa7q9rJI-1" value="1" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=1;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="mNO1i_Qo8OElej0-fojG-65">
+        <mxCell id="jS3zx24gVX1XOa7q9rJI-1" value="1" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=1;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="mNO1i_Qo8OElej0-fojG-65" edge="1">
           <mxGeometry x="-1" y="3" relative="1" as="geometry">
             <mxPoint x="330" y="310" as="sourcePoint" />
             <mxPoint x="470" y="163" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="jS3zx24gVX1XOa7q9rJI-2" value="1" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=1;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="uk3wrW6KkSueTlHBhtDy-4" target="mNO1i_Qo8OElej0-fojG-49">
+        <mxCell id="jS3zx24gVX1XOa7q9rJI-2" value="1" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=1;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="uk3wrW6KkSueTlHBhtDy-4" target="mNO1i_Qo8OElej0-fojG-49" edge="1">
           <mxGeometry x="-0.8667" y="5" relative="1" as="geometry">
             <mxPoint x="690" y="250" as="sourcePoint" />
             <mxPoint x="860" y="340" as="targetPoint" />
