@@ -151,7 +151,6 @@ bool User::mostrar(std::vector<Produto*>& produtos, int &contAnuncio, int idUser
 				std::cout << "Categoria: " << produtos.at(i)->getCategoria() << std::endl;
 				std::cout << "Preco: " << produtos.at(i)->getPreco() << std::endl;
 				std::cout << "Quantidade: " << produtos.at(i)->getQuantidade() << std::endl;
-				std::cout << "Disponibilidade: " << produtos.at(i)->getDisponibilidade() << std::endl;
 			}
 		}
 		std::cout << "------------------------------------------" << std::endl;
@@ -167,8 +166,6 @@ void User::mostrar(int idUser, std::vector<User*>& users) {
 			std::cout << "Login: " << users.at(i)->getLogin() << std::endl;
 			std::cout << "Senha: " << users.at(i)->getPassword() << std::endl;
 			std::cout << "Email: " << users.at(i)->getEmail() << std::endl;
-			std::cout << "Adm: " << users.at(i)->getAdm() << std::endl;
-			std::cout << "Banido: " << users.at(i)->getBanido() << std::endl;
 			std::cout << "------------------------------------------" << std::endl;
 		}
 	}
@@ -187,7 +184,6 @@ bool User::mostrar(int a) {
 			std::cout << "Autor: " << favoritos.at(i)->getAutor() << std::endl;
 			std::cout << "Preco: " << favoritos.at(i)->getPreco() << std::endl;
 			std::cout << "Descricao: " << favoritos.at(i)->getDescricao() << std::endl;
-			std::cout << "Disponibilidade: " << favoritos.at(i)->getDisponibilidade() << std::endl;
 			std::cout << "------------------------------------------" << std::endl;
 		}
 		return true;
@@ -204,7 +200,6 @@ bool User::mostrar(int a) {
 			//std::cout << "Categoria: " << carrinho.at(i)->getCategoria() << std::endl; //parei aqui
 			std::cout << "Preco: " << carrinho.at(i)->getPreco() << std::endl;
 			//std::cout << "Quantidade: " << carrinho.at(i)->getQuantidade() << std::endl; //parei aqui
-			std::cout << "Disponibilidade: " << carrinho.at(i)->getDisponibilidade() << std::endl;
 			std::cout << "------------------------------------------" << std::endl;
 		}
 		return true;
@@ -398,9 +393,16 @@ void User::editar(std::vector<Produto*>& produtos, int& contProduto, int idUser)
 	if (!existe) {
 		return;
 	}
+	existe = false;
 	std::cout << "Digite o id do produto que deseja editar: ";
 	std::cin >> aux; 
-	if (aux < 0 || aux >= contProduto) {
+	for (int i = 0; i < contProduto; i++) {
+		if (produtos.at(i)->getIdProduto() == aux) {
+			existe = true;
+			break;
+		}
+	}
+	if (aux < 0 || aux >= contProduto || !existe) {
 		std::cout << "Produto nao encontrado!" << std::endl;
 		return;
 	}
@@ -451,12 +453,15 @@ void User::editar(std::vector<Produto*>& produtos, int& contProduto, int idUser)
 void User::editar(int idUser, std::vector<User*>& users) {
 	int aux;
 	do {
+		std::cout << "------------------------------------------" << std::endl;
 		std::cout << "0 - Sair" << std::endl;
 		std::cout << "1 - Editar login" << std::endl;
 		std::cout << "2 - Editar senha" << std::endl;
 		std::cout << "3 - Editar email" << std::endl;
+		std::cout << "------------------------------------------" << std::endl;
 		std::cout << "Digite a opcao desejada: ";
 		std::cin >> aux;
+		std::cout << "\n";
 		if (aux == 1) {
 			std::string login;
 			std::cout << "Digite o novo login: ";
