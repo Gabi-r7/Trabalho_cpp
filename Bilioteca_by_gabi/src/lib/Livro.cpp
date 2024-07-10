@@ -60,7 +60,7 @@ void Livro::MostrarDisponiveis(std::vector<Livro*>& livros) {
 	}
     std::cout << "\n\nTotal de livros disponiveis:" << livros.size() << std::endl;
     for (int i = 0; i < livros.size(); i++) {
-        if (!livros[i]->getEmprestado()) {
+        if (livros[i] != nullptr && !livros[i]->getEmprestado()) {
             std::cout << "ID: " << livros[i]->getIdLivro() << std::endl;
             std::cout << "Titulo: " << livros[i]->getTitulo() << std::endl;
             std::cout << "Autor: " << livros[i]->getAutor() << std::endl;

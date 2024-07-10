@@ -9,7 +9,7 @@ public:
 	Emprestimo();
 	~Emprestimo();
 
-	bool EmprestarLivro(int idUser, std::vector<Livro*>& livros, std::vector<User*>& users);
+	bool EmprestarLivro(int idUser, std::vector<Livro*>& livros, int &contLivro, std::vector<User*>& users);
 
 	bool DevolverLivro(std::vector<Livro*>& livros);
 

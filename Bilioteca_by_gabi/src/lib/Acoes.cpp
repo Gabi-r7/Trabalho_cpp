@@ -47,7 +47,7 @@ void Acoes::Acoes(int id, std::vector<Livro*>& livros, int &contLivro, std::vect
             }
             else {
                 livro.MostrarDisponiveis(livros);
-                funcionou = emprestimo.EmprestarLivro(id, livros, users);
+                funcionou = emprestimo.EmprestarLivro(id, livros, contLivro, users);
             }
             if (funcionou) {
                 std::cout << "Livro emprestado com sucesso!" << std::endl;

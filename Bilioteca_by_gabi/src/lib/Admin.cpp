@@ -34,7 +34,10 @@ void Admin::ApagarLivro(std::vector<Livro*>& livros, int &contLivro) {
     livro.MostrarDisponiveis(livros);
     std::cout << "\nDigite o ID do livro que deseja apagar: ";
     std::cin >> idLivro;
-    if (idLivro < 0 || idLivro >= contLivro) {
+    if (livros.at(idLivro) == nullptr) {
+        std::cout << "Livro nao encontrado!" << std::endl;
+    }
+    else if (idLivro < 0 || idLivro >= contLivro) {
         std::cout << "Livro nao encontrado!" << std::endl;
     }
     else if (livros.at(idLivro)->getEmprestado()) {
@@ -43,7 +46,8 @@ void Admin::ApagarLivro(std::vector<Livro*>& livros, int &contLivro) {
 	else {
 		for (int i = 0; i < livros.size(); i++) {
 			if (livros.at(i)->getIdLivro() == idLivro) {
-				livros.erase(livros.begin() + i);
+                delete livros.at(i);
+                livros.at(i) = nullptr;
 				std::cout << "Livro deletado com sucesso!" << std::endl;
 				break;
 			}

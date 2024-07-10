@@ -7,15 +7,19 @@
 Emprestimo::Emprestimo() {};
 Emprestimo::~Emprestimo() {};
 
-bool Emprestimo::EmprestarLivro(int idUser, std::vector<Livro*>& livros, std::vector<User*>& users) {
+bool Emprestimo::EmprestarLivro(int idUser, std::vector<Livro*>& livros, int &contLivro, std::vector<User*>& users) {
     int idLivro;
     std::cout << "Digite o id do livro que deseja emprestar (-1 para cancelar): ";
     std::cin >> idLivro;
-    if (idLivro == -1) {
+    if (idLivro > contLivro || livros.at(idLivro) == nullptr) { //PAREI AQUI com erro
+		std::cout << "Livro nao encontrado." << std::endl;
+		return false;
+	}
+	else if (idLivro == -1) {
         std::cout << "Emprestimo cancelado." << std::endl;
         return false;
     }
-    else if (idUser < 0 || idUser >= users.size() || idLivro < 0 || idLivro >= livros.size()) {
+    else if (idUser < 0 || idUser >= users.size() || idLivro < 0) {
         std::cout << "ID do usuario ou do livro invalido." << std::endl;
         return false;
     }
@@ -38,7 +42,11 @@ bool Emprestimo::DevolverLivro(std::vector<Livro*>& livros) {
     int idLivro;
     std::cout << "Digite o id do livro que deseja devolver (-1 para cancelar): ";
     std::cin >> idLivro;
-    if (idLivro == -1) {
+    if (livros.at(idLivro) == nullptr) {
+        std::cout << "Livro nao encontrado." << std::endl;
+        return false;
+    }
+    else if (idLivro == -1) {
 		std::cout << "Devolucao cancelada." << std::endl;
 		return false;
 	}
