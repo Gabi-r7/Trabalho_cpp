@@ -68,7 +68,10 @@ bool Emprestimo::DevolverLivro(std::vector<Livro*>& livros) {
 bool Emprestimo::MostrarEmprestados(std::vector<Livro*>& livros, int idUser) {
     bool existe = false;
     for (int i = 0; i < livros.size(); i++) {
-        if (livros.at(i)->getIdUser() == idUser) {
+        if (livros.at(i) == nullptr) {
+			continue;
+		}
+        else if (livros.at(i)->getIdUser() == idUser) {
             std::cout << "\nID: " << i << " Titulo: " << livros.at(i)->getTitulo() << std::endl;
             existe = true;
         }
